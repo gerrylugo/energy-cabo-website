@@ -52,26 +52,26 @@ export default function Hero() {
         </div>
 
         {/* Stats bar */}
-        <div className="animate-fade-in-up mt-20 grid grid-cols-3 gap-8 md:gap-16" style={{ animationDelay: '0.6s' }}>
+        <div className="animate-fade-in-up mt-12 md:mt-20 mb-16 md:mb-0 grid grid-cols-3 gap-4 md:gap-16" style={{ animationDelay: '0.6s' }}>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-extrabold text-white">300+</div>
-            <div className="text-sm text-white/50 mt-1 tracking-wide uppercase">Sunny Days / Year</div>
+            <div className="text-2xl md:text-4xl font-extrabold text-white">300+</div>
+            <div className="text-xs md:text-sm text-white/50 mt-1 tracking-wide uppercase">Sunny Days / Year</div>
           </div>
-          <div className="text-center border-x border-white/10 px-8">
-            <div className="text-3xl md:text-4xl font-extrabold text-white">95%</div>
-            <div className="text-sm text-white/50 mt-1 tracking-wide uppercase">Bill Reduction</div>
+          <div className="text-center border-x border-white/10 px-4 md:px-8">
+            <div className="text-2xl md:text-4xl font-extrabold text-white">95%</div>
+            <div className="text-xs md:text-sm text-white/50 mt-1 tracking-wide uppercase">Bill Reduction</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-extrabold text-white">25yr</div>
-            <div className="text-sm text-white/50 mt-1 tracking-wide uppercase">Panel Warranty</div>
+            <div className="text-2xl md:text-4xl font-extrabold text-white">25yr</div>
+            <div className="text-xs md:text-sm text-white/50 mt-1 tracking-wide uppercase">Panel Warranty</div>
           </div>
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll indicator — hidden on mobile to avoid overlap with stats */}
       <a
         href="#services"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce hidden md:block"
       >
         <ChevronDown className="w-8 h-8 text-white/40" />
       </a>

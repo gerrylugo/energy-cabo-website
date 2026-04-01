@@ -27,7 +27,7 @@ const projects = [
     category: 'Commercial',
     system: 'Smart Generation',
     capacity: '45 kW Zero Export',
-    image: 'https://images.pexels.com/photos/2467285/pexels-photo-2467285.jpeg?auto=compress&cs=tinysrgb&w=800',
+    image: 'https://images.pexels.com/photos/1537635/pexels-photo-1537635.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
 ];
 
