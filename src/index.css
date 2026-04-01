@@ -6,6 +6,100 @@
   html {
     scroll-behavior: smooth;
   }
+
+  /* ==============================
+     THEME: TECHNO (default)
+     Clean, professional, navy+teal
+     ============================== */
+  :root,
+  [data-theme="techno"] {
+    /* Primary */
+    --color-primary: #1B3A6B;
+    --color-primary-dark: #122A4F;
+    --color-accent: #50BB9B;
+    --color-accent-hover: #2AA8A0;
+    --color-accent-light: #6ED4B3;
+
+    /* Surfaces */
+    --color-bg: #FFFFFF;
+    --color-bg-alt: #F9FAFB;
+    --color-bg-warm: #F5F0E8;
+    --color-surface: #FFFFFF;
+    --color-surface-hover: #F9FAFB;
+    --color-border: #E5E7EB;
+
+    /* Text */
+    --color-text: #1B3A6B;
+    --color-text-secondary: #4B5563;
+    --color-text-muted: #9CA3AF;
+
+    /* Hero */
+    --color-hero-from: #122A4F;
+    --color-hero-via: #1B3A6B;
+    --color-hero-to: #1a4a7a;
+    --color-hero-glow: rgba(80, 187, 155, 0.05);
+
+    /* Special */
+    --color-coral: #E8735A;
+    --color-gold: #D4A855;
+    --color-torote: #C4883A;
+    --color-sky: #87CEEB;
+
+    /* Toggle button */
+    --color-toggle-bg: rgba(27, 58, 107, 0.9);
+    --color-toggle-border: rgba(80, 187, 155, 0.3);
+    --color-toggle-text: #FFFFFF;
+  }
+
+  /* ==============================
+     THEME: FUNKY
+     Colorful, warm, sunset vibes
+     ============================== */
+  [data-theme="funky"] {
+    /* Primary */
+    --color-primary: #E8735A;
+    --color-primary-dark: #C4553F;
+    --color-accent: #D4A855;
+    --color-accent-hover: #C4883A;
+    --color-accent-light: #E8C97A;
+
+    /* Surfaces */
+    --color-bg: #FDF8F3;
+    --color-bg-alt: #F5F0E8;
+    --color-bg-warm: #FCEEE6;
+    --color-surface: #FFFFFF;
+    --color-surface-hover: #FDF8F3;
+    --color-border: #E8D5C4;
+
+    /* Text */
+    --color-text: #3D2B1F;
+    --color-text-secondary: #6B5B50;
+    --color-text-muted: #A89585;
+
+    /* Hero */
+    --color-hero-from: #E8735A;
+    --color-hero-via: #D4A855;
+    --color-hero-to: #C4883A;
+    --color-hero-glow: rgba(212, 168, 85, 0.1);
+
+    /* Special */
+    --color-coral: #1B3A6B;
+    --color-gold: #50BB9B;
+    --color-torote: #2AA8A0;
+    --color-sky: #87CEEB;
+
+    /* Toggle button */
+    --color-toggle-bg: rgba(232, 115, 90, 0.9);
+    --color-toggle-border: rgba(212, 168, 85, 0.4);
+    --color-toggle-text: #FFFFFF;
+  }
+
+  /* Theme transition */
+  html.theme-transitioning,
+  html.theme-transitioning * {
+    transition: background-color 0.6s ease, color 0.4s ease, border-color 0.5s ease,
+      box-shadow 0.5s ease, fill 0.4s ease, stroke 0.4s ease !important;
+  }
 }
 
 @layer utilities {

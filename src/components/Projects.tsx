@@ -36,11 +36,11 @@ export default function Projects() {
   const gridRef = useScrollAnimation(0.1);
 
   return (
-    <section id="projects" className="py-28 bg-energy-navy-dark">
+    <section id="projects" className="py-28 bg-theme-primary-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div ref={headerRef} className="animate-on-scroll text-center mb-20">
-          <span className="inline-block text-energy-teal text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+          <span className="inline-block text-theme-accent text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             Our Work
           </span>
           <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-5 tracking-tight">
@@ -51,27 +51,22 @@ export default function Projects() {
           </p>
         </div>
 
-        {/* Project grid — 2x2 for cleaner layout */}
+        {/* Project grid */}
         <div ref={gridRef} className="stagger-children grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
             <div
               key={index}
               className="group relative overflow-hidden rounded-2xl aspect-[16/10] cursor-pointer"
             >
-              {/* Image */}
               <img
                 src={project.image}
                 alt={project.title}
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
-
-              {/* Overlay — darker on hover */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/90 transition-all duration-500" />
-
-              {/* Content */}
               <div className="absolute bottom-0 left-0 right-0 p-8">
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="px-3 py-1 bg-energy-teal/90 text-white text-xs font-semibold rounded-full uppercase tracking-wide">
+                  <span className="px-3 py-1 bg-theme-accent/90 text-white text-xs font-semibold rounded-full uppercase tracking-wide">
                     {project.category}
                   </span>
                   <span className="px-3 py-1 bg-white/15 backdrop-blur-sm text-white text-xs font-semibold rounded-full">

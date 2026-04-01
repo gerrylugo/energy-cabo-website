@@ -11,7 +11,7 @@ export default function TrustStrip() {
   const ref = useScrollAnimation();
 
   return (
-    <div className="bg-energy-navy border-y border-energy-navy">
+    <div className="bg-theme-primary-dark">
       <div ref={ref} className="animate-on-scroll max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {features.map((feature, index) => (

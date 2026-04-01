@@ -15,8 +15,8 @@ const services = [
     title: 'Smart Generation',
     description: 'Generate your own power without exporting to CFE. Perfect for properties that want control.',
     why: 'Keep every watt you produce. No CFE penalties, no surprises.',
-    color: 'from-energy-teal/10 to-emerald-500/10',
-    iconColor: 'text-energy-teal',
+    color: 'from-emerald-500/10 to-teal-500/10',
+    iconColor: 'text-emerald-500',
   },
   {
     icon: Battery,
@@ -31,8 +31,8 @@ const services = [
     title: 'The Complete Solution',
     description: 'Solar + batteries + grid. The best of every technology, designed to work together.',
     why: 'Our most popular system — because it does everything.',
-    color: 'from-energy-navy/10 to-energy-teal/10',
-    iconColor: 'text-energy-navy',
+    color: 'from-violet-500/10 to-purple-500/10',
+    iconColor: 'text-violet-500',
   },
   {
     icon: Mountain,
@@ -47,8 +47,8 @@ const services = [
     title: 'Surge Shield',
     description: 'Protect your equipment from voltage spikes and power surges.',
     why: 'Ocean-proof. Category 3 hurricane? Your equipment stays safe.',
-    color: 'from-energy-coral/10 to-red-500/10',
-    iconColor: 'text-energy-coral',
+    color: 'from-red-500/10 to-orange-500/10',
+    iconColor: 'text-red-500',
   },
 ];
 
@@ -57,17 +57,17 @@ export default function Services() {
   const gridRef = useScrollAnimation(0.1);
 
   return (
-    <section id="services" className="py-28 bg-white">
+    <section id="services" className="py-28 bg-theme-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div ref={headerRef} className="animate-on-scroll text-center mb-20">
-          <span className="inline-block text-energy-teal text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+          <span className="inline-block text-theme-accent text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             What We Do
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-energy-navy mb-5 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-theme-text mb-5 tracking-tight">
             Energy Solutions Built for Baja
           </h2>
-          <p className="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-theme-text-muted max-w-2xl mx-auto leading-relaxed">
             Every system is custom-designed for Los Cabos' climate, your property, and your energy goals.
           </p>
         </div>
@@ -79,7 +79,7 @@ export default function Services() {
             return (
               <div
                 key={index}
-                className="group relative bg-white p-8 rounded-2xl border border-gray-100 hover:border-transparent hover:shadow-2xl hover:shadow-gray-200/50 transition-all duration-500"
+                className="group relative bg-theme-surface p-8 rounded-2xl border border-theme-border hover:border-transparent hover:shadow-2xl transition-all duration-500"
               >
                 {/* Gradient background on hover */}
                 <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
@@ -88,13 +88,13 @@ export default function Services() {
                   <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6`}>
                     <Icon className={`w-7 h-7 ${service.iconColor}`} />
                   </div>
-                  <h3 className="text-xl font-bold text-energy-navy mb-3 tracking-tight">
+                  <h3 className="text-xl font-bold text-theme-text mb-3 tracking-tight">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 leading-relaxed mb-4">
+                  <p className="text-theme-text-secondary leading-relaxed mb-4">
                     {service.description}
                   </p>
-                  <p className="text-sm text-energy-teal font-medium italic">
+                  <p className="text-sm text-theme-accent font-medium italic">
                     {service.why}
                   </p>
                 </div>

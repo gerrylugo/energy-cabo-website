@@ -4,14 +4,13 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-energy-navy-dark">
+    <footer className="bg-theme-primary-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main footer */}
         <div className="py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 bg-energy-teal rounded-xl flex items-center justify-center">
+              <div className="w-10 h-10 bg-theme-accent rounded-xl flex items-center justify-center">
                 <Zap className="w-5 h-5 text-white" />
               </div>
               <div>
@@ -27,18 +26,19 @@ export default function Footer() {
             </p>
             <div className="flex gap-3">
               <a
-                href="https://www.facebook.com/EnergyCabo"
+                href="https://www.facebook.com/EnergyCaboBCS/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-energy-teal transition-colors duration-300"
+                className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-theme-accent transition-colors duration-300"
               >
                 <Facebook className="w-5 h-5 text-white/70" />
               </a>
+              {/* Instagram — hidden until account is created */}
               <a
                 href="https://www.instagram.com/energycabo"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-energy-teal transition-colors duration-300"
+                className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-theme-accent transition-colors duration-300 hidden"
               >
                 <Instagram className="w-5 h-5 text-white/70" />
               </a>
@@ -53,7 +53,7 @@ export default function Footer() {
                 <li key={link}>
                   <a
                     href={`#${link.toLowerCase()}`}
-                    className="text-white/50 hover:text-energy-teal transition-colors text-sm"
+                    className="text-white/50 hover:text-theme-accent transition-colors text-sm"
                   >
                     {link}
                   </a>
@@ -61,10 +61,10 @@ export default function Footer() {
               ))}
               <li>
                 <a
-                  href="https://crm.energycabo.com/en/estimator/"
+                  href="https://crm.energycabo.com/en/estimator/?channel=website"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-energy-teal hover:text-energy-teal-light transition-colors text-sm font-medium"
+                  className="text-theme-accent hover:text-theme-accent-light transition-colors text-sm font-medium"
                 >
                   Online Estimator
                 </a>
@@ -77,19 +77,19 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-5 text-sm tracking-wide">Contact</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <Mail className="w-4 h-4 text-energy-teal flex-shrink-0 mt-1" />
+                <Mail className="w-4 h-4 text-theme-accent flex-shrink-0 mt-1" />
                 <a href="mailto:info@energycabo.com" className="text-white/50 hover:text-white transition-colors text-sm">
                   info@energycabo.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <Phone className="w-4 h-4 text-energy-teal flex-shrink-0 mt-1" />
+                <Phone className="w-4 h-4 text-theme-accent flex-shrink-0 mt-1" />
                 <a href="tel:+526241325952" className="text-white/50 hover:text-white transition-colors text-sm">
                   +52 624 132 5952
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-energy-teal flex-shrink-0 mt-1" />
+                <MapPin className="w-4 h-4 text-theme-accent flex-shrink-0 mt-1" />
                 <span className="text-white/50 text-sm">Los Cabos, BCS, Mexico</span>
               </li>
             </ul>

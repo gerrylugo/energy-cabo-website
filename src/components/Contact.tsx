@@ -53,80 +53,77 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-28 bg-energy-arena/30">
+    <section id="contact" className="py-28 bg-theme-bg-warm/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div ref={headerRef} className="animate-on-scroll text-center mb-20">
-          <span className="inline-block text-energy-teal text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+          <span className="inline-block text-theme-accent text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             Get Started
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-energy-navy mb-5 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-theme-text mb-5 tracking-tight">
             Ready to Power Your Future?
           </h2>
-          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+          <p className="text-lg text-theme-text-muted max-w-2xl mx-auto">
             Get a free consultation. We'll design a system tailored to your property and goals.
           </p>
         </div>
 
         <div ref={contentRef} className="animate-on-scroll grid grid-cols-1 lg:grid-cols-5 gap-12">
-          {/* Left — contact info (2 cols) */}
+          {/* Left — contact info */}
           <div className="lg:col-span-2 space-y-8">
-            {/* CTA card */}
-            <div className="bg-energy-navy p-8 rounded-2xl text-white">
+            <div className="bg-theme-primary p-8 rounded-2xl text-white">
               <h3 className="text-xl font-bold mb-3">Quick Estimate</h3>
               <p className="text-white/70 text-sm mb-6 leading-relaxed">
                 Use our online estimator to get an instant energy analysis for your property.
               </p>
               <a
-                href="https://crm.energycabo.com/en/estimator/"
+                href="https://crm.energycabo.com/en/estimator/?channel=website"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 px-6 py-3 bg-energy-teal text-white font-semibold rounded-xl hover:bg-energy-teal-hover transition-all"
+                className="group inline-flex items-center gap-2 px-6 py-3 bg-theme-accent text-white font-semibold rounded-xl hover:opacity-90 transition-all"
               >
                 Open Estimator
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
 
-            {/* Contact details */}
             <div className="space-y-5">
               <a href="mailto:info@energycabo.com" className="flex items-center gap-4 group">
-                <div className="w-12 h-12 bg-energy-teal/10 rounded-xl flex items-center justify-center group-hover:bg-energy-teal/20 transition-colors">
-                  <Mail className="w-5 h-5 text-energy-teal" />
+                <div className="w-12 h-12 bg-theme-accent/10 rounded-xl flex items-center justify-center group-hover:bg-theme-accent/20 transition-colors">
+                  <Mail className="w-5 h-5 text-theme-accent" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-500">Email</div>
-                  <div className="text-energy-navy font-semibold">info@energycabo.com</div>
+                  <div className="text-sm text-theme-text-muted">Email</div>
+                  <div className="text-theme-text font-semibold">info@energycabo.com</div>
                 </div>
               </a>
 
               <a href="tel:+526241325952" className="flex items-center gap-4 group">
-                <div className="w-12 h-12 bg-energy-teal/10 rounded-xl flex items-center justify-center group-hover:bg-energy-teal/20 transition-colors">
-                  <Phone className="w-5 h-5 text-energy-teal" />
+                <div className="w-12 h-12 bg-theme-accent/10 rounded-xl flex items-center justify-center group-hover:bg-theme-accent/20 transition-colors">
+                  <Phone className="w-5 h-5 text-theme-accent" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-500">Phone / WhatsApp</div>
-                  <div className="text-energy-navy font-semibold">+52 624 132 5952</div>
+                  <div className="text-sm text-theme-text-muted">Phone / WhatsApp</div>
+                  <div className="text-theme-text font-semibold">+52 624 132 5952</div>
                 </div>
               </a>
 
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-energy-teal/10 rounded-xl flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-energy-teal" />
+                <div className="w-12 h-12 bg-theme-accent/10 rounded-xl flex items-center justify-center">
+                  <MapPin className="w-5 h-5 text-theme-accent" />
                 </div>
                 <div>
-                  <div className="text-sm text-gray-500">Location</div>
-                  <div className="text-energy-navy font-semibold">Los Cabos, BCS, Mexico</div>
+                  <div className="text-sm text-theme-text-muted">Location</div>
+                  <div className="text-theme-text font-semibold">Los Cabos, BCS, Mexico</div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right — form (3 cols) */}
-          <form onSubmit={handleSubmit} className="lg:col-span-3 bg-white p-8 md:p-10 rounded-2xl shadow-xl shadow-gray-200/50 border border-gray-100 space-y-5">
+          {/* Right — form */}
+          <form onSubmit={handleSubmit} className="lg:col-span-3 bg-theme-surface p-8 md:p-10 rounded-2xl shadow-xl border border-theme-border space-y-5">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
-                <label htmlFor="name" className="block text-energy-navy text-sm font-semibold mb-2">
+                <label htmlFor="name" className="block text-theme-text text-sm font-semibold mb-2">
                   Name
                 </label>
                 <input
@@ -136,12 +133,12 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-50 text-gray-900 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-energy-teal/30 focus:border-energy-teal transition-all"
+                  className="w-full px-4 py-3 bg-theme-bg-alt text-theme-text border border-theme-border rounded-xl focus:outline-none focus:ring-2 focus:ring-theme-accent/30 focus:border-theme-accent transition-all"
                   placeholder="Your name"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-energy-navy text-sm font-semibold mb-2">
+                <label htmlFor="email" className="block text-theme-text text-sm font-semibold mb-2">
                   Email
                 </label>
                 <input
@@ -151,14 +148,14 @@ export default function Contact() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-50 text-gray-900 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-energy-teal/30 focus:border-energy-teal transition-all"
+                  className="w-full px-4 py-3 bg-theme-bg-alt text-theme-text border border-theme-border rounded-xl focus:outline-none focus:ring-2 focus:ring-theme-accent/30 focus:border-theme-accent transition-all"
                   placeholder="your@email.com"
                 />
               </div>
             </div>
 
             <div>
-              <label htmlFor="phone" className="block text-energy-navy text-sm font-semibold mb-2">
+              <label htmlFor="phone" className="block text-theme-text text-sm font-semibold mb-2">
                 Phone
               </label>
               <input
@@ -167,13 +164,13 @@ export default function Contact() {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className="w-full px-4 py-3 bg-gray-50 text-gray-900 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-energy-teal/30 focus:border-energy-teal transition-all"
+                className="w-full px-4 py-3 bg-theme-bg-alt text-theme-text border border-theme-border rounded-xl focus:outline-none focus:ring-2 focus:ring-theme-accent/30 focus:border-theme-accent transition-all"
                 placeholder="+52 624 ..."
               />
             </div>
 
             <div>
-              <label htmlFor="message" className="block text-energy-navy text-sm font-semibold mb-2">
+              <label htmlFor="message" className="block text-theme-text text-sm font-semibold mb-2">
                 Tell us about your project
               </label>
               <textarea
@@ -183,13 +180,13 @@ export default function Contact() {
                 onChange={handleChange}
                 required
                 rows={4}
-                className="w-full px-4 py-3 bg-gray-50 text-gray-900 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-energy-teal/30 focus:border-energy-teal transition-all resize-none"
+                className="w-full px-4 py-3 bg-theme-bg-alt text-theme-text border border-theme-border rounded-xl focus:outline-none focus:ring-2 focus:ring-theme-accent/30 focus:border-theme-accent transition-all resize-none"
                 placeholder="Property type, location, energy goals..."
               />
             </div>
 
             {status === 'success' && (
-              <div className="p-4 bg-energy-teal/10 border border-energy-teal/20 rounded-xl text-energy-teal font-medium">
+              <div className="p-4 bg-theme-accent/10 border border-theme-accent/20 rounded-xl text-theme-accent font-medium">
                 Thank you! We'll get back to you within 24 hours.
               </div>
             )}
@@ -203,7 +200,7 @@ export default function Contact() {
             <button
               type="submit"
               disabled={status === 'loading'}
-              className="w-full px-8 py-4 bg-energy-teal text-white font-semibold rounded-xl hover:bg-energy-teal-hover transition-all duration-300 shadow-lg shadow-energy-teal/20 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="w-full px-8 py-4 bg-theme-accent text-white font-semibold rounded-xl hover:opacity-90 transition-all duration-300 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               {status === 'loading' ? (
                 'Sending...'

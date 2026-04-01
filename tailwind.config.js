@@ -4,6 +4,29 @@ export default {
   theme: {
     extend: {
       colors: {
+        /* Theme-aware colors (swap via CSS vars) */
+        'theme-primary': 'var(--color-primary)',
+        'theme-primary-dark': 'var(--color-primary-dark)',
+        'theme-accent': 'var(--color-accent)',
+        'theme-accent-hover': 'var(--color-accent-hover)',
+        'theme-accent-light': 'var(--color-accent-light)',
+        'theme-bg': 'var(--color-bg)',
+        'theme-bg-alt': 'var(--color-bg-alt)',
+        'theme-bg-warm': 'var(--color-bg-warm)',
+        'theme-surface': 'var(--color-surface)',
+        'theme-border': 'var(--color-border)',
+        'theme-text': 'var(--color-text)',
+        'theme-text-secondary': 'var(--color-text-secondary)',
+        'theme-text-muted': 'var(--color-text-muted)',
+        'theme-coral': 'var(--color-coral)',
+        'theme-gold': 'var(--color-gold)',
+        'theme-torote': 'var(--color-torote)',
+        'theme-sky': 'var(--color-sky)',
+        'theme-toggle-bg': 'var(--color-toggle-bg)',
+        'theme-toggle-border': 'var(--color-toggle-border)',
+        'theme-toggle-text': 'var(--color-toggle-text)',
+
+        /* Static colors (don't change with theme) */
         'energy-navy': '#1B3A6B',
         'energy-navy-dark': '#122A4F',
         'energy-teal': '#50BB9B',
@@ -25,7 +48,6 @@ export default {
         'fade-in-left': 'fadeInLeft 0.8s ease-out forwards',
         'fade-in-right': 'fadeInRight 0.8s ease-out forwards',
         'scale-in': 'scaleIn 0.6s ease-out forwards',
-        'count-up': 'countUp 1s ease-out forwards',
       },
       keyframes: {
         fadeIn: {

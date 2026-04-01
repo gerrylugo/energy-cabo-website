@@ -30,48 +30,39 @@ export default function Testimonials() {
   const gridRef = useScrollAnimation(0.1);
 
   return (
-    <section id="testimonials" className="py-28 bg-white">
+    <section id="testimonials" className="py-28 bg-theme-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div ref={headerRef} className="animate-on-scroll text-center mb-20">
-          <span className="inline-block text-energy-teal text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+          <span className="inline-block text-theme-accent text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             Testimonials
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-energy-navy mb-5 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-theme-text mb-5 tracking-tight">
             Trusted Across Los Cabos
           </h2>
-          <p className="text-lg text-gray-500 max-w-2xl mx-auto">
+          <p className="text-lg text-theme-text-muted max-w-2xl mx-auto">
             From boutique hotels to beachfront villas — hear from our clients.
           </p>
         </div>
 
-        {/* Cards */}
         <div ref={gridRef} className="stagger-children grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="relative bg-energy-arena/40 p-8 rounded-2xl border border-energy-arena hover:border-energy-teal/30 hover:shadow-xl transition-all duration-500"
+              className="relative bg-theme-bg-warm/40 p-8 rounded-2xl border border-theme-border hover:border-theme-accent/30 hover:shadow-xl transition-all duration-500"
             >
-              {/* Quote icon */}
-              <Quote className="w-10 h-10 text-energy-teal/20 mb-4" />
-
-              {/* Stars */}
+              <Quote className="w-10 h-10 text-theme-accent/20 mb-4" />
               <div className="flex gap-1 mb-5">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-energy-gold text-energy-gold" />
                 ))}
               </div>
-
-              {/* Content */}
-              <p className="text-gray-700 mb-6 leading-relaxed">
+              <p className="text-theme-text-secondary mb-6 leading-relaxed">
                 "{testimonial.content}"
               </p>
-
-              {/* Footer */}
-              <div className="border-t border-gray-200 pt-5">
-                <div className="font-bold text-energy-navy">{testimonial.name}</div>
-                <div className="text-sm text-gray-500">{testimonial.location}</div>
-                <div className="text-xs text-energy-teal font-medium mt-1">{testimonial.system}</div>
+              <div className="border-t border-theme-border pt-5">
+                <div className="font-bold text-theme-text">{testimonial.name}</div>
+                <div className="text-sm text-theme-text-muted">{testimonial.location}</div>
+                <div className="text-xs text-theme-accent font-medium mt-1">{testimonial.system}</div>
               </div>
             </div>
           ))}

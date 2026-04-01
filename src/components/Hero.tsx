@@ -3,13 +3,21 @@ import { ChevronDown, ArrowRight } from 'lucide-react';
 export default function Hero() {
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Background — cinematic gradient with texture */}
+      {/* Background — uses theme hero colors */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-energy-navy-dark via-energy-navy to-[#1a4a7a]" />
-        {/* Subtle radial glow behind the heading */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-energy-teal/5 rounded-full blur-3xl" />
-        {/* Bottom gradient fade to teal accent */}
-        <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-energy-teal/10 to-transparent" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(to bottom right, var(--color-hero-from), var(--color-hero-via), var(--color-hero-to))',
+          }}
+        />
+        {/* Subtle radial glow */}
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-3xl"
+          style={{ backgroundColor: 'var(--color-hero-glow)' }}
+        />
+        {/* Bottom gradient fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-black/10 to-transparent" />
       </div>
 
       {/* Content */}
@@ -17,7 +25,7 @@ export default function Hero() {
         {/* Trust badge */}
         <div className="animate-fade-in mb-8">
           <span className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-sm text-white/80 tracking-wide">
-            <span className="w-2 h-2 bg-energy-teal rounded-full animate-pulse" />
+            <span className="w-2 h-2 rounded-full animate-pulse bg-theme-accent" />
             Premium Energy Solutions in Los Cabos
           </span>
         </div>
@@ -25,7 +33,7 @@ export default function Hero() {
         {/* Main headline */}
         <h1 className="animate-fade-in-up text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white mb-6 tracking-tight leading-[0.95]">
           300 Days of Sun.
-          <span className="block text-energy-teal mt-2">Zero Wasted.</span>
+          <span className="block mt-2" style={{ color: 'var(--color-accent)' }}>Zero Wasted.</span>
         </h1>
 
         {/* Subheadline */}
@@ -38,7 +46,7 @@ export default function Hero() {
         <div className="animate-fade-in-up flex flex-col sm:flex-row gap-4" style={{ animationDelay: '0.4s' }}>
           <a
             href="#contact"
-            className="group px-8 py-4 bg-energy-teal text-white font-semibold rounded-xl hover:bg-energy-teal-hover transition-all duration-300 shadow-lg shadow-energy-teal/25 flex items-center justify-center gap-2"
+            className="group px-8 py-4 bg-theme-accent text-white font-semibold rounded-xl hover:opacity-90 transition-all duration-300 shadow-lg flex items-center justify-center gap-2"
           >
             Get Your Free Estimate
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -68,7 +76,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator — hidden on mobile to avoid overlap with stats */}
+      {/* Scroll indicator — hidden on mobile */}
       <a
         href="#services"
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce hidden md:block"
