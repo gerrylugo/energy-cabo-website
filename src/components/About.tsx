@@ -1,53 +1,84 @@
-import { Award, Users, TrendingUp } from 'lucide-react';
+import { Sun, Shield, Wrench, Award } from 'lucide-react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
-const stats = [
-  { icon: Award, value: '10+', label: 'Years Experience' },
-  { icon: Users, value: '500+', label: 'Happy Clients' },
-  { icon: TrendingUp, value: '95%', label: 'Energy Savings' },
+const pillars = [
+  {
+    icon: Award,
+    title: 'Premium Equipment',
+    desc: 'Tier-1 panels, top-rated inverters, marine-grade components.',
+  },
+  {
+    icon: Wrench,
+    title: 'Professional Installation',
+    desc: 'Certified team, clean site delivery, no shortcuts.',
+  },
+  {
+    icon: Sun,
+    title: 'Custom Engineering',
+    desc: 'Designed for your property, not a cookie-cutter template.',
+  },
+  {
+    icon: Shield,
+    title: 'Project Management',
+    desc: 'One point of contact from quote to commissioning.',
+  },
 ];
 
 export default function About() {
+  const leftRef = useScrollAnimation();
+  const rightRef = useScrollAnimation();
+
   return (
-    <section id="about" className="py-24 bg-black">
+    <section id="about" className="py-28 bg-energy-arena/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              About Energy Cabo
+          {/* Left — narrative */}
+          <div ref={leftRef} className="animate-on-scroll-left">
+            <span className="inline-block text-energy-teal text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+              About Us
+            </span>
+            <h2 className="text-4xl md:text-5xl font-extrabold text-energy-navy mb-6 tracking-tight leading-tight">
+              Where the Desert
+              <span className="block text-energy-teal">Meets the Sea</span>
             </h2>
-            <p className="text-lg text-gray-400 mb-6 leading-relaxed">
-              We are Los Cabos' premier energy solutions provider, specializing in cutting-edge solar technology and sustainable power systems. Our mission is to transform how businesses and homes in Baja California Sur consume energy.
+            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              Energy Cabo is Los Cabos' premier energy solutions provider. We combine engineering
+              precision with a deep understanding of Baja's climate — 300 days of sun, salt air,
+              hurricane season, and the unique demands of coastal living.
             </p>
-            <p className="text-lg text-gray-400 mb-8 leading-relaxed">
-              With over a decade of experience in the renewable energy sector, we combine technical expertise with a deep understanding of the local climate and energy landscape to deliver solutions that maximize efficiency and return on investment.
+            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+              Every system we install is designed to thrive in this environment. Not adapted,
+              not imported from another region — <strong className="text-energy-navy">built for Baja</strong>.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <div className="px-6 py-3 bg-energy-navy rounded-lg">
-                <span className="text-white font-semibold">Certified Installers</span>
-              </div>
-              <div className="px-6 py-3 bg-energy-teal rounded-lg">
-                <span className="text-white font-semibold">Premium Equipment</span>
-              </div>
+
+            {/* Trust badges */}
+            <div className="flex flex-wrap gap-3">
+              <span className="px-4 py-2 bg-energy-navy text-white text-sm font-semibold rounded-xl">
+                CFE Compliant
+              </span>
+              <span className="px-4 py-2 bg-energy-teal text-white text-sm font-semibold rounded-xl">
+                Marine-Grade
+              </span>
+              <span className="px-4 py-2 bg-energy-torote text-white text-sm font-semibold rounded-xl">
+                Hurricane Rated
+              </span>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-8">
-            {stats.map((stat, index) => {
-              const Icon = stat.icon;
+          {/* Right — 4 pillars */}
+          <div ref={rightRef} className="animate-on-scroll-right grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {pillars.map((pillar, index) => {
+              const Icon = pillar.icon;
               return (
                 <div
                   key={index}
-                  className="flex items-center gap-6 bg-gray-900 p-6 rounded-xl border border-gray-800"
+                  className="bg-white p-6 rounded-2xl border border-gray-100 hover:shadow-lg hover:border-energy-teal/30 transition-all duration-300"
                 >
-                  <div className="w-16 h-16 bg-energy-teal bg-opacity-10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-8 h-8 text-energy-teal" />
+                  <div className="w-12 h-12 bg-energy-navy/5 rounded-xl flex items-center justify-center mb-4">
+                    <Icon className="w-6 h-6 text-energy-navy" />
                   </div>
-                  <div>
-                    <div className="text-4xl font-bold text-white mb-1">
-                      {stat.value}
-                    </div>
-                    <div className="text-gray-400">{stat.label}</div>
-                  </div>
+                  <h3 className="text-lg font-bold text-energy-navy mb-2">{pillar.title}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed">{pillar.desc}</p>
                 </div>
               );
             })}

@@ -1,58 +1,103 @@
-import { Sun, Battery, Shield, Zap } from 'lucide-react';
+import { Sun, Zap, Battery, Layers, Mountain, Shield } from 'lucide-react';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const services = [
   {
     icon: Sun,
-    title: 'Solar Solutions',
-    description: 'High-efficiency solar panel installations designed for the unique climate of Los Cabos, maximizing energy production year-round.',
-  },
-  {
-    icon: Battery,
-    title: 'Backup Systems',
-    description: 'Reliable battery backup solutions ensuring uninterrupted power supply during outages and peak demand periods.',
+    title: 'Solar Savings',
+    description: 'Reduce your CFE bill by up to 95%. Stay connected to the grid while your panels do the work.',
+    why: 'Run your AC, pool pump, and kitchen — all at once, all from the sun.',
+    color: 'from-amber-500/10 to-orange-500/10',
+    iconColor: 'text-amber-500',
   },
   {
     icon: Zap,
-    title: 'Zero Export',
-    description: 'Advanced zero export systems that optimize self-consumption while complying with local grid regulations.',
+    title: 'Smart Generation',
+    description: 'Generate your own power without exporting to CFE. Perfect for properties that want control.',
+    why: 'Keep every watt you produce. No CFE penalties, no surprises.',
+    color: 'from-energy-teal/10 to-emerald-500/10',
+    iconColor: 'text-energy-teal',
+  },
+  {
+    icon: Battery,
+    title: 'Always On',
+    description: 'When CFE goes dark, your home stays lit. Battery backup that kicks in automatically.',
+    why: 'Sleep through any outage without noticing. Your life doesn\'t stop.',
+    color: 'from-blue-500/10 to-indigo-500/10',
+    iconColor: 'text-blue-500',
+  },
+  {
+    icon: Layers,
+    title: 'The Complete Solution',
+    description: 'Solar + batteries + grid. The best of every technology, designed to work together.',
+    why: 'Our most popular system — because it does everything.',
+    color: 'from-energy-navy/10 to-energy-teal/10',
+    iconColor: 'text-energy-navy',
+  },
+  {
+    icon: Mountain,
+    title: 'Total Independence',
+    description: 'No CFE connection needed. Complete energy autonomy for remote properties.',
+    why: 'Like Cabo Pulmo — isolated, self-sustaining, and beautiful.',
+    color: 'from-emerald-500/10 to-teal-500/10',
+    iconColor: 'text-emerald-600',
   },
   {
     icon: Shield,
-    title: 'Protection Systems',
-    description: 'Comprehensive surge protection and monitoring systems to safeguard your investment and ensure optimal performance.',
+    title: 'Surge Shield',
+    description: 'Protect your equipment from voltage spikes and power surges.',
+    why: 'Ocean-proof. Category 3 hurricane? Your equipment stays safe.',
+    color: 'from-energy-coral/10 to-red-500/10',
+    iconColor: 'text-energy-coral',
   },
 ];
 
 export default function Services() {
+  const headerRef = useScrollAnimation();
+  const gridRef = useScrollAnimation(0.1);
+
   return (
-    <section id="services" className="py-24 bg-gray-900">
+    <section id="services" className="py-28 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Our Services
+        {/* Section header */}
+        <div ref={headerRef} className="animate-on-scroll text-center mb-20">
+          <span className="inline-block text-energy-teal text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+            What We Do
+          </span>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-energy-navy mb-5 tracking-tight">
+            Energy Solutions Built for Baja
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Complete energy solutions tailored to your needs
+          <p className="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
+            Every system is custom-designed for Los Cabos' climate, your property, and your energy goals.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Service cards */}
+        <div ref={gridRef} className="stagger-children grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
               <div
                 key={index}
-                className="bg-gray-800 p-8 rounded-xl hover:bg-gray-750 transition-all duration-300 hover:transform hover:scale-105 border border-gray-700 hover:border-energy-teal"
+                className="group relative bg-white p-8 rounded-2xl border border-gray-100 hover:border-transparent hover:shadow-2xl hover:shadow-gray-200/50 transition-all duration-500"
               >
-                <div className="w-16 h-16 bg-energy-teal bg-opacity-10 rounded-lg flex items-center justify-center mb-6">
-                  <Icon className="w-8 h-8 text-energy-teal" />
+                {/* Gradient background on hover */}
+                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+
+                <div className="relative">
+                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6`}>
+                    <Icon className={`w-7 h-7 ${service.iconColor}`} />
+                  </div>
+                  <h3 className="text-xl font-bold text-energy-navy mb-3 tracking-tight">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed mb-4">
+                    {service.description}
+                  </p>
+                  <p className="text-sm text-energy-teal font-medium italic">
+                    {service.why}
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  {service.description}
-                </p>
               </div>
             );
           })}

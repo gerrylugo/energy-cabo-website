@@ -23,63 +23,78 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed w-full z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-black bg-opacity-95 shadow-lg'
+          ? 'bg-white/95 backdrop-blur-md shadow-lg shadow-black/5'
           : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <a href="#" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-energy-teal rounded-lg flex items-center justify-center">
-              <Zap className="w-6 h-6 text-white" />
+          {/* Logo */}
+          <a href="#" className="flex items-center gap-3">
+            <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors duration-300 ${
+              isScrolled ? 'bg-energy-teal' : 'bg-white/15 backdrop-blur-sm'
+            }`}>
+              <Zap className="w-5 h-5 text-white" />
             </div>
-            <span className="text-2xl font-bold text-white">
-              Energy Cabo
-            </span>
+            <div className="flex flex-col">
+              <span className={`text-xl font-bold tracking-tight transition-colors duration-300 ${
+                isScrolled ? 'text-energy-navy' : 'text-white'
+              }`}>
+                Energy Cabo
+              </span>
+              <span className={`text-[10px] font-medium tracking-[0.2em] uppercase transition-colors duration-300 ${
+                isScrolled ? 'text-energy-teal' : 'text-white/60'
+              }`}>
+                Energy Solutions
+              </span>
+            </div>
           </a>
 
+          {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-gray-300 hover:text-energy-teal transition-colors font-medium"
+                className={`text-sm font-medium tracking-wide transition-colors duration-300 hover:text-energy-teal ${
+                  isScrolled ? 'text-gray-700' : 'text-white/80 hover:text-white'
+                }`}
               >
                 {link.label}
               </a>
             ))}
             <a
               href="#contact"
-              className="px-6 py-2 bg-energy-teal text-white font-semibold rounded-lg hover:opacity-90 transition-all"
+              className="px-6 py-2.5 bg-energy-teal text-white text-sm font-semibold rounded-xl hover:bg-energy-teal-hover transition-all duration-300 shadow-lg shadow-energy-teal/20"
             >
               Get Quote
             </a>
           </div>
 
+          {/* Mobile toggle */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-white"
+            className={`md:hidden transition-colors ${
+              isScrolled ? 'text-energy-navy' : 'text-white'
+            }`}
           >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
 
+      {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-black bg-opacity-95 border-t border-gray-800">
-          <div className="px-4 py-6 space-y-4">
+        <div className="md:hidden bg-white/95 backdrop-blur-md shadow-lg border-t border-gray-100">
+          <div className="px-4 py-6 space-y-1">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block text-gray-300 hover:text-energy-amber transition-colors font-medium py-2"
+                className="block text-gray-700 hover:text-energy-teal hover:bg-energy-teal/5 transition-colors font-medium py-3 px-4 rounded-lg"
               >
                 {link.label}
               </a>
@@ -87,7 +102,7 @@ export default function Navigation() {
             <a
               href="#contact"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block px-6 py-3 bg-energy-amber text-white font-semibold rounded-lg hover:bg-amber-600 transition-all text-center"
+              className="block mt-4 px-6 py-3 bg-energy-teal text-white font-semibold rounded-xl hover:bg-energy-teal-hover transition-all text-center"
             >
               Get Quote
             </a>

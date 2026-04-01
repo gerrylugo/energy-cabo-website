@@ -1,81 +1,89 @@
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+
 const projects = [
   {
-    title: 'Luxury Resort Solar Installation',
-    category: 'Commercial',
-    image: 'https://images.pexels.com/photos/356036/pexels-photo-356036.jpeg?auto=compress&cs=tinysrgb&w=800',
-    capacity: '500kW',
-  },
-  {
-    title: 'Residential Villa Energy System',
+    title: 'Luxury Villa — Palmilla',
     category: 'Residential',
-    image: 'https://images.pexels.com/photos/159397/solar-panel-array-power-sun-electricity-159397.jpeg?auto=compress&cs=tinysrgb&w=800',
-    capacity: '25kW',
+    system: 'Complete Solution',
+    capacity: '18 kW + 30 kWh',
+    image: 'https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
   {
-    title: 'Marina Backup Power Solution',
+    title: 'Boutique Hotel — Todos Santos',
     category: 'Commercial',
-    image: 'https://images.pexels.com/photos/433308/pexels-photo-433308.jpeg?auto=compress&cs=tinysrgb&w=800',
-    capacity: '150kW',
+    system: 'Solar Savings',
+    capacity: '85 kW',
+    image: 'https://images.pexels.com/photos/2476632/pexels-photo-2476632.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
   {
-    title: 'Restaurant Solar & Battery',
-    category: 'Commercial',
-    image: 'https://images.pexels.com/photos/371900/pexels-photo-371900.jpeg?auto=compress&cs=tinysrgb&w=800',
-    capacity: '75kW',
-  },
-  {
-    title: 'Beachfront Home Zero Export',
+    title: 'Beachfront Home — East Cape',
     category: 'Residential',
-    image: 'https://images.pexels.com/photos/1549000/pexels-photo-1549000.jpeg?auto=compress&cs=tinysrgb&w=800',
-    capacity: '30kW',
+    system: 'Total Independence',
+    capacity: '12 kW Off-Grid',
+    image: 'https://images.pexels.com/photos/1268871/pexels-photo-1268871.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
   {
-    title: 'Office Complex Energy Grid',
+    title: 'Restaurant — San Jose del Cabo',
     category: 'Commercial',
-    image: 'https://images.pexels.com/photos/8853502/pexels-photo-8853502.jpeg?auto=compress&cs=tinysrgb&w=800',
-    capacity: '200kW',
+    system: 'Smart Generation',
+    capacity: '45 kW Zero Export',
+    image: 'https://images.pexels.com/photos/2467285/pexels-photo-2467285.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
 ];
 
 export default function Projects() {
+  const headerRef = useScrollAnimation();
+  const gridRef = useScrollAnimation(0.1);
+
   return (
-    <section id="projects" className="py-24 bg-gray-900">
+    <section id="projects" className="py-28 bg-energy-navy-dark">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Our Projects
+        {/* Header */}
+        <div ref={headerRef} className="animate-on-scroll text-center mb-20">
+          <span className="inline-block text-energy-teal text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+            Our Work
+          </span>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-5 tracking-tight">
+            Powering Los Cabos
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Powering Los Cabos, one installation at a time
+          <p className="text-lg text-white/50 max-w-2xl mx-auto">
+            From Todos Santos to the East Cape — homes and businesses running on clean energy.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Project grid — 2x2 for cleaner layout */}
+        <div ref={gridRef} className="stagger-children grid grid-cols-1 md:grid-cols-2 gap-6">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-xl bg-gray-800 hover:transform hover:scale-105 transition-all duration-300"
+              className="group relative overflow-hidden rounded-2xl aspect-[16/10] cursor-pointer"
             >
-              <div className="aspect-w-16 aspect-h-12 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-90" />
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="px-3 py-1 bg-energy-teal text-white text-sm font-semibold rounded-full">
+              {/* Image */}
+              <img
+                src={project.image}
+                alt={project.title}
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+
+              {/* Overlay — darker on hover */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/90 transition-all duration-500" />
+
+              {/* Content */}
+              <div className="absolute bottom-0 left-0 right-0 p-8">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="px-3 py-1 bg-energy-teal/90 text-white text-xs font-semibold rounded-full uppercase tracking-wide">
                     {project.category}
                   </span>
-                  <span className="px-3 py-1 bg-energy-navy text-white text-sm font-semibold rounded-full">
+                  <span className="px-3 py-1 bg-white/15 backdrop-blur-sm text-white text-xs font-semibold rounded-full">
                     {project.capacity}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-white">
+                <h3 className="text-2xl font-bold text-white mb-1 tracking-tight">
                   {project.title}
                 </h3>
+                <p className="text-white/60 text-sm font-medium">
+                  {project.system}
+                </p>
               </div>
             </div>
           ))}
