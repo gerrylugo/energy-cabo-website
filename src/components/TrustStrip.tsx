@@ -16,10 +16,10 @@ export default function TrustStrip() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {features.map((feature, index) => (
             <div key={index} className="text-center">
-              <div className="text-white font-bold text-sm tracking-wide mb-1">
+              <div className="text-white font-bold text-base tracking-wide mb-1">
                 {feature.label}
               </div>
-              <div className="text-white/40 text-xs leading-relaxed">
+              <div className="text-white/40 text-sm leading-relaxed">
                 {feature.detail}
               </div>
             </div>

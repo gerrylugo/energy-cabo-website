@@ -52,7 +52,7 @@ export default function About() {
       <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-16 xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center" style={{ gap: '12rem' }}>
           {/* Left — narrative */}
-          <div ref={leftRef} className="animate-on-scroll-left max-w-lg">
+          <div ref={leftRef} className="animate-on-scroll-left max-w-md lg:ml-6">
             <span className="inline-block text-theme-accent text-sm font-semibold tracking-[0.2em] uppercase mb-4">
               About Us
             </span>
@@ -92,14 +92,21 @@ export default function About() {
               return (
                 <div
                   key={index}
-                  className="bg-theme-surface p-6 rounded-2xl border border-theme-border hover:shadow-lg transition-all duration-300"
+                  className="group relative bg-theme-surface p-6 rounded-2xl border border-theme-border hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
                   style={{ borderLeft: `4px solid ${pillar.accent}` }}
                 >
-                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ backgroundColor: `${pillar.accent}15` }}>
-                    <Icon className="w-6 h-6" style={{ color: pillar.accent }} />
+                  {/* Hover color tint */}
+                  <div
+                    className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{ backgroundColor: `${pillar.accent}10` }}
+                  />
+                  <div className="relative z-10">
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ backgroundColor: `${pillar.accent}15` }}>
+                      <Icon className="w-6 h-6" style={{ color: pillar.accent }} />
+                    </div>
+                    <h3 className="text-lg font-bold text-theme-text mb-2">{pillar.title}</h3>
+                    <p className="text-sm text-theme-text-muted leading-relaxed">{pillar.desc}</p>
                   </div>
-                  <h3 className="text-lg font-bold text-theme-text mb-2">{pillar.title}</h3>
-                  <p className="text-sm text-theme-text-muted leading-relaxed">{pillar.desc}</p>
                 </div>
               );
             })}
