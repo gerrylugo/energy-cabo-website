@@ -94,15 +94,15 @@ export default function Hero() {
           <div className="animate-fade-in-up grid grid-cols-3 gap-4 md:gap-16" style={{ animationDelay: '0.6s' }}>
             <div className="text-center">
               <div className="text-2xl md:text-4xl font-extrabold text-white">300+</div>
-              <div className="text-xs md:text-sm text-white/50 mt-1 tracking-wide uppercase">Sunny Days / Year</div>
+              <div className="text-xs md:text-sm text-white/80 drop-shadow-md mt-1 tracking-wide uppercase">Sunny Days / Year</div>
             </div>
             <div className="text-center border-x border-white/10 px-4 md:px-8">
               <div className="text-2xl md:text-4xl font-extrabold text-white">95%</div>
-              <div className="text-xs md:text-sm text-white/50 mt-1 tracking-wide uppercase">Bill Reduction</div>
+              <div className="text-xs md:text-sm text-white/80 drop-shadow-md mt-1 tracking-wide uppercase">Bill Reduction</div>
             </div>
             <div className="text-center">
               <div className="text-2xl md:text-4xl font-extrabold text-white">25yr</div>
-              <div className="text-xs md:text-sm text-white/50 mt-1 tracking-wide uppercase">Panel Warranty</div>
+              <div className="text-xs md:text-sm text-white/80 drop-shadow-md mt-1 tracking-wide uppercase">Panel Warranty</div>
             </div>
           </div>
         </div>

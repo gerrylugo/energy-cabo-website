@@ -46,13 +46,25 @@ export default function Testimonials() {
       }`} />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={headerRef} className="animate-on-scroll text-center mb-20">
-          <span className="inline-block text-theme-accent text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+          <span className={`inline-block text-sm font-semibold tracking-[0.2em] uppercase mb-4 ${
+            theme === 'techno' ? 'text-[#F5A623] font-bold' : 'text-theme-accent'
+          }`}
+            style={theme === 'techno' ? { textShadow: '0 0 15px rgba(0,0,0,0.8)' } : undefined}
+          >
             Testimonials
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-theme-text mb-5 tracking-tight">
+          <h2 className={`text-4xl md:text-5xl font-extrabold mb-5 tracking-tight ${
+            theme === 'techno' ? 'text-white' : 'text-theme-text'
+          }`}
+            style={theme === 'techno' ? { textShadow: '0 0 15px rgba(0,0,0,0.8)' } : undefined}
+          >
             Trusted Across Los Cabos
           </h2>
-          <p className="text-lg text-theme-text-muted max-w-2xl mx-auto">
+          <p className={`text-lg max-w-2xl mx-auto ${
+            theme === 'techno' ? 'text-[#F5A623]' : 'text-theme-text-muted'
+          }`}
+            style={theme === 'techno' ? { textShadow: '0 0 15px rgba(0,0,0,0.8)' } : undefined}
+          >
             From boutique hotels to beachfront villas — hear from our clients.
           </p>
         </div>
@@ -63,23 +75,29 @@ export default function Testimonials() {
               key={index}
               className={`relative p-8 rounded-2xl border hover:shadow-xl transition-all duration-500 ${
                 theme === 'techno'
-                  ? 'bg-[#0a1628]/70 backdrop-blur-sm border-theme-accent/20 hover:border-theme-accent/40 shadow-lg shadow-teal-900/20'
+                  ? 'bg-white/15 backdrop-blur-md border-white/20 hover:border-white/40 shadow-lg'
                   : 'bg-theme-bg-warm/40 border-theme-border hover:border-theme-accent/30'
               }`}
             >
-              <Quote className="w-10 h-10 text-theme-accent/20 mb-4" />
+              <Quote className={`w-10 h-10 mb-4 ${
+                theme === 'techno' ? 'text-white/40' : 'text-theme-accent/20'
+              }`} />
               <div className="flex gap-1 mb-5">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-energy-gold text-energy-gold" />
                 ))}
               </div>
-              <p className="text-theme-text-secondary mb-6 leading-relaxed">
+              <p className={`mb-6 leading-relaxed ${
+                theme === 'techno' ? 'text-white/90' : 'text-theme-text-secondary'
+              }`}>
                 "{testimonial.content}"
               </p>
-              <div className="border-t border-theme-border pt-5">
-                <div className="font-bold text-theme-text">{testimonial.name}</div>
-                <div className="text-sm text-theme-text-muted">{testimonial.location}</div>
-                <div className="text-xs text-theme-accent font-medium mt-1">{testimonial.system}</div>
+              <div className={`border-t pt-5 ${
+                theme === 'techno' ? 'border-white/20' : 'border-theme-border'
+              }`}>
+                <div className={`font-bold ${theme === 'techno' ? 'text-white' : 'text-theme-text'}`}>{testimonial.name}</div>
+                <div className={`text-sm ${theme === 'techno' ? 'text-white/70' : 'text-theme-text-muted'}`}>{testimonial.location}</div>
+                <div className={`text-xs font-medium mt-1 ${theme === 'techno' ? 'text-teal-300' : 'text-theme-accent'}`}>{testimonial.system}</div>
               </div>
             </div>
           ))}
