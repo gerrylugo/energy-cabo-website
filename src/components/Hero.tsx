@@ -15,7 +15,7 @@ export default function Hero() {
               alt=""
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/40" />
+            {/* overlay removed — letting the image shine */}
           </>
         ) : (
           <>
@@ -32,7 +32,7 @@ export default function Hero() {
           </>
         )}
         {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-black/30 to-transparent" />
+        {/* bottom gradient removed — letting full image shine */}
       </div>
 
       {/* Content — split into upper (text) and lower (CTAs + stats) with gap for image */}
@@ -48,13 +48,13 @@ export default function Hero() {
           </div>
 
           {/* Main headline */}
-          <h1 className="animate-fade-in-up text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white mb-4 tracking-tight leading-[0.95]">
+          <h1 className="animate-fade-in-up text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white drop-shadow-lg mb-4 tracking-tight leading-[0.95]">
             300 Days of Sun.
             <span className="block mt-2" style={{ color: 'var(--color-accent)' }}>Zero Wasted.</span>
           </h1>
 
           {/* Subheadline */}
-          <p className="animate-fade-in-up text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed" style={{ animationDelay: '0.2s' }}>
+          <p className="animate-fade-in-up text-lg md:text-xl font-semibold text-white drop-shadow-lg max-w-2xl mx-auto leading-relaxed" style={{ animationDelay: '0.2s' }}>
             Engineer-designed energy systems for homes and businesses in Baja California Sur.
             Built for the desert. Powered by the Sea of Cortez.
           </p>

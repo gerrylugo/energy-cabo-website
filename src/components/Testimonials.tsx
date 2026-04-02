@@ -1,5 +1,6 @@
 import { Star, Quote } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useTheme } from '../context/ThemeContext';
 
 const testimonials = [
   {
@@ -28,10 +29,22 @@ const testimonials = [
 export default function Testimonials() {
   const headerRef = useScrollAnimation();
   const gridRef = useScrollAnimation(0.1);
+  const { theme } = useTheme();
 
   return (
-    <section id="testimonials" className="py-28 bg-theme-bg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="testimonials" className="relative py-28 overflow-hidden">
+      {theme === 'techno' && (
+        <div
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-700"
+          style={{ backgroundImage: "url('/images/water-teal-texture.png')" }}
+        />
+      )}
+      <div className={`absolute inset-0 ${
+        theme === 'techno'
+          ? 'bg-[#0a1628]/15'
+          : 'bg-theme-bg'
+      }`} />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={headerRef} className="animate-on-scroll text-center mb-20">
           <span className="inline-block text-theme-accent text-sm font-semibold tracking-[0.2em] uppercase mb-4">
             Testimonials
@@ -48,7 +61,11 @@ export default function Testimonials() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="relative bg-theme-bg-warm/40 p-8 rounded-2xl border border-theme-border hover:border-theme-accent/30 hover:shadow-xl transition-all duration-500"
+              className={`relative p-8 rounded-2xl border hover:shadow-xl transition-all duration-500 ${
+                theme === 'techno'
+                  ? 'bg-[#0a1628]/70 backdrop-blur-sm border-theme-accent/20 hover:border-theme-accent/40 shadow-lg shadow-teal-900/20'
+                  : 'bg-theme-bg-warm/40 border-theme-border hover:border-theme-accent/30'
+              }`}
             >
               <Quote className="w-10 h-10 text-theme-accent/20 mb-4" />
               <div className="flex gap-1 mb-5">
