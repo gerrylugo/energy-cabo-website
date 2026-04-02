@@ -65,9 +65,9 @@
     /* Primary — choya pink as the lead */
     --color-primary: #D4519A;
     --color-primary-dark: #B03D7E;
-    --color-accent: #8B6DB0;
-    --color-accent-hover: #7A5CA0;
-    --color-accent-light: #B89FD4;
+    --color-accent: #5B6DB0;
+    --color-accent-hover: #4A5CA0;
+    --color-accent-light: #8B9FD4;
 
     /* Surfaces — soft pastel warm, not harsh orange */
     --color-bg: #FDF5F9;
@@ -82,11 +82,11 @@
     --color-text-secondary: #6B4A5A;
     --color-text-muted: #A88595;
 
-    /* Hero — coral to purple gradient, funky sunset */
+    /* Hero — full BCS sunset: coral → rosa → morado → azul noche */
     --color-hero-from: #E8735A;
     --color-hero-via: #D4519A;
-    --color-hero-to: #8B6DB0;
-    --color-hero-glow: rgba(212, 81, 154, 0.1);
+    --color-hero-to: #1B2A5C;
+    --color-hero-glow: rgba(212, 81, 154, 0.12);
 
     /* Special — keep warm accents available */
     --color-coral: #E8735A;
