@@ -1,5 +1,6 @@
 import { Sun, Shield, Wrench, Award } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useTheme } from '../context/ThemeContext';
 
 const pillars = [
   {
@@ -25,12 +26,26 @@ const pillars = [
 ];
 
 export default function About() {
+  const { theme } = useTheme();
   const leftRef = useScrollAnimation();
   const rightRef = useScrollAnimation();
 
   return (
-    <section id="about" className="py-28 bg-theme-bg-warm/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="relative py-28 overflow-hidden">
+      {/* Background — photo for techno, solid color for funky */}
+      {theme === 'techno' ? (
+        <div className="absolute inset-0">
+          <img
+            src="/images/torote-desert-techno.png"
+            alt=""
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.6) 35%, rgba(255,255,255,0.3) 60%, rgba(255,255,255,0.1) 100%)' }} />
+        </div>
+      ) : (
+        <div className="absolute inset-0 bg-theme-bg-warm/50" />
+      )}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left — narrative */}
           <div ref={leftRef} className="animate-on-scroll-left">

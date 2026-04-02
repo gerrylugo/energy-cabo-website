@@ -102,6 +102,16 @@
   }
 }
 
+/* Toggle glow animation */
+@keyframes toggle-glow {
+  0%, 100% { box-shadow: 0 0 4px transparent; opacity: 0.6; }
+  50% { box-shadow: 0 0 12px var(--color-accent); opacity: 1; }
+}
+
+.animate-toggle-glow > div {
+  animation: toggle-glow 3s ease-in-out infinite;
+}
+
 @layer utilities {
   /* Intersection Observer animation triggers */
   .animate-on-scroll {

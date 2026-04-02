@@ -1,23 +1,38 @@
 import { ChevronDown, ArrowRight } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 export default function Hero() {
+  const { theme } = useTheme();
+
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Background — uses theme hero colors */}
+      {/* Background — photo for techno, gradient for funky */}
       <div className="absolute inset-0">
-        <div
-          className="absolute inset-0"
-          style={{
-            background: 'linear-gradient(to bottom right, var(--color-hero-from), var(--color-hero-via), var(--color-hero-to))',
-          }}
-        />
-        {/* Subtle radial glow */}
-        <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-3xl"
-          style={{ backgroundColor: 'var(--color-hero-glow)' }}
-        />
+        {theme === 'techno' ? (
+          <>
+            <img
+              src="/images/hero-arco-techno.png"
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/40" />
+          </>
+        ) : (
+          <>
+            <div
+              className="absolute inset-0"
+              style={{
+                background: 'linear-gradient(to bottom right, var(--color-hero-from), var(--color-hero-via), var(--color-hero-to))',
+              }}
+            />
+            <div
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-3xl"
+              style={{ backgroundColor: 'var(--color-hero-glow)' }}
+            />
+          </>
+        )}
         {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-black/10 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-black/30 to-transparent" />
       </div>
 
       {/* Content */}
@@ -58,6 +73,17 @@ export default function Hero() {
             Explore Solutions
           </a>
         </div>
+
+        {/* Bobo mascot — funky theme only */}
+        {theme === 'funky' && (
+          <div className="animate-fade-in-up absolute bottom-32 right-8 md:right-16 lg:right-24 hidden md:block" style={{ animationDelay: '0.8s' }}>
+            <img
+              src="/images/bobo-hero.png"
+              alt="Bobo the Blue-footed Booby — Energy Cabo mascot"
+              className="w-40 lg:w-56 drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+        )}
 
         {/* Stats bar */}
         <div className="animate-fade-in-up mt-12 md:mt-20 mb-16 md:mb-0 grid grid-cols-3 gap-4 md:gap-16" style={{ animationDelay: '0.6s' }}>

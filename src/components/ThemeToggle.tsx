@@ -4,21 +4,21 @@ export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <button
-      onClick={toggleTheme}
-      className="fixed bottom-6 left-6 z-50 group"
-      aria-label={`Switch to ${theme === 'techno' ? 'Funky' : 'Techno'} mode`}
-    >
-      <div className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-theme-toggle-bg backdrop-blur-md border border-theme-toggle-border shadow-lg hover:scale-105 transition-all duration-300">
-        {/* Icon */}
-        <span className="text-lg leading-none">
-          {theme === 'techno' ? '🏄' : '⚡'}
-        </span>
-        {/* Label */}
-        <span className="text-sm font-semibold text-theme-toggle-text">
-          {theme === 'techno' ? 'Funky' : 'Techno'}
-        </span>
-      </div>
-    </button>
+    <div className="fixed bottom-5 left-5 z-50 flex flex-col items-center gap-1">
+      <button
+        onClick={toggleTheme}
+        aria-label={`Switch to ${theme === 'techno' ? 'Fun' : 'Luxury'} mode`}
+        className="group animate-toggle-glow"
+      >
+        <div className="px-3.5 py-1.5 rounded-lg bg-theme-toggle-bg/80 backdrop-blur-sm border border-theme-toggle-border/50 hover:scale-110 transition-all duration-300 cursor-pointer flex items-center justify-center">
+          <span className="text-[11px] font-semibold tracking-wide text-theme-toggle-text/70 group-hover:text-theme-toggle-text transition-colors leading-none">
+            {theme === 'techno' ? 'Fun' : 'Luxury'}
+          </span>
+        </div>
+      </button>
+      <span className="text-[8px] font-medium tracking-widest uppercase opacity-40" style={{ color: 'var(--color-accent)' }}>
+        We Adapt
+      </span>
+    </div>
   );
 }
