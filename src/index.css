@@ -82,11 +82,11 @@
     --color-text-secondary: #6B4A5A;
     --color-text-muted: #A88595;
 
-    /* Hero — full BCS sunset: coral → rosa → morado → azul noche */
-    --color-hero-from: #E8735A;
-    --color-hero-via: #D4519A;
-    --color-hero-to: #1B2A5C;
-    --color-hero-glow: rgba(212, 81, 154, 0.12);
+    /* Hero — BCS pastel sunset: peach horizon → rosa lila → azul lavanda */
+    --color-hero-from: #F0B8A0;
+    --color-hero-via: #D4A0C0;
+    --color-hero-to: #8B9FCC;
+    --color-hero-glow: rgba(212, 160, 192, 0.15);
 
     /* Special — keep warm accents available */
     --color-coral: #E8735A;

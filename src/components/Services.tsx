@@ -4,9 +4,9 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 const services = [
   {
     icon: Sun,
-    title: 'Solar Savings',
-    description: 'Reduce your CFE bill by up to 95%. Stay connected to the grid while your panels do the work.',
-    why: 'Run your AC, pool pump, and kitchen — all at once, all from the sun.',
+    title: 'Grid Savings',
+    description: 'Reduce your CFE bill by up to 95%. Stay connected to the grid while your system does the work.',
+    why: 'Run your AC, pool pump, and kitchen — all at once, powered by clean energy.',
     color: 'from-amber-500/10 to-orange-500/10',
     iconColor: 'text-amber-500',
   },

@@ -89,6 +89,12 @@ Fun theme should use **cartoon/caricature illustrations**, not photos:
 - Marine life (whale, manta ray) as fun elements
 - Style reference: colorful, warm, approachable — like a Pixar version of Baja
 
+### Mascot Hover Interaction (branding requirement)
+On hover, mascots/characters switch to a **beach look** version (sunglasses, hawaiian shirt, flip-flops, surfboard, etc.). Each mascot needs two states:
+- **Default**: normal cartoon character
+- **Hover**: same character in beach/vacation mode
+This applies to ALL mascot illustrations in Fun theme (Bobo, Cardinal, future characters).
+
 ---
 
 ## Shared Design Patterns
