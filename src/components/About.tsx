@@ -7,21 +7,25 @@ const pillars = [
     icon: Award,
     title: 'Premium Equipment',
     desc: 'Tier-1 panels, top-rated inverters, marine-grade components.',
+    accent: '#C4883A', // Torote gold
   },
   {
     icon: Wrench,
     title: 'Professional Installation',
     desc: 'Certified team, clean site delivery, no shortcuts.',
+    accent: '#50BB9B', // Mar de Cortez teal
   },
   {
     icon: Sun,
     title: 'Custom Engineering',
     desc: 'Designed for your property, not a cookie-cutter template.',
+    accent: '#1B3A6B', // Navy / rocas
   },
   {
     icon: Shield,
     title: 'Project Management',
     desc: 'One point of contact from quote to commissioning.',
+    accent: '#D4519A', // Rosa choya / bugambilia
   },
 ];
 
@@ -45,10 +49,10 @@ export default function About() {
       ) : (
         <div className="absolute inset-0 bg-theme-bg-warm/50" />
       )}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-16 xl:px-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center" style={{ gap: '12rem' }}>
           {/* Left — narrative */}
-          <div ref={leftRef} className="animate-on-scroll-left">
+          <div ref={leftRef} className="animate-on-scroll-left max-w-lg">
             <span className="inline-block text-theme-accent text-sm font-semibold tracking-[0.2em] uppercase mb-4">
               About Us
             </span>
@@ -82,16 +86,17 @@ export default function About() {
           </div>
 
           {/* Right — 4 pillars */}
-          <div ref={rightRef} className="animate-on-scroll-right grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div ref={rightRef} className="animate-on-scroll-right grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-lg ml-auto">
             {pillars.map((pillar, index) => {
               const Icon = pillar.icon;
               return (
                 <div
                   key={index}
-                  className="bg-theme-surface p-6 rounded-2xl border border-theme-border hover:shadow-lg hover:border-theme-accent/30 transition-all duration-300"
+                  className="bg-theme-surface p-6 rounded-2xl border border-theme-border hover:shadow-lg transition-all duration-300"
+                  style={{ borderLeft: `4px solid ${pillar.accent}` }}
                 >
-                  <div className="w-12 h-12 bg-theme-primary/5 rounded-xl flex items-center justify-center mb-4">
-                    <Icon className="w-6 h-6 text-theme-text" />
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ backgroundColor: `${pillar.accent}15` }}>
+                    <Icon className="w-6 h-6" style={{ color: pillar.accent }} />
                   </div>
                   <h3 className="text-lg font-bold text-theme-text mb-2">{pillar.title}</h3>
                   <p className="text-sm text-theme-text-muted leading-relaxed">{pillar.desc}</p>
