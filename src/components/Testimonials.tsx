@@ -60,9 +60,8 @@ export default function Testimonials() {
             Trusted Across Los Cabos
           </h2>
           <p className={`text-lg max-w-2xl mx-auto ${
-            theme === 'techno' ? 'text-[#F5A623]' : 'text-theme-text-muted'
+            theme === 'techno' ? 'text-[#F5A623] font-semibold section-label-glow' : 'text-theme-text-muted'
           }`}
-            style={theme === 'techno' ? { textShadow: '0 0 15px rgba(0,0,0,0.8)' } : undefined}
           >
             From boutique hotels to beachfront villas — hear from our clients.
           </p>
