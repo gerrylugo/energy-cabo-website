@@ -56,7 +56,7 @@ export default function Contact() {
     <section id="contact" className="py-28 bg-theme-bg-warm/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={headerRef} className="animate-on-scroll text-center mb-20">
-          <span className="inline-block text-theme-accent text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+          <span className="inline-block text-theme-accent text-base font-bold tracking-[0.2em] uppercase mb-4 section-label-glow">
             Get Started
           </span>
           <h2 className="text-4xl md:text-5xl font-extrabold text-theme-text mb-5 tracking-tight">

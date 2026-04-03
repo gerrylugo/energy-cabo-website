@@ -58,7 +58,7 @@ export default function Navigation() {
               <a
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium tracking-wide transition-colors duration-300 hover:text-theme-accent ${
+                className={`text-lg font-medium tracking-wide transition-colors duration-300 hover:text-theme-accent ${
                   isScrolled ? 'text-theme-text-secondary' : 'text-white/80 hover:text-white'
                 }`}
               >
@@ -67,7 +67,7 @@ export default function Navigation() {
             ))}
             <a
               href="#contact"
-              className="px-6 py-2.5 bg-theme-accent text-white text-sm font-semibold rounded-xl hover:opacity-90 transition-all duration-300 shadow-lg"
+              className="px-6 py-2.5 bg-theme-accent text-white text-lg font-semibold rounded-xl hover:opacity-90 transition-all duration-300 shadow-lg"
             >
               Get Quote
             </a>

@@ -53,7 +53,7 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center" style={{ gap: '12rem' }}>
           {/* Left — narrative */}
           <div ref={leftRef} className="animate-on-scroll-left max-w-md lg:ml-6">
-            <span className="inline-block text-theme-accent text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+            <span className="inline-block text-theme-accent text-base font-bold tracking-[0.2em] uppercase mb-4 section-label-glow">
               About Us
             </span>
             <h2 className="text-4xl md:text-5xl font-extrabold text-theme-text mb-6 tracking-tight leading-tight">

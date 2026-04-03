@@ -61,7 +61,7 @@ export default function Services() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section header */}
         <div ref={headerRef} className="animate-on-scroll text-center mb-20">
-          <span className="inline-block text-theme-accent text-sm font-semibold tracking-[0.2em] uppercase mb-4">
+          <span className="inline-block text-theme-accent text-base font-bold tracking-[0.2em] uppercase mb-4 section-label-glow">
             What We Do
           </span>
           <h2 className="text-4xl md:text-5xl font-extrabold text-theme-text mb-5 tracking-tight">

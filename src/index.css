@@ -5,7 +5,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-size: 13px;
+    font-size: 16px;
   }
 
   /* Protect only small UI text from zoom-out */
@@ -121,6 +121,12 @@
 }
 
 @layer utilities {
+  /* Section label glow */
+  .section-label-glow {
+    text-shadow: 0 0 12px currentColor, 0 0 24px currentColor;
+    filter: brightness(1.1);
+  }
+
   /* Intersection Observer animation triggers */
   .animate-on-scroll {
     opacity: 0;

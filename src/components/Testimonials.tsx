@@ -46,10 +46,9 @@ export default function Testimonials() {
       }`} />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={headerRef} className="animate-on-scroll text-center mb-20">
-          <span className={`inline-block text-sm font-semibold tracking-[0.2em] uppercase mb-4 ${
-            theme === 'techno' ? 'text-[#F5A623] font-bold' : 'text-theme-accent'
+          <span className={`inline-block text-base font-bold tracking-[0.2em] uppercase mb-4 section-label-glow ${
+            theme === 'techno' ? 'text-[#F5A623]' : 'text-theme-accent'
           }`}
-            style={theme === 'techno' ? { textShadow: '0 0 15px rgba(0,0,0,0.8)' } : undefined}
           >
             Testimonials
           </span>
