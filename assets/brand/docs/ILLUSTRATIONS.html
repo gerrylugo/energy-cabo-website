@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Energy Cabo — Illustration & Character Matrix</title>
+<style>
+  :root { --navy: #1B3A6B; --teal: #50BB9B; --coral: #E8735A; --gold: #D4A855; --sunset: #F28C5A; --arena: #F5F0E8; --sky: #87CEEB; --torote: #C4883A; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; color: #2C3E50; background: #F8F9FA; line-height: 1.6; }
+  .container { max-width: 1400px; margin: 0 auto; padding: 0 32px; }
+
+  header { background: linear-gradient(135deg, var(--navy), #0d2240); color: white; padding: 48px 0 72px; position: relative; overflow: hidden; }
+  header::after { content: ''; position: absolute; bottom: -30px; left: 0; right: 0; height: 60px; background: #F8F9FA; border-radius: 50% 50% 0 0 / 100% 100% 0 0; }
+  header h1 { font-size: 2.2rem; font-weight: 800; }
+  header h1 span { color: var(--teal); }
+  header .subtitle { opacity: 0.8; margin-top: 8px; font-size: 1.05rem; }
+  header .meta { display: flex; gap: 24px; font-size: 0.85rem; opacity: 0.5; margin-top: 16px; }
+
+  .how-to { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 12px; padding: 16px 20px; margin-top: 20px; font-size: 0.92rem; line-height: 1.7; }
+
+  /* FILTER BAR */
+  .filter-bar { background: white; border-radius: 14px; padding: 16px 24px; margin: 24px 0 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); display: flex; align-items: center; gap: 12px; flex-wrap: wrap; position: sticky; top: 0; z-index: 100; }
+  .filter-bar label { font-weight: 700; color: var(--navy); font-size: 0.9rem; }
+  .filter-btn { padding: 6px 14px; border-radius: 20px; border: 2px solid #e5e7eb; background: white; font-size: 0.82rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+  .filter-btn:hover { border-color: var(--teal); color: var(--teal); }
+  .filter-btn.active { background: var(--navy); color: white; border-color: var(--navy); }
+  .filter-btn.active-teal { background: var(--teal); color: white; border-color: var(--teal); }
+  .filter-count { background: var(--teal); color: white; padding: 2px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; margin-left: auto; }
+
+  /* SECTIONS */
+  section { background: white; border-radius: 16px; padding: 32px; margin: 16px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  section h2 { font-size: 1.4rem; font-weight: 800; color: var(--navy); margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  section h2 .emoji { font-size: 1.6rem; }
+  section .section-desc { font-size: 0.9rem; color: #888; margin-bottom: 16px; }
+
+  /* COMBO CARDS */
+  .combo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 12px; }
+  .combo-card { border: 2px solid #e5e7eb; border-radius: 12px; padding: 16px; transition: all 0.2s; position: relative; cursor: pointer; }
+  .combo-card:hover { border-color: var(--teal); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+  .combo-card.selected { border-color: var(--teal); background: #f0faf6; }
+  .combo-card.selected::after { content: 'SELECTED'; position: absolute; top: 8px; right: 10px; background: var(--teal); color: white; font-size: 0.65rem; font-weight: 800; padding: 2px 8px; border-radius: 10px; }
+  .combo-card.rejected { opacity: 0.35; border-color: #ddd; }
+  .combo-card.rejected::after { content: 'SKIP'; position: absolute; top: 8px; right: 10px; background: #ccc; color: white; font-size: 0.65rem; font-weight: 800; padding: 2px 8px; border-radius: 10px; }
+
+  .combo-id { font-family: monospace; font-size: 0.75rem; color: var(--teal); font-weight: 700; }
+  .combo-title { font-weight: 700; font-size: 1rem; color: var(--navy); margin: 4px 0; }
+  .combo-pose { font-size: 0.88rem; color: #555; margin-bottom: 8px; line-height: 1.5; }
+  .combo-meta { display: flex; gap: 8px; flex-wrap: wrap; }
+  .combo-tag { font-size: 0.72rem; font-weight: 600; padding: 3px 10px; border-radius: 12px; }
+  .tag-use { background: #EEF2FF; color: #4338CA; }
+  .tag-vibe { background: #FEF3C7; color: #92400E; }
+  .tag-section { background: #ECFDF5; color: #065F46; }
+  .tag-priority { background: var(--coral); color: white; }
+
+  .combo-actions { display: flex; gap: 6px; margin-top: 10px; }
+  .combo-actions button { padding: 4px 12px; border-radius: 8px; border: 1px solid #ddd; background: white; font-size: 0.78rem; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+  .combo-actions .btn-yes:hover { background: var(--teal); color: white; border-color: var(--teal); }
+  .combo-actions .btn-no:hover { background: #eee; color: #999; }
+  .combo-actions .btn-star:hover { background: var(--gold); color: white; border-color: var(--gold); }
+
+  /* SUMMARY */
+  .summary-bar { background: linear-gradient(135deg, var(--navy), #0d2240); color: white; border-radius: 14px; padding: 20px 28px; margin: 24px 0; display: flex; gap: 32px; align-items: center; flex-wrap: wrap; }
+  .summary-stat { text-align: center; }
+  .summary-stat .num { font-size: 2rem; font-weight: 900; color: var(--teal); }
+  .summary-stat .label { font-size: 0.75rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 1px; }
+
+  .export-btn { background: var(--teal); color: white; border: none; padding: 10px 24px; border-radius: 10px; font-weight: 700; font-size: 0.9rem; cursor: pointer; margin-left: auto; }
+  .export-btn:hover { opacity: 0.9; }
+
+  footer { text-align: center; padding: 40px 0 60px; color: #999; font-size: 0.85rem; }
+  .back-link { display: inline-block; background: var(--teal); color: white; padding: 8px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; margin: 8px 4px; }
+  .back-link:hover { opacity: 0.9; }
+
+  @media (max-width: 768px) {
+    header h1 { font-size: 1.6rem; }
+    section { padding: 20px; }
+    .combo-grid { grid-template-columns: 1fr; }
+    .filter-bar { flex-direction: column; align-items: flex-start; }
+    .summary-bar { flex-direction: column; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Energy Cabo — <span>Illustration Matrix</span></h1>
+    <p class="subtitle">Every character, pose, and combination for the website. Select the best, skip the rest.</p>
+    <div class="meta">
+      <span>Pre-production phase</span>
+      <span>April 2026</span>
+      <span>For Midjourney generation</span>
+    </div>
+    <div class="how-to">
+      <strong>How to use:</strong> Click any card to toggle <strong style="color: var(--teal);">SELECTED</strong> (will generate) or double-click to mark <strong style="color: #999;">SKIP</strong>. Use filters to browse by category. When done selecting, the summary at the bottom shows your generation plan. Click "Export Selected" to get the final Midjourney prompt list.
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- FILTER BAR -->
+<div class="filter-bar" id="filterBar">
+  <label>Filter:</label>
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="fauna">Fauna</button>
+  <button class="filter-btn" data-filter="flora">Flora</button>
+  <button class="filter-btn" data-filter="geography">Geography</button>
+  <button class="filter-btn" data-filter="equipment">Equipment</button>
+  <button class="filter-btn" data-filter="separator">Separators</button>
+  <button class="filter-btn" data-filter="background">Backgrounds</button>
+  <span class="filter-count" id="totalCount">0 combos</span>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION: BOBO — PRIMARY MASCOT CANDIDATE     -->
+<!-- ============================================ -->
+<section data-category="fauna">
+  <h2><span class="emoji">&#x1F9B6;</span> Bobo de Patas Azules — Primary Mascot</h2>
+  <p class="section-desc">The Blue-footed Booby. Teal feet = brand color. Confident, curious, slightly comedic. The strongest mascot candidate.</p>
+
+  <div class="combo-grid">
+    <div class="combo-card" data-id="B01">
+      <span class="combo-id">B01</span>
+      <div class="combo-title">Bobo on Solar Panel, Looking at Horizon</div>
+      <div class="combo-pose">Standing proudly on a solar panel, chest out, looking toward the ocean/horizon. Golden hour light. Confident pose.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Hero</span>
+        <span class="combo-tag tag-vibe">Confidence, vision</span>
+        <span class="combo-tag tag-priority">HIGH</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="B02">
+      <span class="combo-id">B02</span>
+      <div class="combo-title">Bobo Inspector with Hard Hat + Magnifying Glass</div>
+      <div class="combo-pose">Wearing a small construction helmet, holding a magnifying glass, inspecting a solar panel. Serious but cute expression.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Services: Quality</span>
+        <span class="combo-tag tag-vibe">Professional + fun</span>
+        <span class="combo-tag tag-priority">HIGH</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="B03">
+      <span class="combo-id">B03</span>
+      <div class="combo-title">Bobo Hugging a Battery</div>
+      <div class="combo-pose">Wrapping wings around a large battery unit protectively. Warm expression. The battery has a small heart or happy indicator.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Services: Always On</span>
+        <span class="combo-tag tag-vibe">Protection, care</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="B04">
+      <span class="combo-id">B04</span>
+      <div class="combo-title">Bobo Surfing a Solar Panel</div>
+      <div class="combo-pose">Riding a solar panel like a surfboard on a teal wave. Sunglasses on. Big energy. Todos Santos vibe.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Funky Theme Hero</span>
+        <span class="combo-tag tag-vibe">Adventure, lifestyle</span>
+        <span class="combo-tag tag-priority">HIGH</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="B05">
+      <span class="combo-id">B05</span>
+      <div class="combo-title">Bobo with Sunglasses + Surfboard</div>
+      <div class="combo-pose">Cool stance, surfboard under one wing, sunglasses, casual. Alex energy. Beach background optional.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">About / Alex</span>
+        <span class="combo-tag tag-vibe">Cool, lifestyle</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="B06">
+      <span class="combo-id">B06</span>
+      <div class="combo-title">Bobo Pointing at Savings Chart</div>
+      <div class="combo-pose">Standing next to a chart/graph with arrow going UP. Pointing at it with wing. Smart expression. Maybe tiny glasses.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Services: Solar Savings</span>
+        <span class="combo-tag tag-vibe">Smart, ROI</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="B07">
+      <span class="combo-id">B07</span>
+      <div class="combo-title">Bobo Sleeping in Hammock</div>
+      <div class="combo-pose">Relaxed in a hammock between two palm trees. Solar panel visible on a roof in the background. Zzz floating. Everything works on its own.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Testimonials / Peace of Mind</span>
+        <span class="combo-tag tag-vibe">Relax, autopilot</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="B08">
+      <span class="combo-id">B08</span>
+      <div class="combo-title">Bobo Superhero Blocking Lightning</div>
+      <div class="combo-pose">Cape flowing, chest out, one wing raised blocking a lightning bolt/surge. Shield energy. Heroic pose.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Services: Surge Shield</span>
+        <span class="combo-tag tag-vibe">Protection, power</span>
+        <span class="combo-tag tag-priority">HIGH</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="B09">
+      <span class="combo-id">B09</span>
+      <div class="combo-title">Tiny Bobo as Quote Marks</div>
+      <div class="combo-pose">Two tiny bobos facing each other, acting as opening/closing quotation marks. Minimal, icon-size.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Testimonials decoration</span>
+        <span class="combo-tag tag-vibe">Subtle, decorative</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="B10">
+      <span class="combo-id">B10</span>
+      <div class="combo-title">Bobo Waving Hello</div>
+      <div class="combo-pose">Friendly wave with one wing. Welcoming smile. Standing simply. The "greeting" pose.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Contact / CTA</span>
+        <span class="combo-tag tag-vibe">Friendly, inviting</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="B11">
+      <span class="combo-id">B11</span>
+      <div class="combo-title">Bobo Engineer with Blueprint</div>
+      <div class="combo-pose">Wearing small glasses, holding a rolled-up blueprint/schematic. Thoughtful pose. Engineering authority.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Services: Engineering</span>
+        <span class="combo-tag tag-vibe">Technical, trust</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="B12">
+      <span class="combo-id">B12</span>
+      <div class="combo-title">Bobo Holding Phone Showing App</div>
+      <div class="combo-pose">Holding a smartphone showing an energy monitoring dashboard. "Your energy, on your phone." Modern.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Services: Smart Generation</span>
+        <span class="combo-tag tag-vibe">Tech, modern</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="B13">
+      <span class="combo-id">B13</span>
+      <div class="combo-title">Bobo Walking Across Screen (Animation)</div>
+      <div class="combo-pose">Side-walking pose (left to right). For theme transition animation: Techno-to-Funky. Multiple frames or single sprite.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Theme Toggle Animation</span>
+        <span class="combo-tag tag-vibe">Playful, transition</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="B14">
+      <span class="combo-id">B14</span>
+      <div class="combo-title">Bobo Family (Big + 2 Small)</div>
+      <div class="combo-pose">Parent bobo with two baby bobos. Walking together. "A generation of energy" — 25yr warranty visual.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Warranty / Trust</span>
+        <span class="combo-tag tag-vibe">Family, longevity</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="B15">
+      <span class="combo-id">B15</span>
+      <div class="combo-title">Bobo Meditating on Battery</div>
+      <div class="combo-pose">Sitting cross-legged (lotus) on top of a battery. Eyes closed. Zen. "Total Independence" energy.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Services: Off-Grid</span>
+        <span class="combo-tag tag-vibe">Peace, independence</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="B16">
+      <span class="combo-id">B16</span>
+      <div class="combo-title">Bobo Conductor Directing Crew</div>
+      <div class="combo-pose">Standing on a roof edge, wearing a vest, directing other small characters (or other animals) during an installation. Project manager vibe.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Services: Project Management</span>
+        <span class="combo-tag tag-vibe">Leadership, coordination</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION: COLIBRI DE XANTUS                   -->
+<!-- ============================================ -->
+<section data-category="fauna">
+  <h2><span class="emoji">&#x1F426;</span> Colibri de Xantus — Secondary Character</h2>
+  <p class="section-desc">Endemic ONLY to Baja California Sur. Nobody else can use this. Fast, efficient, precise. The differentiator.</p>
+
+  <div class="combo-grid">
+    <div class="combo-card" data-id="H01">
+      <span class="combo-id">H01</span>
+      <div class="combo-title">Colibri Flying Between Solar Panels</div>
+      <div class="combo-pose">In flight, weaving between tilted solar panels. Teal/gold feathers catching light. Motion blur on wings.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Scattered decoration</span>
+        <span class="combo-tag tag-vibe">Efficiency, freedom</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="H02">
+      <span class="combo-id">H02</span>
+      <div class="combo-title">Colibri Drinking from Pitahaya Flower</div>
+      <div class="combo-pose">Hovering next to a pitahaya cactus flower, feeding. Pure BCS moment. Natural, endemic.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">About: Rooted in BCS</span>
+        <span class="combo-tag tag-vibe">Endemic, natural</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="H03">
+      <span class="combo-id">H03</span>
+      <div class="combo-title">Colibri Carrying a Tiny Cable</div>
+      <div class="combo-pose">Flying with a small cable or energy line in its feet. Connecting two sections visually. Like a divider element.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Section divider</span>
+        <span class="combo-tag tag-vibe">Connecting, bridging</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="H04">
+      <span class="combo-id">H04</span>
+      <div class="combo-title">Tiny Colibri as Bullet Point Icon</div>
+      <div class="combo-pose">Ultra-minimal side profile silhouette. 24-32px. Replaces standard bullet points or checkmarks in feature lists.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Lists, features</span>
+        <span class="combo-tag tag-vibe">Subtle, decorative</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="H05">
+      <span class="combo-id">H05</span>
+      <div class="combo-title">Colibri Hovering Next to the Logo</div>
+      <div class="combo-pose">Positioned right next to the Energy Cabo logo/text, as if inspecting or blessing it. Subtle brand companion.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Nav / Footer logo accent</span>
+        <span class="combo-tag tag-vibe">Brand identity</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="H06">
+      <span class="combo-id">H06</span>
+      <div class="combo-title">Colibri with Tiny Lightning Bolt</div>
+      <div class="combo-pose">Hovering with a small lightning bolt or energy spark trailing behind. Speed = efficiency. Energy in motion.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Services: Efficiency</span>
+        <span class="combo-tag tag-vibe">Speed, energy</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION: BALLENA                              -->
+<!-- ============================================ -->
+<section data-category="fauna">
+  <h2><span class="emoji">&#x1F40B;</span> Ballena Jorobada — Power Character</h2>
+  <p class="section-desc">Humpback whale. Migrates to BCS every year. Majestic, powerful. Represents large systems and industrial projects.</p>
+
+  <div class="combo-grid">
+    <div class="combo-card" data-id="W01">
+      <span class="combo-id">W01</span>
+      <div class="combo-title">Whale Breaching with Sun Behind</div>
+      <div class="combo-pose">Classic breach pose, water splashing, golden sun disc behind. Power. Scale. The "big systems" visual.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Services: Industrial / Hotels</span>
+        <span class="combo-tag tag-vibe">Power, majestic</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="W02">
+      <span class="combo-id">W02</span>
+      <div class="combo-title">Whale Tail as Section Divider</div>
+      <div class="combo-pose">Just the tail (fluke) emerging from water. Horizontal composition. Used as an organic section separator.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Section divider</span>
+        <span class="combo-tag tag-vibe">Elegant, iconic</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="W03">
+      <span class="combo-id">W03</span>
+      <div class="combo-title">Tiny Whale Icon (silhouette)</div>
+      <div class="combo-pose">Minimal whale silhouette, 32px, for product line "Ballena" label or as decorative scattered element.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Product naming / decoration</span>
+        <span class="combo-tag tag-vibe">Subtle, branding</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION: MANTARRAYA                           -->
+<!-- ============================================ -->
+<section data-category="fauna">
+  <h2><span class="emoji">&#x1F4A0;</span> Mantarraya — Elegance Character</h2>
+  <p class="section-desc">Manta ray. Flat, elegant, silent glider. Its shape = a solar panel from above. Smooth installation, sleek design.</p>
+
+  <div class="combo-grid">
+    <div class="combo-card" data-id="M01">
+      <span class="combo-id">M01</span>
+      <div class="combo-title">Manta Ray Gliding (Top View = Panel Shape)</div>
+      <div class="combo-pose">Seen from above, gliding through water. The flat body shape mirrors a solar panel. Subtle visual metaphor.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Services: Low-profile systems</span>
+        <span class="combo-tag tag-vibe">Elegance, stealth</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="M02">
+      <span class="combo-id">M02</span>
+      <div class="combo-title">Tiny Manta Ray Decoration</div>
+      <div class="combo-pose">Small silhouette, scattered between sections. Swimming through negative space. Subtle but rich.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Scattered decoration</span>
+        <span class="combo-tag tag-vibe">Subtle, flowing</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION: CARDENAL + TORTUGA + PELICANO        -->
+<!-- ============================================ -->
+<section data-category="fauna">
+  <h2><span class="emoji">&#x1F426;</span> Other Fauna — Cardenal, Tortuga, Pelicano</h2>
+  <p class="section-desc">Supporting cast. One-off appearances for specific contexts.</p>
+
+  <div class="combo-grid">
+    <div class="combo-card" data-id="F01">
+      <span class="combo-id">F01</span>
+      <div class="combo-title">Cardenal on Alert (Red Bird)</div>
+      <div class="combo-pose">Perched, head tilted, alert expression. Red/orange plumage. The "watchdog" — monitoring, protection.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Services: Surge Shield / Monitoring</span>
+        <span class="combo-tag tag-vibe">Alert, vigilant</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="F02">
+      <span class="combo-id">F02</span>
+      <div class="combo-title">Sea Turtle Swimming Steadily</div>
+      <div class="combo-pose">Calm, steady swimming. Ancient, long-lived. "25 years of energy" — warranty connection. Cabo Pulmo reef.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Warranty / Longevity</span>
+        <span class="combo-tag tag-vibe">Steady, lasting</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="F03">
+      <span class="combo-id">F03</span>
+      <div class="combo-title">Pelican Carrying Panel in Beak</div>
+      <div class="combo-pose">Flying with a small solar panel in its beak/pouch. The delivery bird. Installation/delivery metaphor.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Services: Installation</span>
+        <span class="combo-tag tag-vibe">Delivery, hardworking</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION: FLORA                                -->
+<!-- ============================================ -->
+<section data-category="flora">
+  <h2><span class="emoji">&#x1F335;</span> Flora BCS — Cardon, Torote, Pitahaya</h2>
+  <p class="section-desc">Endemic plants of Baja California Sur. Resilience, roots, the land itself.</p>
+
+  <div class="combo-grid">
+    <div class="combo-card" data-id="P01">
+      <span class="combo-id">P01</span>
+      <div class="combo-title">Cardon Cactus with Panel Leaning on It</div>
+      <div class="combo-pose">Giant cardon in the desert, solar panel casually leaning against it. "We're rooted here." Golden hour light.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">About: Rooted in BCS</span>
+        <span class="combo-tag tag-vibe">Resilient, local</span>
+        <span class="combo-tag tag-priority">HIGH</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="P02">
+      <span class="combo-id">P02</span>
+      <div class="combo-title">Cardon Silhouette (Tiny Icon)</div>
+      <div class="combo-pose">Minimal cardon silhouette, 32-64px. For product line labels, bullet points, or scattered decoration.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Product naming / decoration</span>
+        <span class="combo-tag tag-vibe">Minimal, BCS</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="P03">
+      <span class="combo-id">P03</span>
+      <div class="combo-title">Torote Tree with Golden Energy Particles</div>
+      <div class="combo-pose">Torote with its golden copper bark, tiny energy/light particles floating around branches like fireflies. Magical, warm.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Background decoration</span>
+        <span class="combo-tag tag-vibe">Magical, golden</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="P04">
+      <span class="combo-id">P04</span>
+      <div class="combo-title">Pitahaya Fruit (Colorful Accent)</div>
+      <div class="combo-pose">Bright pink/red pitahaya fruit, cut open showing interior. Pure color pop. Decorative, the "fruit of the desert."</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Funky theme accent</span>
+        <span class="combo-tag tag-vibe">Colorful, tropical</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="P05">
+      <span class="combo-id">P05</span>
+      <div class="combo-title">Desert Floor with Scattered Succulents</div>
+      <div class="combo-pose">Horizontal band: sand, small succulents, pebbles, maybe a tiny lizard. Used as organic bottom border for sections.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Section bottom border</span>
+        <span class="combo-tag tag-vibe">Organic, grounded</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION: GEOGRAPHY                            -->
+<!-- ============================================ -->
+<section data-category="geography">
+  <h2><span class="emoji">&#x1F3D6;</span> Geography — Arco, Waves, Desert, Sun</h2>
+  <p class="section-desc">The landscape of Los Cabos. Landmarks, ocean, desert, sky.</p>
+
+  <div class="combo-grid">
+    <div class="combo-card" data-id="G01">
+      <span class="combo-id">G01</span>
+      <div class="combo-title">El Arco Silhouette (Icon Size)</div>
+      <div class="combo-pose">Clean silhouette of El Arco de Cabo San Lucas, sun visible through the arch. 64-128px. For logo, nav, or branding.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Logo / Nav / Branding</span>
+        <span class="combo-tag tag-vibe">Iconic, instant recognition</span>
+        <span class="combo-tag tag-priority">HIGH</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="G02">
+      <span class="combo-id">G02</span>
+      <div class="combo-title">El Arco Wide Shot (Hero Background)</div>
+      <div class="combo-pose">Panoramic El Arco at golden hour. Sun rays through the arch. Turquoise water. Cinematic. 16:9 hero image.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Hero background</span>
+        <span class="combo-tag tag-vibe">Dramatic, premium</span>
+        <span class="combo-tag tag-priority">HIGH</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="G03">
+      <span class="combo-id">G03</span>
+      <div class="combo-title">Desert Meets Ocean Panorama</div>
+      <div class="combo-pose">Where Sonoran desert meets Sea of Cortez. Cardon cacti foreground, turquoise water behind. Golden hour. Wide.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Hero background (alt)</span>
+        <span class="combo-tag tag-vibe">Epic, unique geography</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="G04">
+      <span class="combo-id">G04</span>
+      <div class="combo-title">Ocean Waves (Teal) — Wavy Section Divider</div>
+      <div class="combo-pose">Stylized teal ocean waves as a horizontal band. Organic curve. Used between sections like Super Hello's pink/yellow waves.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Section separator (CSS/SVG)</span>
+        <span class="combo-tag tag-vibe">Flowing, coastal</span>
+        <span class="combo-tag tag-priority">HIGH</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="G05">
+      <span class="combo-id">G05</span>
+      <div class="combo-title">Desert Horizon Silhouette — Divider</div>
+      <div class="combo-pose">Silhouette of BCS desert horizon: cardones, mountains, a distant Arco. Horizontal band. Section separator.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Section separator (CSS/SVG)</span>
+        <span class="combo-tag tag-vibe">Grounded, landscape</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="G06">
+      <span class="combo-id">G06</span>
+      <div class="combo-title">Golden Sun Disc (Icon)</div>
+      <div class="combo-pose">Simple golden sun with short rays. 64px. The energy source. "300 days of sun." Used as accent or rating icon.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Ratings, accents, hero</span>
+        <span class="combo-tag tag-vibe">Warm, energy</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="G07">
+      <span class="combo-id">G07</span>
+      <div class="combo-title">Sunrise Over Sierra de la Laguna</div>
+      <div class="combo-pose">Mountains in silhouette, sun rising behind. Gold gradient sky. Used as a subtle background for About or Footer.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">About / Footer background</span>
+        <span class="combo-tag tag-vibe">Dawn, new beginning</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION: EQUIPMENT                            -->
+<!-- ============================================ -->
+<section data-category="equipment">
+  <h2><span class="emoji">&#x26A1;</span> Equipment — Illustrated Tech</h2>
+  <p class="section-desc">Solar panels, batteries, inverters, generators — illustrated in a consistent style (isometric or flat). Like Super Hello's feature icons but for energy tech.</p>
+
+  <div class="combo-grid">
+    <div class="combo-card" data-id="E01">
+      <span class="combo-id">E01</span>
+      <div class="combo-title">Solar Panel (Isometric, Illustrated)</div>
+      <div class="combo-pose">Single solar panel, tilted, isometric view. Clean illustrated style. Catching golden sunlight. Shadow beneath.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Services: Solar Savings</span>
+        <span class="combo-tag tag-vibe">Clean, tech</span>
+        <span class="combo-tag tag-priority">HIGH</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="E02">
+      <span class="combo-id">E02</span>
+      <div class="combo-title">Battery Unit (Isometric, Illustrated)</div>
+      <div class="combo-pose">Large battery/powerwall unit, isometric. LED indicator glowing teal. Solid, reliable look.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Services: Always On</span>
+        <span class="combo-tag tag-vibe">Reliable, tech</span>
+        <span class="combo-tag tag-priority">HIGH</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="E03">
+      <span class="combo-id">E03</span>
+      <div class="combo-title">Inverter with Happy Display</div>
+      <div class="combo-pose">Inverter box, isometric. Small screen showing a smiley face or green checkmark. "The brain of the system."</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Services: Smart Generation</span>
+        <span class="combo-tag tag-vibe">Smart, friendly tech</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="E04">
+      <span class="combo-id">E04</span>
+      <div class="combo-title">Generator (Backup Power)</div>
+      <div class="combo-pose">Generator unit, isometric. Rugged look. Small lightning bolt icon. "When you need it most."</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Services: Backup</span>
+        <span class="combo-tag tag-vibe">Rugged, reliable</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="E05">
+      <span class="combo-id">E05</span>
+      <div class="combo-title">Shield with Lightning Bolt Bouncing Off</div>
+      <div class="combo-pose">Energy shield/barrier icon. Lightning bolt hitting it and deflecting. Surge protection visual.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Services: Surge Shield</span>
+        <span class="combo-tag tag-vibe">Protection, defense</span>
+        <span class="combo-tag tag-priority">HIGH</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="E06">
+      <span class="combo-id">E06</span>
+      <div class="combo-title">House with Panels on Roof (Illustrated)</div>
+      <div class="combo-pose">Cute illustrated house, Cabo style (terracotta/white), panels on roof, sun above. Complete system visual.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Services: Complete Solution</span>
+        <span class="combo-tag tag-vibe">Aspirational, warm</span>
+        <span class="combo-tag tag-priority">HIGH</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="E07">
+      <span class="combo-id">E07</span>
+      <div class="combo-title">Electric Meter Spinning Backwards</div>
+      <div class="combo-pose">CFE meter with arrow going backwards/counter-clockwise. Dollar signs or coins coming out. Savings visual.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Services: Solar Savings</span>
+        <span class="combo-tag tag-vibe">Clever, ROI</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="E08">
+      <span class="combo-id">E08</span>
+      <div class="combo-title">Smartphone with Energy Dashboard</div>
+      <div class="combo-pose">Phone screen showing solar production graph, battery %, savings counter. Remote monitoring visual.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Services: Monitoring</span>
+        <span class="combo-tag tag-vibe">Modern, connected</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="E09">
+      <span class="combo-id">E09</span>
+      <div class="combo-title">Surfboard with Solar Panel Texture</div>
+      <div class="combo-pose">A surfboard standing upright, but the surface has solar cell texture. Surf meets solar. Alex's Todos Santos market.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Funky theme / About</span>
+        <span class="combo-tag tag-vibe">Lifestyle, crossover</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="E10">
+      <span class="combo-id">E10</span>
+      <div class="combo-title">Hard Hat + Tools (Installation Kit)</div>
+      <div class="combo-pose">Construction helmet, drill, wrench, cable arranged neatly. "Professional installation." Clean, organized.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Services: Installation</span>
+        <span class="combo-tag tag-vibe">Professional, trust</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION: SEPARATORS                           -->
+<!-- ============================================ -->
+<section data-category="separator">
+  <h2><span class="emoji">&#x1F30A;</span> Section Separators — Organic Dividers</h2>
+  <p class="section-desc">Like Super Hello's wavy pink/yellow transitions. But with BCS elements: waves, desert horizon, sand. Most are CSS/SVG — some may include Midjourney textures.</p>
+
+  <div class="combo-grid">
+    <div class="combo-card" data-id="S01">
+      <span class="combo-id">S01</span>
+      <div class="combo-title">Ocean Wave (Teal to Navy)</div>
+      <div class="combo-pose">Smooth SVG wave curve. Teal section flows into navy section. Like water meeting deep sea.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Between any sections</span>
+        <span class="combo-tag tag-vibe">Coastal, flowing</span>
+        <span class="combo-tag tag-priority">HIGH</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="S02">
+      <span class="combo-id">S02</span>
+      <div class="combo-title">Desert Horizon Silhouette</div>
+      <div class="combo-pose">SVG silhouette: mountains + cardones + distant Arco. Between About and Projects sections.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">About → Projects</span>
+        <span class="combo-tag tag-vibe">Landscape, BCS</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="S03">
+      <span class="combo-id">S03</span>
+      <div class="combo-title">Sand Dune Curve (Arena to White)</div>
+      <div class="combo-pose">Smooth curve suggesting sand dunes. Arena #F5F0E8 flowing into white. Warm, subtle.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Between warm sections</span>
+        <span class="combo-tag tag-vibe">Warm, desert</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="S04">
+      <span class="combo-id">S04</span>
+      <div class="combo-title">Coral Reef Edge (Teal + Coral)</div>
+      <div class="combo-pose">Organic, irregular edge like a reef line. Teal water above, coral/sand below. For Funky theme.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Funky theme separators</span>
+        <span class="combo-tag tag-vibe">Vibrant, organic</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="S05">
+      <span class="combo-id">S05</span>
+      <div class="combo-title">Whale Tail Emerging from Water</div>
+      <div class="combo-pose">Small whale tail breaking the wave-separator line. A tiny surprise detail within the wave divider.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Wave separator enhancement</span>
+        <span class="combo-tag tag-vibe">Playful, surprise</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION: BACKGROUNDS                          -->
+<!-- ============================================ -->
+<section data-category="background">
+  <h2><span class="emoji">&#x1F3A8;</span> Section Backgrounds & Textures</h2>
+  <p class="section-desc">Subtle textures for section backgrounds. Very low opacity — never compete with content. Like a watermark of BCS.</p>
+
+  <div class="combo-grid">
+    <div class="combo-card" data-id="BG01">
+      <span class="combo-id">BG01</span>
+      <div class="combo-title">Ocean Water Texture (Teal, Subtle)</div>
+      <div class="combo-pose">Aerial view of turquoise water, very low opacity (10-15%). Light base. For services or hero overlay.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Services section</span>
+        <span class="combo-tag tag-vibe">Coastal, fresh</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="BG02">
+      <span class="combo-id">BG02</span>
+      <div class="combo-title">Sand Texture (Arena, Warm)</div>
+      <div class="combo-pose">Subtle sand grain texture, warm arena #F5F0E8 base. For About or Testimonials background.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">About / Testimonials</span>
+        <span class="combo-tag tag-vibe">Warm, grounded</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="BG03">
+      <span class="combo-id">BG03</span>
+      <div class="combo-title">Topographic Map Lines (Teal on Sand)</div>
+      <div class="combo-pose">Faint topographic contour lines suggesting BCS geography. Teal lines on arena base. Very subtle.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Any section</span>
+        <span class="combo-tag tag-vibe">Technical, geographic</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="BG04">
+      <span class="combo-id">BG04</span>
+      <div class="combo-title">Navy Deep Sea (Dark Section)</div>
+      <div class="combo-pose">Deep navy gradient with faint teal mesh. For dark sections (footer, CTA, hero overlay).</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Footer / CTA / Hero</span>
+        <span class="combo-tag tag-vibe">Deep, premium</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+
+    <div class="combo-card" data-id="BG05">
+      <span class="combo-id">BG05</span>
+      <div class="combo-title">Sunset Gradient (Gold to Coral)</div>
+      <div class="combo-pose">Warm gradient suggesting Pacific sunset. For Funky theme sections. Bold but not overwhelming.</div>
+      <div class="combo-meta">
+        <span class="combo-tag tag-section">Funky theme sections</span>
+        <span class="combo-tag tag-vibe">Warm, sunset</span>
+      </div>
+      <div class="combo-actions"><button class="btn-yes">Select</button><button class="btn-no">Skip</button><button class="btn-star">Star</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SUMMARY BAR                                   -->
+<!-- ============================================ -->
+<div class="summary-bar" id="summaryBar">
+  <div class="summary-stat"><div class="num" id="selectedCount">0</div><div class="label">Selected</div></div>
+  <div class="summary-stat"><div class="num" id="skippedCount">0</div><div class="label">Skipped</div></div>
+  <div class="summary-stat"><div class="num" id="undecidedCount">0</div><div class="label">Undecided</div></div>
+  <div class="summary-stat"><div class="num" id="estimatedPrompts">0</div><div class="label">MJ Prompts</div></div>
+  <button class="export-btn" onclick="exportSelected()">Export Selected to Clipboard</button>
+</div>
+
+</div>
+
+<footer>
+  <a href="PROMPTS.html" class="back-link">Midjourney Prompts (116)</a>
+  <a href="../BRAND_STRATEGY_MATRIX.html" class="back-link">Brand Strategy Matrix</a>
+  <p style="margin-top: 16px;">Energy Cabo — Pre-production illustration matrix. Select first, generate second.</p>
+</footer>
+
+<script>
+// Card selection logic
+document.querySelectorAll('.combo-card').forEach(card => {
+  const btnYes = card.querySelector('.btn-yes');
+  const btnNo = card.querySelector('.btn-no');
+  const btnStar = card.querySelector('.btn-star');
+
+  btnYes.addEventListener('click', (e) => {
+    e.stopPropagation();
+    card.classList.remove('rejected');
+    card.classList.toggle('selected');
+    updateCounts();
+    save();
+  });
+
+  btnNo.addEventListener('click', (e) => {
+    e.stopPropagation();
+    card.classList.remove('selected');
+    card.classList.toggle('rejected');
+    updateCounts();
+    save();
+  });
+
+  btnStar.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (!card.classList.contains('selected')) card.classList.add('selected');
+    card.classList.remove('rejected');
+    btnStar.textContent = btnStar.textContent === 'Star' ? 'Starred!' : 'Star';
+    btnStar.style.background = btnStar.textContent === 'Starred!' ? '#D4A855' : '';
+    btnStar.style.color = btnStar.textContent === 'Starred!' ? 'white' : '';
+    updateCounts();
+    save();
+  });
+});
+
+// Filter logic
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('section[data-category]').forEach(sec => {
+      sec.style.display = (filter === 'all' || sec.dataset.category === filter) ? '' : 'none';
+    });
+  });
+});
+
+// Count updater
+function updateCounts() {
+  const all = document.querySelectorAll('.combo-card');
+  const selected = document.querySelectorAll('.combo-card.selected');
+  const rejected = document.querySelectorAll('.combo-card.rejected');
+  document.getElementById('totalCount').textContent = all.length + ' combos';
+  document.getElementById('selectedCount').textContent = selected.length;
+  document.getElementById('skippedCount').textContent = rejected.length;
+  document.getElementById('undecidedCount').textContent = all.length - selected.length - rejected.length;
+  document.getElementById('estimatedPrompts').textContent = selected.length; // 1:1 for now
+}
+
+// Export
+function exportSelected() {
+  const selected = document.querySelectorAll('.combo-card.selected');
+  let text = 'ENERGY CABO — SELECTED ILLUSTRATIONS\n';
+  text += '=' .repeat(50) + '\n\n';
+  selected.forEach(card => {
+    const id = card.querySelector('.combo-id').textContent;
+    const title = card.querySelector('.combo-title').textContent;
+    const pose = card.querySelector('.combo-pose').textContent;
+    const tags = [...card.querySelectorAll('.combo-tag')].map(t => t.textContent).join(' | ');
+    text += `[${id}] ${title}\n  Pose: ${pose}\n  Tags: ${tags}\n\n`;
+  });
+  text += `\nTotal: ${selected.length} illustrations to generate`;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('.export-btn');
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Export Selected to Clipboard', 2000);
+  });
+}
+
+// Persist to localStorage
+function save() {
+  const state = {};
+  document.querySelectorAll('.combo-card').forEach(card => {
+    const id = card.dataset.id;
+    if (card.classList.contains('selected')) state[id] = 'selected';
+    else if (card.classList.contains('rejected')) state[id] = 'rejected';
+  });
+  localStorage.setItem('ec-illustrations', JSON.stringify(state));
+}
+
+// Pre-selected 28 illustrations (curated set covering all sections + characters)
+const PRESELECTED = [
+  'B01','B02','B04','B07','B08','B10',  // Bobo (6)
+  'H01','H03','H04',                     // Colibri (3)
+  'W02','M01','F02',                     // Fauna support (3)
+  'P01','P02','P03',                     // Flora (3)
+  'G01','G02','G06',                     // Geography (3)
+  'E01','E02','E05','E06','E07','E09',   // Equipment (6)
+  'BG01','BG02',                          // Backgrounds (2)
+  'S01','S05'                             // Separators (2)
+];
+
+function load() {
+  try {
+    const saved = localStorage.getItem('ec-illustrations');
+    const forceReset = new URLSearchParams(window.location.search).has('reset');
+    if (forceReset) localStorage.removeItem('ec-illustrations');
+
+    if (saved && !forceReset) {
+      // Use saved state if exists
+      const state = JSON.parse(saved);
+      Object.entries(state).forEach(([id, status]) => {
+        const card = document.querySelector(`[data-id="${id}"]`);
+        if (card) card.classList.add(status);
+      });
+    } else {
+      // First load: apply curated pre-selection
+      PRESELECTED.forEach(id => {
+        const card = document.querySelector(`[data-id="${id}"]`);
+        if (card) card.classList.add('selected');
+      });
+      save(); // persist the pre-selection
+    }
+  } catch(e) {}
+  updateCounts();
+}
+
+load();
+</script>
+
+</body>
+</html>

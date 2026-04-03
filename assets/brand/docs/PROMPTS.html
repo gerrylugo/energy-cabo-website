@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Energy Cabo — Image Generation Prompts (116)</title>
+<style>
+  :root { --navy: #1B3A6B; --teal: #50BB9B; --coral: #E8735A; --gold: #D4A855; --sunset: #F28C5A; --arena: #F5F0E8; --sky: #87CEEB; --torote: #C4883A; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; color: #2C3E50; background: #F8F9FA; line-height: 1.6; }
+  .container { max-width: 1400px; margin: 0 auto; padding: 0 32px; }
+  header { background: linear-gradient(135deg, var(--navy), #0d2240); color: white; padding: 48px 0 64px; position: relative; overflow: hidden; }
+  header::after { content: ''; position: absolute; bottom: -30px; left: 0; right: 0; height: 60px; background: #F8F9FA; border-radius: 50% 50% 0 0 / 100% 100% 0 0; }
+  header h1 { font-size: 2.2rem; font-weight: 800; }
+  header h1 span { color: var(--teal); }
+  header .subtitle { opacity: 0.8; margin-top: 8px; }
+  .palette { display: flex; gap: 8px; margin-top: 16px; }
+  .palette-dot { width: 32px; height: 32px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.4); position: relative; cursor: help; }
+  .palette-dot::after { content: attr(data-label); position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); font-size: 0.65rem; white-space: nowrap; opacity: 0.6; }
+
+  section { background: white; border-radius: 16px; padding: 32px; margin: 20px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+  section h2 { font-size: 1.4rem; font-weight: 800; color: var(--navy); margin-bottom: 4px; display: flex; align-items: center; gap: 10px; }
+  section h2 .num { background: var(--teal); color: white; width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.9rem; flex-shrink: 0; }
+  h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin: 20px 0 10px; }
+  h4 { font-size: 0.95rem; font-weight: 600; color: var(--navy); margin: 16px 0 8px; }
+
+  .prompt-card { background: #1e293b; color: #e2e8f0; padding: 14px 18px; border-radius: 10px; margin: 8px 0; font-size: 0.85rem; line-height: 1.5; position: relative; cursor: pointer; transition: all 0.2s; font-family: 'Consolas', 'Monaco', monospace; }
+  .prompt-card:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+  .prompt-card::after { content: 'Click to copy'; position: absolute; top: 8px; right: 12px; font-size: 0.7rem; opacity: 0.4; font-family: system-ui; }
+  .prompt-card.copied::after { content: 'Copied!'; color: var(--teal); opacity: 1; }
+  .prompt-id { color: var(--teal); font-weight: 700; font-family: system-ui; }
+
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.9rem; }
+  th { background: var(--navy); color: white; padding: 8px 12px; text-align: left; font-weight: 600; }
+  th:first-child { border-radius: 8px 0 0 0; } th:last-child { border-radius: 0 8px 0 0; }
+  td { padding: 8px 12px; border-bottom: 1px solid #eee; }
+
+  .settings-box { background: var(--arena); border: 1px solid #e5ddd0; border-radius: 10px; padding: 16px; margin: 12px 0; font-size: 0.9rem; }
+  .system-prompt { background: #0d2240; color: #a0d8c8; padding: 16px; border-radius: 10px; font-size: 0.82rem; line-height: 1.6; font-family: monospace; white-space: pre-wrap; margin: 12px 0; }
+
+  .concept-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; margin: 12px 0; }
+  .concept-tag { background: var(--navy); color: white; padding: 8px 12px; border-radius: 8px; text-align: center; font-size: 0.85rem; font-weight: 600; }
+
+  .tip { background: #f0faf6; border-left: 3px solid var(--teal); padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 12px 0; font-size: 0.9rem; }
+  footer { text-align: center; padding: 30px 0 50px; color: #999; font-size: 0.85rem; }
+  .back-link { display: inline-block; background: var(--teal); color: white; padding: 8px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; margin-top: 12px; }
+  .back-link:hover { opacity: 0.9; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Energy Cabo — <span>116 Image Prompts</span></h1>
+    <p class="subtitle">For Midjourney / Google AI Studio / Leonardo AI</p>
+    <div class="palette">
+      <div class="palette-dot" style="background: var(--navy)" data-label="Navy"></div>
+      <div class="palette-dot" style="background: var(--teal)" data-label="Teal"></div>
+      <div class="palette-dot" style="background: var(--coral)" data-label="Coral"></div>
+      <div class="palette-dot" style="background: var(--gold)" data-label="Gold"></div>
+      <div class="palette-dot" style="background: var(--sunset)" data-label="Sunset"></div>
+      <div class="palette-dot" style="background: var(--arena)" data-label="Arena"></div>
+      <div class="palette-dot" style="background: var(--torote)" data-label="Torote"></div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+<p style="margin: 20px 0;"><a href="../BRAND_STRATEGY_MATRIX.html" class="back-link">Back to Brand Strategy Matrix</a></p>
+
+<!-- SECTION 0: SETTINGS -->
+<section>
+  <h2><span class="num">0</span> Settings</h2>
+
+  <h3>System Instructions (paste once)</h3>
+  <div class="system-prompt">You are a brand designer for Energy Cabo, a premium solar energy company in Los Cabos, Mexico.
+
+Brand identity:
+- Energy Cabo = solar energy solutions for Los Cabos and BCS
+- Tagline concept: "300 Days of Sun. Zero Wasted."
+- Visual themes: Sea of Cortez, El Arco, solar panels, desert, BCS endemic wildlife (Blue-footed Booby, Xantus Hummingbird, Cardon cactus, Torote tree), golden hour, ocean
+
+Color palette (STRICT — use only these):
+- Navy: #1B3A6B (Mar de Cortez)
+- Teal: #50BB9B, #2AA8A0, #6ED4B3 (Patas del Bobo)
+- Coral: #E8735A (Coral de Pulmo)
+- Gold: #D4A855, #C4883A (Cardon Dorado / Torote Gold)
+- Sunset: #F28C5A (Atardecer Pacifico)
+- Sand: #F5F0E8 (Arena de Medano)
+- Sky: #87CEEB (Cielo de Cabo)
+
+Rules:
+- NEVER generate text, words, letters, or watermarks
+- Keep compositions clean and premium
+- Icons must work at small sizes (32px to 512px)
+- Navy backgrounds by default unless specified
+- Teal is always the dominant accent</div>
+
+  <h3>Temperature & Aspect Ratio</h3>
+  <table>
+    <tr><th>Asset</th><th>Temperature</th><th>Aspect</th><th>Note</th></tr>
+    <tr><td>Logo Icon</td><td>0.6–0.8</td><td>1:1</td><td>Consistent, controlled</td></tr>
+    <tr><td>Hero/Splash</td><td>1.0–1.2</td><td>16:9</td><td>Creative, dramatic</td></tr>
+    <tr><td>UI Background</td><td>0.4–0.6</td><td>16:9</td><td>Subtle, predictable</td></tr>
+    <tr><td>Social/Promo</td><td>1.0–1.4</td><td>1:1 or 9:16</td><td>Most creative</td></tr>
+    <tr><td>Favicon</td><td>0.4–0.6</td><td>1:1</td><td>Ultra simple</td></tr>
+  </table>
+</section>
+
+<!-- SECTION 1: LOGO ICONS -->
+<section>
+  <h2><span class="num">1</span> Logo Icon — 64 Prompts (8 concepts x 8 styles)</h2>
+
+  <h3>Concepts</h3>
+  <div class="concept-grid">
+    <div class="concept-tag">A: Colibri</div>
+    <div class="concept-tag">B: Bobo</div>
+    <div class="concept-tag">C: Los Arcos</div>
+    <div class="concept-tag">D: Sun+Wave</div>
+    <div class="concept-tag">E: Cardon</div>
+    <div class="concept-tag">F: Torote</div>
+    <div class="concept-tag">G: Wave+Panel</div>
+    <div class="concept-tag">H: Desert Sunrise</div>
+  </div>
+
+  <h3>Styles</h3>
+  <p style="font-size:0.9rem; color:#666;">Each concept has 8 variants: flat vector, 3D glossy, glassmorphism, neon glow, metallic emboss, low-poly geometric, line art, gradient mesh</p>
+
+  <div class="tip"><strong>Start with:</strong> C1, C4, D4, A1, A4, F1, F5 — these are the strongest concepts for an energy company.</div>
+
+  <!-- A: Colibri -->
+  <h4>A: Colibri de Xantus</h4>
+  <div class="prompt-card"><span class="prompt-id">A1.</span> Minimalist logo icon, Xantus hummingbird silhouette in flight, teal body with golden sun highlight behind, flat vector style, dark navy background #1B3A6B, colors teal #50BB9B gold #D4A855, warm coastal mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">A2.</span> Minimalist logo icon, Xantus hummingbird silhouette in flight, teal body with golden sun highlight behind, 3D glossy style with subtle reflections, dark navy background #1B3A6B, colors teal #50BB9B gold #D4A855, premium professional mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">A3.</span> Minimalist logo icon, Xantus hummingbird silhouette in flight, teal body with golden sun highlight behind, glassmorphism style with frosted glass effect, dark navy background #1B3A6B, colors teal #50BB9B gold #D4A855, premium professional mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">A4.</span> Minimalist logo icon, Xantus hummingbird silhouette in flight, teal body with golden sun highlight behind, neon glow style with light bloom, dark navy background #1B3A6B, colors teal #50BB9B gold #D4A855, bold adventurer mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">A5.</span> Minimalist logo icon, Xantus hummingbird silhouette in flight, teal body with golden sun highlight behind, metallic emboss brushed finish, dark navy background #1B3A6B, colors teal #50BB9B gold #D4A855, premium professional mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">A6.</span> Minimalist logo icon, Xantus hummingbird silhouette in flight, teal body with golden sun highlight behind, low-poly geometric faceted style, dark navy background #1B3A6B, colors teal #50BB9B gold #D4A855, organic natural mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">A7.</span> Minimalist logo icon, Xantus hummingbird silhouette in flight, teal body with golden sun highlight behind, clean line art single weight stroke, dark navy background #1B3A6B, colors teal #50BB9B gold #D4A855, warm coastal mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">A8.</span> Minimalist logo icon, Xantus hummingbird silhouette in flight, teal body with golden sun highlight behind, gradient mesh smooth blended style, dark navy background #1B3A6B, colors teal #50BB9B gold #D4A855, organic natural mood, square 1:1, no text no words no letters</div>
+
+  <!-- B: Bobo -->
+  <h4>B: Bobo Patas Azules</h4>
+  <div class="prompt-card"><span class="prompt-id">B1.</span> Logo icon, blue-footed booby bird in profile, teal feet prominent, golden sun circle behind, flat vector style, dark navy background #1B3A6B, colors teal #50BB9B gold #D4A855, warm coastal mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">B2.</span> Logo icon, blue-footed booby bird in profile, teal feet prominent, golden sun circle behind, 3D glossy style with depth, dark navy background #1B3A6B, colors teal #50BB9B gold #D4A855, premium professional mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">B3.</span> Logo icon, blue-footed booby bird in profile, teal feet prominent, golden sun circle behind, glassmorphism frosted effect, dark navy background #1B3A6B, colors teal #50BB9B gold #D4A855, premium professional mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">B4.</span> Logo icon, blue-footed booby bird in profile, teal feet prominent, golden sun circle behind, neon glow with light bloom, dark navy background #1B3A6B, colors teal #50BB9B gold #D4A855, bold adventurer mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">B5.</span> Logo icon, blue-footed booby bird in profile, teal feet prominent, golden sun circle behind, metallic emboss brushed finish, dark navy background #1B3A6B, colors teal #50BB9B gold #D4A855, premium professional mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">B6.</span> Logo icon, blue-footed booby bird in profile, teal feet prominent, golden sun circle behind, low-poly geometric triangulated, dark navy background #1B3A6B, colors teal #50BB9B gold #D4A855, warm coastal mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">B7.</span> Logo icon, blue-footed booby bird in profile, teal feet prominent, golden sun circle behind, line art single stroke, dark navy background #1B3A6B, colors teal #50BB9B gold #D4A855, organic natural mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">B8.</span> Logo icon, blue-footed booby bird in profile, teal feet prominent, golden sun circle behind, gradient mesh blended, dark navy background #1B3A6B, colors teal #50BB9B gold #D4A855, organic natural mood, square 1:1, no text no words no letters</div>
+
+  <!-- C: Los Arcos -->
+  <h4>C: Los Arcos Silhouette</h4>
+  <div class="prompt-card"><span class="prompt-id">C1.</span> Logo icon, El Arco de Cabo San Lucas rock arch silhouette with golden sun rising through the arch, teal ocean below, flat vector style, dark navy background #1B3A6B, colors teal #50BB9B gold #D4A855, warm coastal mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">C2.</span> Logo icon, El Arco de Cabo San Lucas rock arch silhouette with golden sun rising through the arch, teal ocean below, 3D glossy style with reflections, dark navy background #1B3A6B, colors teal #50BB9B gold #D4A855, premium professional mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">C3.</span> Logo icon, El Arco de Cabo San Lucas rock arch silhouette with golden sun rising through the arch, teal ocean below, glassmorphism frosted glass, dark navy background #1B3A6B, colors teal #50BB9B gold #D4A855, premium professional mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">C4.</span> Logo icon, El Arco de Cabo San Lucas rock arch silhouette with golden sun rising through the arch, teal ocean below, neon glow with bloom, dark navy background #1B3A6B, colors teal #50BB9B gold #D4A855, bold adventurer mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">C5.</span> Logo icon, El Arco de Cabo San Lucas rock arch silhouette with golden sun rising through the arch, teal ocean below, metallic emboss chrome finish, dark navy background #1B3A6B, colors teal #50BB9B gold #D4A855, premium professional mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">C6.</span> Logo icon, El Arco de Cabo San Lucas rock arch silhouette with golden sun rising through the arch, teal ocean below, low-poly geometric faceted, dark navy background #1B3A6B, colors teal #50BB9B gold #D4A855, warm coastal mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">C7.</span> Logo icon, El Arco de Cabo San Lucas rock arch silhouette with golden sun rising through the arch, teal ocean below, clean line art minimal, dark navy background #1B3A6B, colors teal #50BB9B gold #D4A855, organic natural mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">C8.</span> Logo icon, El Arco de Cabo San Lucas rock arch silhouette with golden sun rising through the arch, teal ocean below, gradient mesh smooth, dark navy background #1B3A6B, colors teal #50BB9B gold #D4A855, organic natural mood, square 1:1, no text no words no letters</div>
+
+  <!-- D: Sun+Wave -->
+  <h4>D: Abstract Sun + Wave</h4>
+  <div class="prompt-card"><span class="prompt-id">D1.</span> Logo icon, abstract sun circle with ocean wave arc flowing beneath it, solar energy meets sea, flat vector, dark navy background #1B3A6B, teal #50BB9B to gold #D4A855 gradient, warm coastal mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">D2.</span> Logo icon, abstract sun circle with ocean wave arc flowing beneath it, solar energy meets sea, 3D glossy, dark navy background #1B3A6B, teal #50BB9B to gold #D4A855 gradient, premium professional mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">D3.</span> Logo icon, abstract sun circle with ocean wave arc flowing beneath it, solar energy meets sea, glassmorphism, dark navy background #1B3A6B, teal #50BB9B to gold #D4A855 gradient, premium professional mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">D4.</span> Logo icon, abstract sun circle with ocean wave arc flowing beneath it, solar energy meets sea, neon glow bloom, dark navy background #1B3A6B, teal #50BB9B to gold #D4A855 gradient, bold adventurer mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">D5.</span> Logo icon, abstract sun circle with ocean wave arc flowing beneath it, solar energy meets sea, metallic emboss, dark navy background #1B3A6B, teal #50BB9B to gold #D4A855 gradient, premium professional mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">D6.</span> Logo icon, abstract sun circle with ocean wave arc flowing beneath it, solar energy meets sea, low-poly geometric, dark navy background #1B3A6B, teal #50BB9B to gold #D4A855 gradient, warm coastal mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">D7.</span> Logo icon, abstract sun circle with ocean wave arc flowing beneath it, solar energy meets sea, line art, dark navy background #1B3A6B, teal #50BB9B to gold #D4A855 gradient, organic natural mood, square 1:1, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">D8.</span> Logo icon, abstract sun circle with ocean wave arc flowing beneath it, solar energy meets sea, gradient mesh, dark navy background #1B3A6B, teal #50BB9B to gold #D4A855 gradient, organic natural mood, square 1:1, no text no words no letters</div>
+
+  <!-- E-H: abbreviated for space, full prompts in cards -->
+  <h4>E: Cardon Cactus + Solar</h4>
+  <div class="prompt-card"><span class="prompt-id">E1-E8.</span> Logo icon, cardon cactus silhouette with golden sun rays emanating like solar energy, teal sky accent, [STYLE], dark navy background #1B3A6B, gold #D4A855 teal #50BB9B, [MOOD], square 1:1, no text no words no letters — Styles: flat vector | 3D glossy | glassmorphism | neon glow | metallic emboss | low-poly | line art | gradient mesh</div>
+
+  <h4>F: Torote Tree Golden</h4>
+  <div class="prompt-card"><span class="prompt-id">F1-F8.</span> Logo icon, torote tree silhouette with golden copper bark texture, teal energy particles floating around branches, [STYLE], dark navy background #1B3A6B, gold #C4883A teal #50BB9B, [MOOD], square 1:1, no text no words no letters — Styles: flat vector | 3D glossy | glassmorphism | neon glow | metallic emboss | low-poly | line art | gradient mesh</div>
+
+  <h4>G: Sea of Cortez Wave + Solar Panel</h4>
+  <div class="prompt-card"><span class="prompt-id">G1-G8.</span> Logo icon, ocean wave stylized with solar panel grid pattern integrated into the wave crest, teal water with golden sunlight reflection, [STYLE], dark navy background #1B3A6B, teal #50BB9B gold #D4A855, [MOOD], square 1:1, no text no words no letters — Styles: flat vector | 3D glossy | glassmorphism | neon glow | metallic emboss | low-poly | line art | gradient mesh</div>
+
+  <h4>H: Desert Horizon Sunrise + Energy Arc</h4>
+  <div class="prompt-card"><span class="prompt-id">H1-H8.</span> Logo icon, BCS desert horizon with golden sunrise, teal energy arc connecting sun to earth like a power line, [STYLE], circular crop, dark navy background #1B3A6B, gold #D4A855 sunset #F28C5A teal #50BB9B, [MOOD], square 1:1, no text no words no letters — Styles: flat vector | 3D glossy | glassmorphism | neon glow | metallic emboss | low-poly | line art | gradient mesh</div>
+</section>
+
+<!-- SECTION 2: HEROES -->
+<section>
+  <h2><span class="num">2</span> Website Hero / Splash — 16 Prompts</h2>
+  <p style="font-size:0.9rem; color:#666; margin-bottom:16px;">4 scenes (I-L) x 4 styles: photorealistic, digital painting, abstract minimal, cinematic concept art</p>
+
+  <h4>I: Luxury Villa + Solar + Sea of Cortez</h4>
+  <div class="prompt-card"><span class="prompt-id">I1.</span> Aerial photo of luxury villa with solar panels on terracotta roof, Los Cabos Mexico, Sea of Cortez turquoise water in background, golden hour warm light, architectural photography, premium feel, wide 16:9, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">I2.</span> Aerial view of luxury villa with solar panels on roof, Los Cabos coastline, Sea of Cortez, golden hour, digital painting illustration style, warm tones, wide 16:9, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">I3.</span> Minimal abstract composition suggesting rooftop solar panels catching sunlight, teal and gold geometric shapes on navy background, clean modern, abstract minimal, wide 16:9, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">I4.</span> Cinematic aerial shot of luxury beachfront villa with solar array on roof, dramatic golden hour lighting, Sea of Cortez sparkling below, cinematic concept art, wide 16:9, no text no words no letters</div>
+
+  <h4>J: El Arco at Golden Hour</h4>
+  <div class="prompt-card"><span class="prompt-id">J1.</span> El Arco de Cabo San Lucas rock formation at golden hour, sun rays streaming through the arch, turquoise Sea of Cortez water, golden light on rocks, photorealistic landscape photography, wide 16:9, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">J2.</span> El Arco de Cabo San Lucas at sunset, golden light through arch, turquoise water, digital painting style with warm color palette, wide 16:9, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">J3.</span> Minimal silhouette of natural rock arch with golden sun disc visible through opening, teal water below, clean abstract minimal style, navy and gold palette, wide 16:9, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">J4.</span> El Arco de Cabo San Lucas dramatic shot, golden hour, sun perfectly aligned through the arch, turquoise waves crashing, cinematic concept art, epic lighting, wide 16:9, no text no words no letters</div>
+
+  <h4>K: Desert Meets Ocean</h4>
+  <div class="prompt-card"><span class="prompt-id">K1.</span> Panoramic view where Sonoran desert meets Sea of Cortez, cardon cacti in foreground, turquoise ocean behind, golden hour, photorealistic landscape, wide 16:9, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">K2.</span> Desert coastline of Baja California Sur, cardon cacti meeting turquoise sea, golden sunset, digital painting style warm tones, wide 16:9, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">K3.</span> Abstract golden and teal gradient landscape suggesting desert horizon meeting ocean, minimal clean composition, geometric shapes, abstract minimal, wide 16:9, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">K4.</span> Cinematic wide shot of BCS coastline, desert mountains descending to turquoise sea, dramatic golden hour clouds, concept art, wide 16:9, no text no words no letters</div>
+
+  <h4>L: Installation Team at Work</h4>
+  <div class="prompt-card"><span class="prompt-id">L1.</span> Professional solar installation team on villa rooftop, blue sky, Baja California Sur desert landscape behind, safety equipment, confident teamwork, photorealistic, wide 16:9, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">L2.</span> Solar technicians installing panels on rooftop, BCS landscape, golden light, digital painting illustration style, warm professional feel, wide 16:9, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">L3.</span> Minimal silhouette of worker on rooftop with solar panel against golden sky, clean abstract minimal style, navy and gold, wide 16:9, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">L4.</span> Cinematic shot of solar installation in progress on luxury property, Baja California desert in background, dramatic golden hour, cinematic concept art, wide 16:9, no text no words no letters</div>
+</section>
+
+<!-- SECTION 3: UI BACKGROUNDS -->
+<section>
+  <h2><span class="num">3</span> UI Backgrounds — 8 Prompts</h2>
+  <div class="prompt-card"><span class="prompt-id">BG1.</span> Subtle abstract background, faint turquoise ocean water texture, very low opacity, light sand #F5F0E8 base, minimal, suitable for light UI, no focal point, seamless, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">BG2.</span> Subtle abstract background, gentle teal wave pattern at edges, very low contrast, light near-white #F8F9FA base, minimal, suitable for light UI overlay, no focal point, seamless, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">BG3.</span> Subtle abstract background, faint desert sand texture with warm undertone, very subtle, arena #F5F0E8 base, minimal, suitable for light UI, no focal point, seamless, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">BG4.</span> Subtle abstract background, navy and teal gradient mesh very faint, dark navy #1B3A6B base, minimal, suitable for dark UI sections, no focal point, seamless, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">BG5.</span> Subtle abstract background, concentric circles like solar energy rings very faint, golden tint, light #F8F9FA base, minimal, suitable for light UI, no focal point, seamless, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">BG6.</span> Subtle abstract background, topographic map lines suggesting BCS geography very faint in teal, sand #F5F0E8 base, minimal, suitable for light UI, no focal point, seamless, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">BG7.</span> Subtle abstract background, aerial ocean water texture in teal very faint, white foam patterns barely visible, light base, minimal, suitable for light UI, no focal point, seamless, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">BG8.</span> Subtle abstract background, flowing desert wind patterns very faint, gold to teal gradient hint, sand #F5F0E8 base, minimal, suitable for light UI, no focal point, seamless, no text no words no letters</div>
+</section>
+
+<!-- SECTION 4: SOCIAL -->
+<section>
+  <h2><span class="num">4</span> Social / Promo — 8 Prompts</h2>
+  <div class="prompt-card"><span class="prompt-id">S1.</span> Hands adjusting solar panel on rooftop with Sea of Cortez turquoise water visible behind, golden hour warm light, professional lifestyle photography, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">S2.</span> Close up of solar panel surface reflecting golden sunset sky, turquoise ocean bokeh in background, shallow depth of field, moody photography, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">S3.</span> Blue-footed booby bird standing on coastal rock, Sea of Cortez behind, teal feet prominent, vibrant wildlife photography, warm light, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">S4.</span> Aerial view of Los Cabos luxury resort area with solar panels visible on multiple rooftops, turquoise ocean, golden hour drone shot, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">S5.</span> Giant cardon cactus at sunset in Baja California Sur desert, golden dramatic light, power lines leading to solar panels in distance, cinematic landscape, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">S6.</span> Xantus hummingbird hovering near desert flower, Baja California Sur, vibrant teal and gold colors, macro wildlife photography, warm sunlight, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">S7.</span> Surfboard standing upright on beach at golden hour, Todos Santos Baja, solar panel texture creatively reflected on water, lifestyle photography, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">S8.</span> Torote tree with golden copper bark in BCS desert at sunset, warm sunlight highlighting the metallic bark texture, endemic tree, dramatic nature photography, no text no words no letters</div>
+</section>
+
+<!-- SECTION 5: FAVICON -->
+<section>
+  <h2><span class="num">5</span> Favicon — 8 Prompts</h2>
+  <p style="font-size:0.9rem; color:#666; margin-bottom:12px;">Must work at 32x32px — ultra simple</p>
+  <div class="prompt-card"><span class="prompt-id">FV1.</span> Ultra simple geometric sun icon, 8 short rays, solid teal circle center, navy background, flat design, single color teal #50BB9B, suitable for 32x32 pixel favicon, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">FV2.</span> Ultra simple letter E monogram, teal gradient, circular navy background, clean modern font, energy symbol, suitable for 32x32 pixel favicon, no text no words no letters except the letter E</div>
+  <div class="prompt-card"><span class="prompt-id">FV3.</span> Ultra simple sun and wave icon combined, teal wave gold sun, navy background, minimal, suitable for 32x32 pixel favicon, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">FV4.</span> Ultra simple hummingbird silhouette in teal, tiny golden sun dot, navy background, minimal, suitable for 32x32 pixel favicon, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">FV5.</span> Ultra simple El Arco rock arch silhouette in teal, golden sun through arch, navy background, minimal, suitable for 32x32 pixel favicon, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">FV6.</span> Ultra simple solar panel grid icon in teal with golden sunlight corner, navy background, minimal, suitable for 32x32 pixel favicon, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">FV7.</span> Ultra simple lightning bolt combined with sun rays in teal and gold, navy background, minimal energy icon, suitable for 32x32 pixel favicon, no text no words no letters</div>
+  <div class="prompt-card"><span class="prompt-id">FV8.</span> Ultra simple cardon cactus silhouette with tiny sun, teal on navy, minimal, suitable for 32x32 pixel favicon, no text no words no letters</div>
+</section>
+
+<!-- SECTION 6: REFINEMENTS -->
+<section>
+  <h2><span class="num">6</span> Refinement Prompts — Follow-ups</h2>
+  <p style="font-size:0.9rem; color:#666; margin-bottom:16px;">After generating an image you like ~80%, paste one of these as a follow-up:</p>
+
+  <h4>Color adjustments</h4>
+  <div class="prompt-card">Same image but more teal, increase the turquoise coastal feel</div>
+  <div class="prompt-card">Same image but warmer, more golden hour sunset tones</div>
+  <div class="prompt-card">Same image but with coral #E8735A accent replacing gold</div>
+  <div class="prompt-card">Same image but lighter, more premium sand-white background</div>
+
+  <h4>Composition</h4>
+  <div class="prompt-card">Same concept but simpler, fewer details, must work at 32px</div>
+  <div class="prompt-card">Same concept but more detailed, add subtle texture</div>
+  <div class="prompt-card">Same concept but zoom in closer, crop tighter</div>
+  <div class="prompt-card">Same concept but add more negative space around the icon</div>
+
+  <h4>Style</h4>
+  <div class="prompt-card">Same concept but more premium and corporate</div>
+  <div class="prompt-card">Same concept but more warm and coastal</div>
+  <div class="prompt-card">Same concept but more adventurous and bold, like a surf brand</div>
+  <div class="prompt-card">Same concept but more like a luxury resort brand</div>
+</section>
+
+<!-- SECTION 7: NEGATIVE -->
+<section>
+  <h2><span class="num">7</span> Negative Prompts</h2>
+  <p style="font-size:0.9rem; color:#666; margin-bottom:12px;">For Midjourney use <code>--no</code>, for Leonardo use the negative prompt field:</p>
+  <div class="prompt-card">text, words, letters, watermark, signature, blurry, low quality, photorealistic face, busy background, cluttered, neon pink, purple, cartoon, childish, clip art, snow, winter, cold tones</div>
+</section>
+
+</div>
+
+<footer>
+  <a href="../BRAND_STRATEGY_MATRIX.html" class="back-link">Back to Brand Strategy Matrix</a>
+  <p style="margin-top: 16px;">Energy Cabo — 116 prompts, 1 brand, 300 days of sun.</p>
+</footer>
+
+<script>
+document.querySelectorAll('.prompt-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const text = card.textContent.replace('Click to copy', '').replace('Copied!', '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      card.classList.add('copied');
+      setTimeout(() => card.classList.remove('copied'), 2000);
+    });
+  });
+});
+</script>
+
+</body>
+</html>

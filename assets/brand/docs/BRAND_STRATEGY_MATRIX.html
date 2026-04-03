@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Energy Cabo — Brand Strategy Matrix</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B3A6B;
+    --teal: #50BB9B;
+    --teal-hover: #2AA8A0;
+    --teal-light: #6ED4B3;
+    --body-text: #2C3E50;
+    --bg: #F8F9FA;
+    --arena: #F5F0E8;
+    --coral: #E8735A;
+    --gold: #D4A855;
+    --sunset: #F28C5A;
+    --sky: #87CEEB;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--body-text);
+    background: var(--bg);
+    line-height: 1.6;
+  }
+
+  .container { max-width: 1400px; margin: 0 auto; padding: 0 32px; }
+
+  /* HEADER */
+  header {
+    background: linear-gradient(135deg, var(--navy) 0%, #0d2240 100%);
+    color: white;
+    padding: 60px 0 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: var(--bg);
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  }
+  header h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 8px; }
+  header h1 span { color: var(--teal); }
+  header .subtitle { font-size: 1.1rem; opacity: 0.8; margin-bottom: 24px; }
+  header .meta { display: flex; gap: 24px; font-size: 0.9rem; opacity: 0.6; }
+  .how-to-use {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-top: 24px;
+    font-size: 0.95rem;
+  }
+
+  /* SECTIONS */
+  section {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    margin: 24px 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  }
+  section h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  section h2 .num {
+    background: var(--teal);
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  section h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 28px 0 12px;
+  }
+  section p { margin-bottom: 12px; }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 0.9rem;
+  }
+  th {
+    background: var(--navy);
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+  }
+  th:first-child { border-radius: 8px 0 0 0; }
+  th:last-child { border-radius: 0 8px 0 0; }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+  }
+  tr:hover td { background: #f8f9fa; }
+  tr:last-child td:first-child { border-radius: 0 0 0 8px; }
+  tr:last-child td:last-child { border-radius: 0 0 8px 0; }
+
+  /* COLOR SWATCHES */
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 16px 0 24px;
+  }
+  .swatch {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    transition: transform 0.2s;
+  }
+  .swatch:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+  .swatch-color { height: 80px; }
+  .swatch-info { padding: 12px; }
+  .swatch-name { font-weight: 700; font-size: 0.9rem; color: var(--navy); }
+  .swatch-hex { font-family: monospace; font-size: 0.8rem; color: #888; }
+  .swatch-desc { font-size: 0.8rem; color: #666; margin-top: 4px; }
+
+  /* OPTIONS / CHECKBOXES */
+  .option {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 18px;
+    margin: 8px 0;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .option:hover { border-color: var(--teal); background: #f0faf6; }
+  .option input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+    accent-color: var(--teal);
+    flex-shrink: 0;
+  }
+  .option-label { font-weight: 700; color: var(--navy); }
+  .option-desc { font-size: 0.9rem; color: #666; }
+
+  /* COLOR SCHEME OPTIONS */
+  .scheme-options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
+  .scheme {
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .scheme:hover { border-color: var(--teal); }
+  .scheme-name { font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .scheme-colors { display: flex; gap: 4px; margin-bottom: 8px; }
+  .scheme-dot { width: 28px; height: 28px; border-radius: 50%; border: 2px solid white; box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+  .scheme-desc { font-size: 0.85rem; color: #666; }
+
+  /* FONT PREVIEW */
+  .font-preview {
+    padding: 20px;
+    margin: 8px 0;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .font-preview:hover { border-color: var(--teal); }
+  .font-preview h4 { font-size: 1.8rem; margin-bottom: 4px; color: var(--navy); }
+  .font-preview p { font-size: 1rem; color: #666; }
+  .font-preview .tag { display: inline-block; background: var(--teal); color: white; padding: 2px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; margin-bottom: 8px; font-family: 'Inter', sans-serif; }
+
+  /* CODE BLOCKS */
+  pre {
+    background: #1e293b;
+    color: #e2e8f0;
+    padding: 16px 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 12px 0;
+  }
+
+  /* MATRIX TABLE */
+  .matrix td { text-align: center; font-weight: 600; }
+  .matrix .y { color: var(--teal); }
+  .matrix .o { color: var(--gold); }
+  .matrix .n { color: #ccc; }
+  .matrix td:first-child { text-align: left; font-weight: 500; }
+
+  /* FUSION TABLE */
+  .fusion td:nth-child(3) { color: var(--teal); font-weight: 600; }
+  .fusion td:nth-child(4) { font-style: italic; color: #555; }
+
+  /* ROADMAP */
+  .week {
+    border-left: 3px solid var(--teal);
+    padding: 16px 20px;
+    margin: 12px 0;
+    background: #f8f9fa;
+    border-radius: 0 10px 10px 0;
+  }
+  .week h4 { color: var(--navy); font-weight: 700; margin-bottom: 8px; }
+  .week ul { list-style: none; padding: 0; }
+  .week li { padding: 4px 0; font-size: 0.9rem; }
+  .week li::before { content: '[ ] '; font-family: monospace; color: #aaa; }
+  .week li.done::before { content: '[x] '; color: var(--teal); }
+  .week li.done { color: #999; text-decoration: line-through; }
+
+  /* DECISIONS TRACKER */
+  .decisions-table th { background: var(--coral); }
+  .decisions-table td:last-child {
+    background: #fff9f0;
+    border: 2px dashed #ddd;
+    min-width: 120px;
+    text-align: center;
+    color: #ccc;
+    font-style: italic;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px 0 60px;
+    color: #999;
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    header h1 { font-size: 1.8rem; }
+    section { padding: 24px; }
+    .scheme-options { grid-template-columns: 1fr; }
+    .color-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container">
+    <h1>Energy Cabo — <span>Brand Strategy Matrix</span></h1>
+    <p class="subtitle">Complete catalog of branding possibilities for Salo + Alex to review and choose from.</p>
+    <div class="meta">
+      <span>Version 1.0</span>
+      <span>April 1, 2026</span>
+    </div>
+    <div class="how-to-use">
+      <strong>How to use:</strong> Each section has options. Check what you want, skip what you don't. Any combination is valid — everything connects because everything comes from the same place: Los Cabos.
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- 1. COLOR PALETTE -->
+<section>
+  <h2><span class="num">1</span> Color Palette</h2>
+
+  <h3>Current Colors (from admin CSS)</h3>
+  <div class="color-grid">
+    <div class="swatch"><div class="swatch-color" style="background: #1B3A6B"></div><div class="swatch-info"><div class="swatch-name">Navy</div><div class="swatch-hex">#1B3A6B</div><div class="swatch-desc">Admin sidebar, headers, primary text</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #50BB9B"></div><div class="swatch-info"><div class="swatch-name">Teal</div><div class="swatch-hex">#50BB9B</div><div class="swatch-desc">Buttons, accents, links, icons</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #2AA8A0"></div><div class="swatch-info"><div class="swatch-name">Teal Hover</div><div class="swatch-hex">#2AA8A0</div><div class="swatch-desc">Deeper teal on hover states</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #6ED4B3"></div><div class="swatch-info"><div class="swatch-name">Light Teal</div><div class="swatch-hex">#6ED4B3</div><div class="swatch-desc">Subtle highlights</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #3FA384"></div><div class="swatch-info"><div class="swatch-name">Dark Teal</div><div class="swatch-hex">#3FA384</div><div class="swatch-desc">Secondary accent</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #2C3E50"></div><div class="swatch-info"><div class="swatch-name">Body Text</div><div class="swatch-hex">#2C3E50</div><div class="swatch-desc">All body copy</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #F8F9FA; border: 1px solid #ddd"></div><div class="swatch-info"><div class="swatch-name">Background</div><div class="swatch-hex">#F8F9FA</div><div class="swatch-desc">Page background (near-white)</div></div></div>
+  </div>
+
+  <h3>Proposed Extended Palette — BCS Ecosystem</h3>
+  <div class="color-grid">
+    <div class="swatch"><div class="swatch-color" style="background: #1B3A6B"></div><div class="swatch-info"><div class="swatch-name">Mar de Cortez</div><div class="swatch-hex">#1B3A6B</div><div class="swatch-desc">The deep blue of the Sea of Cortez</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #50BB9B"></div><div class="swatch-info"><div class="swatch-name">Patas del Bobo</div><div class="swatch-hex">#50BB9B</div><div class="swatch-desc">Blue-footed Booby's iconic feet</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #F5F0E8"></div><div class="swatch-info"><div class="swatch-name">Arena de Medano</div><div class="swatch-hex">#F5F0E8</div><div class="swatch-desc">Warm sand of Medano Beach</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #E8735A"></div><div class="swatch-info"><div class="swatch-name">Coral de Pulmo</div><div class="swatch-hex">#E8735A</div><div class="swatch-desc">Living coral reef at Cabo Pulmo</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #D4A855"></div><div class="swatch-info"><div class="swatch-name">Cardon Dorado</div><div class="swatch-hex">#D4A855</div><div class="swatch-desc">Golden sunset on cardon cacti</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #F28C5A"></div><div class="swatch-info"><div class="swatch-name">Atardecer Pacifico</div><div class="swatch-hex">#F28C5A</div><div class="swatch-desc">Pacific sunset gradient</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #C4883A"></div><div class="swatch-info"><div class="swatch-name">Torote Gold</div><div class="swatch-hex">#C4883A</div><div class="swatch-desc">Golden bark of the Torote tree — endemic to BCS</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #87CEEB"></div><div class="swatch-info"><div class="swatch-name">Cielo de Cabo</div><div class="swatch-hex">#87CEEB</div><div class="swatch-desc">Clear Los Cabos sky (300 days sun)</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #FFFFFF; border: 1px solid #ddd"></div><div class="swatch-info"><div class="swatch-name">Sal y Arena</div><div class="swatch-hex">#FFFFFF</div><div class="swatch-desc">White foam on waves, the logo base</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #D4519A"></div><div class="swatch-info"><div class="swatch-name">Rosa Choya</div><div class="swatch-hex">#D4519A</div><div class="swatch-desc">Pink flower of the cholla cactus — Fun theme primary, playful energy</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background: #8B6DB0"></div><div class="swatch-info"><div class="swatch-name">Morado Atardecer</div><div class="swatch-hex">#8B6DB0</div><div class="swatch-desc">Purple hues of Cabo sunset sky — Fun theme accent, dreamy, funky</div></div></div>
+  </div>
+
+  <h3>Pick a base scheme</h3>
+  <div class="scheme-options">
+    <label class="scheme"><input type="checkbox"> <div class="scheme-name">A — Classic</div><div class="scheme-colors"><div class="scheme-dot" style="background:#1B3A6B"></div><div class="scheme-dot" style="background:#50BB9B"></div><div class="scheme-dot" style="background:#FFFFFF"></div></div><div class="scheme-desc">Current, clean, professional</div></label>
+    <label class="scheme"><input type="checkbox"> <div class="scheme-name">B — Warm Premium</div><div class="scheme-colors"><div class="scheme-dot" style="background:#1B3A6B"></div><div class="scheme-dot" style="background:#50BB9B"></div><div class="scheme-dot" style="background:#F5F0E8"></div><div class="scheme-dot" style="background:#E8735A"></div></div><div class="scheme-desc">Feels luxury resort, warm whites</div></label>
+    <label class="scheme"><input type="checkbox"> <div class="scheme-name">C — Sunset Energy</div><div class="scheme-colors"><div class="scheme-dot" style="background:#1B3A6B"></div><div class="scheme-dot" style="background:#50BB9B"></div><div class="scheme-dot" style="background:#F28C5A"></div><div class="scheme-dot" style="background:#D4A855"></div></div><div class="scheme-desc">Dramatic, confident, golden</div></label>
+    <label class="scheme"><input type="checkbox"> <div class="scheme-name">D — Ocean</div><div class="scheme-colors"><div class="scheme-dot" style="background:#1B3A6B"></div><div class="scheme-dot" style="background:#50BB9B"></div><div class="scheme-dot" style="background:#87CEEB"></div><div class="scheme-dot" style="background:#F5F0E8"></div></div><div class="scheme-desc">Calm, coastal, trustworthy</div></label>
+  </div>
+</section>
+
+<!-- 2. TYPOGRAPHY -->
+<section>
+  <h2><span class="num">2</span> Typography</h2>
+
+  <div class="font-preview" style="font-family: 'Inter', sans-serif">
+    <span class="tag">Current</span>
+    <h4>Inter — Power Your Future with Clean Energy</h4>
+    <p>Premium energy solutions in Los Cabos, Mexico. 300 days of sun, zero wasted.</p>
+  </div>
+
+  <div class="font-preview" style="font-family: 'Plus Jakarta Sans', sans-serif">
+    <span class="tag" style="background: var(--coral)">Recommended</span>
+    <h4>Plus Jakarta Sans — Power Your Future with Clean Energy</h4>
+    <p>Premium energy solutions in Los Cabos, Mexico. 300 days of sun, zero wasted.</p>
+  </div>
+
+  <div class="font-preview" style="font-family: 'Outfit', sans-serif">
+    <span class="tag" style="background: var(--gold)">Modern</span>
+    <h4>Outfit — Power Your Future with Clean Energy</h4>
+    <p>Premium energy solutions in Los Cabos, Mexico. 300 days of sun, zero wasted.</p>
+  </div>
+
+  <div class="font-preview" style="font-family: 'Sora', sans-serif">
+    <span class="tag" style="background: var(--navy)">Distinctive</span>
+    <h4>Sora — Power Your Future with Clean Energy</h4>
+    <p>Premium energy solutions in Los Cabos, Mexico. 300 days of sun, zero wasted.</p>
+  </div>
+
+  <div class="font-preview" style="font-family: 'Montserrat', sans-serif">
+    <span class="tag" style="background: #888">Traditional</span>
+    <h4>Montserrat — Power Your Future with Clean Energy</h4>
+    <p>Premium energy solutions in Los Cabos, Mexico. 300 days of sun, zero wasted.</p>
+  </div>
+</section>
+
+<!-- 3. LOGO -->
+<section>
+  <h2><span class="num">3</span> Logo & Iconography</h2>
+  <p><strong>Current problems:</strong> Generic (any electrical company anywhere), "LOGISTICS SERVICES" is wrong and confusing, no connection to Los Cabos, the teal IS the Bobo's feet color but nobody knows.</p>
+
+  <div style="background: #FFF5F5; border: 2px solid var(--coral); border-radius: 12px; padding: 20px; margin: 16px 0;">
+    <h3 style="color: var(--coral); margin-top: 0;">Why "Logistics Services" Must Change — For Salo</h3>
+    <p><strong>The problem:</strong> When a potential client sees "LOGISTICS SERVICES" under the logo, they think: shipping company, freight, transportation. Not energy. Not solar. Not what we sell.</p>
+    <p><strong>The cost:</strong> Every confused visitor is a lost lead. If even 1 in 10 bounces because they think "wrong company", that's real money lost every month.</p>
+    <p><strong>The fix:</strong> Change to <strong>"ENERGY SOLUTIONS"</strong>. Three words that tell every visitor exactly what we do. Zero ambiguity. The logo shape, colors, and "Energy Cabo" name all stay. Only the subtitle changes.</p>
+    <p><strong>Who advised this?</strong> Unknown — likely a generic template. It doesn't reflect what the company does and never has.</p>
+  </div>
+
+  <h3>Logo evolution options</h3>
+  <label class="option"><input type="checkbox"><div><div class="option-label">A — Minimal Refresh</div><div class="option-desc">Keep current shape, remove "LOGISTICS SERVICES", add "Energy Solutions". Quick, low risk.</div></div></label>
+  <label class="option"><input type="checkbox"><div><div class="option-label">B — Colibri de Xantus</div><div class="option-desc">Endemic hummingbird of BCS. Nobody else can use this. Strongest differentiator. Only exists in BCS.</div></div></label>
+  <label class="option"><input type="checkbox"><div><div class="option-label">C — Bobo Patas Azules</div><div class="option-desc">Blue-footed Booby. Connects teal color to the bird. Fun, memorable, iconic of the Pacific.</div></div></label>
+  <label class="option"><input type="checkbox"><div><div class="option-label">D — Los Arcos Silhouette</div><div class="option-desc">Most recognizable landmark of Cabo. Every client knows it. Instant location recognition.</div></div></label>
+  <label class="option"><input type="checkbox"><div><div class="option-label">E — Abstract Sun + Wave</div><div class="option-desc">Solar energy + ocean. Modern, clean, works at any size. Universal.</div></div></label>
+  <label class="option"><input type="checkbox"><div><div class="option-label">F — Cardon Cactus</div><div class="option-desc">Symbol of BCS resilience. "We're rooted here." Works with product name "El Cardon."</div></div></label>
+
+  <h3>Icon set for services/products</h3>
+  <label class="option"><input type="checkbox"><div><div class="option-label">Fauna Icons</div><div class="option-desc">Each service = BCS animal (Bobo, Colibri, Mantarraya, Ballena, Cardenal)</div></div></label>
+  <label class="option"><input type="checkbox"><div><div class="option-label">Geography Icons</div><div class="option-desc">Each service = BCS landmark (Arcos, Pulmo, Sierra Laguna, Medano)</div></div></label>
+  <label class="option"><input type="checkbox"><div><div class="option-label">Abstract Energy Icons</div><div class="option-desc">Modern line icons (sun, battery, shield, grid) — safe, universal</div></div></label>
+  <label class="option"><input type="checkbox"><div><div class="option-label">Hybrid (Recommended)</div><div class="option-desc">Product NAMES are BCS, but icons stay abstract. Best of both worlds.</div></div></label>
+
+  <h3>Midjourney prompts for logo exploration</h3>
+  <pre>minimalist logo mark, blue-footed booby bird, teal and navy blue,
+clean geometric style, energy company, Los Cabos Mexico --ar 1:1 --style raw
+
+minimalist logo mark, Xantus hummingbird silhouette, teal turquoise
+and navy blue, clean modern, energy solutions company --ar 1:1 --style raw
+
+minimalist logo mark, El Arco de Cabo San Lucas silhouette integrated
+with solar panel lines, navy blue and teal, premium energy company --ar 1:1 --style raw
+
+minimalist logo mark, cardon cactus silhouette with subtle sun rays,
+navy and teal, energy company Baja California Sur --ar 1:1 --style raw</pre>
+</section>
+
+<!-- 4. PRODUCT NAMING -->
+<section>
+  <h2><span class="num">4</span> Product Naming — The Full Catalog</h2>
+
+  <h3>System types mapped to marketing names</h3>
+  <table>
+    <tr><th>System Type</th><th>Client language</th><th>Name Options</th></tr>
+    <tr><td><strong>Hybrid</strong></td><td>Grid + battery — the best of everything</td><td>Arco, Intrepid, Cumbre</td></tr>
+    <tr><td><strong>Zero Export</strong></td><td>Generate power, stay connected to CFE</td><td>Explorer, Sendero, Oasis</td></tr>
+    <tr><td><strong>Off-Grid</strong></td><td>Complete independence from CFE</td><td>Cabo Pulmo, Cardon, Sierra</td></tr>
+    <tr><td><strong>Backup</strong></td><td>Emergency power when CFE fails</td><td>Scout, Cortez, Mantarraya</td></tr>
+    <tr><td><strong>Protection</strong></td><td>Surge protection for your equipment</td><td>Centinela (MX), Centinel (expat), Guardian (universal), Vigia (BCS nautical)</td></tr>
+  </table>
+
+  <h3>Existing name lines (validated with Salo)</h3>
+  <table>
+    <tr><th>Line</th><th>Names</th><th>Target Client</th></tr>
+    <tr><td><strong>Adventure</strong></td><td>Scout, Explorer, Intrepid</td><td>Expats, vacation home owners, surfers</td></tr>
+    <tr><td><strong>BCS Ecosystem</strong></td><td>Cortez, Cardon, Sierra</td><td>Local businesses, Mexican homeowners</td></tr>
+    <tr><td><strong>Local Hybrid</strong></td><td>Sendero, Oasis, Cumbre</td><td>Mixed — works for anyone</td></tr>
+  </table>
+
+  <h3>NEW names from rebranding session</h3>
+  <table>
+    <tr><th>Name</th><th>Inspired by</th><th>Suggested for</th><th>Why it works</th></tr>
+    <tr><td><strong>Arco</strong></td><td>Los Arcos landmark</td><td>Premium / flagship</td><td>Most recognizable icon of Cabo. One word. Clean.</td></tr>
+    <tr><td><strong>Cabo Pulmo</strong></td><td>Living coral reef</td><td>Off-grid</td><td>"Isolated and self-sustaining" — keep full name (Pulmo alone sounds medical)</td></tr>
+    <tr><td><strong>Colibri</strong></td><td>Colibri de Xantus</td><td>Compact residential</td><td>Small, efficient, endemic to BCS only</td></tr>
+    <tr><td><strong>Ballena</strong></td><td>Humpback whale</td><td>Industrial / hotel</td><td>Big, powerful, majestic</td></tr>
+    <tr><td><strong>Mantarraya</strong></td><td>Manta ray</td><td>Low-profile roofs</td><td>Flat, elegant, smooth</td></tr>
+    <tr><td><strong>Bobo</strong></td><td>Blue-footed Booby</td><td>Fun / entry-level</td><td>Memorable, connects to teal color</td></tr>
+    <tr><td><strong>Torote</strong></td><td>Torote tree (Bursera microphylla)</td><td>Premium mid-range</td><td>Golden bark = golden value. Rooted in Baja soil. Endemic.</td></tr>
+    <tr><td><strong>Surf Panel</strong></td><td>Surf culture</td><td>Visual element</td><td>For Alex's Todos Santos segment</td></tr>
+  </table>
+
+  <h3>Naming decision</h3>
+  <label class="option"><input type="checkbox"><div><div class="option-label">Keep all 3 lines</div><div class="option-desc">Adventure + BCS + Hybrid — maximum flexibility but maybe too many names</div></div></label>
+  <label class="option"><input type="checkbox"><div><div class="option-label">Merge to 1 unified BCS line</div><div class="option-desc">Arco, Cardon, Pulmo, Colibri, Ballena, Mantarraya, Scout — strongest brand identity</div></div></label>
+  <label class="option"><input type="checkbox"><div><div class="option-label">Two lines</div><div class="option-desc">Adventure (English, expat) + BCS (Spanish/bilingual, everyone)</div></div></label>
+  <label class="option"><input type="checkbox"><div><div class="option-label">Contextual (current approach)</div><div class="option-desc">Alex assigns names based on client, location, and vibe</div></div></label>
+</section>
+
+<!-- 5. VOICE & MESSAGING -->
+<section>
+  <h2><span class="num">5</span> Voice & Messaging</h2>
+
+  <h3>Tone options</h3>
+  <label class="option"><input type="checkbox"><div><div class="option-label">Premium Expert</div><div class="option-desc">"We engineer energy independence for Los Cabos' most discerning properties."</div></div></label>
+  <label class="option"><input type="checkbox"><div><div class="option-label">Friendly Local</div><div class="option-desc">"Your neighbors trust us with their energy. You should too."</div></div></label>
+  <label class="option"><input type="checkbox"><div><div class="option-label">Bold Adventurer</div><div class="option-desc">"300 days of sun. Zero excuses. Let's power your life." — Alex's style</div></div></label>
+  <label class="option"><input type="checkbox"><div><div class="option-label">Technical Authority</div><div class="option-desc">"CFE-compliant. Engineer-designed. Los Cabos-proven." — Salo's style</div></div></label>
+  <label class="option"><input type="checkbox"><div><div class="option-label">Blend (Recommended)</div><div class="option-desc">Premium for website, Friendly for social, Technical for proposals, Bold for Alex</div></div></label>
+
+  <h3>Key selling phrases</h3>
+  <table>
+    <tr><th>Phrase</th><th>Where to use</th><th>Why it works</th></tr>
+    <tr><td><strong>"300 days of sun"</strong></td><td>Hero, proposals, social</td><td>Quantifiable, unique to Cabo, implies ROI</td></tr>
+    <tr><td><strong>"Powered by the Sea of Cortez"</strong></td><td>Tagline option</td><td>Poetic, connects energy to nature</td></tr>
+    <tr><td><strong>"Energy independence, Los Cabos style"</strong></td><td>Hero, about section</td><td>Lifestyle + utility combined</td></tr>
+    <tr><td><strong>"Your energy. Your rules."</strong></td><td>CTA, proposals</td><td>Empowerment, freedom</td></tr>
+    <tr><td><strong>"Built for Baja"</strong></td><td>Trust badge</td><td>Local expertise, hurricane/heat tested</td></tr>
+    <tr><td><strong>"The smartest investment under the sun"</strong></td><td>Proposals, social</td><td>Financial + sun double meaning</td></tr>
+    <tr><td><strong>"Where the desert meets the sea"</strong></td><td>Brand story</td><td>Romantic, unique geography</td></tr>
+    <tr><td><strong>"From Todos Santos to San Jose"</strong></td><td>About section</td><td>Shows geographic coverage</td></tr>
+  </table>
+
+  <div style="background: linear-gradient(135deg, var(--navy), #0d2240); color: white; padding: 24px; border-radius: 12px; margin-top: 20px;">
+    <h3 style="color: var(--teal); margin-top: 0;">The "300 Days of Sun" Concept</h3>
+    <p>Los Cabos has ~300 sunny days/year — one of the highest solar irradiance levels in North America. This single fact justifies investment, differentiates from cloudy regions, creates urgency, works everywhere (web, proposals, social, conversations), and is verifiable — not marketing fluff.</p>
+  </div>
+</section>
+
+<!-- 6. TOUCHPOINT MATRIX -->
+<section>
+  <h2><span class="num">6</span> Touchpoint Matrix</h2>
+  <p>Where each brand element should appear. <strong style="color: var(--teal)">Y</strong> = Yes &nbsp; <strong style="color: var(--gold)">O</strong> = Optional &nbsp; <strong style="color: #ccc">—</strong> = Not applicable</p>
+  <table class="matrix">
+    <tr><th>Element</th><th>Website</th><th>Proposal</th><th>Estimator</th><th>Email</th><th>WhatsApp</th><th>Social</th><th>Print</th></tr>
+    <tr><td>Colors (full palette)</td><td class="y">Y</td><td class="y">Y</td><td class="y">Y</td><td class="y">Y</td><td class="n">—</td><td class="y">Y</td><td class="y">Y</td></tr>
+    <tr><td>Logo (new/refreshed)</td><td class="y">Y</td><td class="y">Y</td><td class="y">Y</td><td class="y">Y</td><td class="y">Y</td><td class="y">Y</td><td class="y">Y</td></tr>
+    <tr><td>Typography</td><td class="y">Y</td><td class="y">Y</td><td class="y">Y</td><td class="y">Y</td><td class="n">—</td><td class="y">Y</td><td class="y">Y</td></tr>
+    <tr><td>Product names (BCS)</td><td class="y">Y</td><td class="y">Y</td><td class="y">Y</td><td class="o">O</td><td class="y">Y</td><td class="y">Y</td><td class="y">Y</td></tr>
+    <tr><td>"300 days of sun"</td><td class="y">Y</td><td class="y">Y</td><td class="n">—</td><td class="n">—</td><td class="o">O</td><td class="y">Y</td><td class="o">O</td></tr>
+    <tr><td>Fauna icons</td><td class="y">Y</td><td class="o">O</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="y">Y</td><td class="y">Y</td></tr>
+    <tr><td>BCS photography</td><td class="y">Y</td><td class="o">O</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="y">Y</td><td class="y">Y</td></tr>
+    <tr><td>Video (Runway)</td><td class="y">Y</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="y">Y</td><td class="n">—</td></tr>
+    <tr><td>Surf panel graphic</td><td class="y">Y</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="y">Y</td><td class="y">Y</td></tr>
+    <tr><td>"Your System at a Glance"</td><td class="n">—</td><td class="y">Y</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td></tr>
+    <tr><td>Warranty tiers</td><td class="y">Y</td><td class="y">Y</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="o">O</td><td class="n">—</td></tr>
+    <tr><td>"Why It Matters" descriptions</td><td class="y">Y</td><td class="y">Y</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="y">Y</td><td class="n">—</td></tr>
+    <tr><td>Coastal selling points</td><td class="y">Y</td><td class="y">Y</td><td class="n">—</td><td class="n">—</td><td class="y">Y</td><td class="y">Y</td><td class="n">—</td></tr>
+  </table>
+</section>
+
+<!-- 7. ENGINEERING x MARKETING -->
+<section>
+  <h2><span class="num">7</span> Engineering x Marketing Fusion</h2>
+
+  <h3>How technical specs become client-friendly messages</h3>
+  <table class="fusion">
+    <tr><th>Technical Spec</th><th>Engineer Says</th><th>Marketing Says</th><th>"Why It Matters"</th></tr>
+    <tr><td>10kW system</td><td>"10kW nominal capacity"</td><td>"Powers your entire home"</td><td>"Run your AC, pool pump, and kitchen — all at once"</td></tr>
+    <tr><td>20kWh battery</td><td>"20kWh at 80% DOD"</td><td>"16 hours of independence"</td><td>"Sleep through any outage without noticing"</td></tr>
+    <tr><td>Zero Export inverter</td><td>"Grid-tied with anti-islanding"</td><td>"Smart energy that stays home"</td><td>"Generate power without CFE penalties"</td></tr>
+    <tr><td>Hurricane mounting</td><td>"IEC 61215, 2400Pa wind load"</td><td>"Built for Baja storms"</td><td>"Category 3 hurricane? Your panels stay put."</td></tr>
+    <tr><td>25-year warranty</td><td>"25yr linear degradation"</td><td>"A generation of energy"</td><td>"These panels will power your grandchildren's visits"</td></tr>
+    <tr><td>96% efficiency</td><td>"96.5% CEC weighted"</td><td>"Almost zero waste"</td><td>"For every dollar of sun, you keep 96 cents"</td></tr>
+    <tr><td>Salt-spray rated</td><td>"IEC 61701 salt mist"</td><td>"Ocean-proof"</td><td>"Live on the beach. Your system doesn't mind."</td></tr>
+    <tr><td>Remote monitoring</td><td>"Cloud-based SCADA"</td><td>"Your energy, on your phone"</td><td>"Monitor your system from back home — whether that's Toronto, New York, or anywhere in the world"</td></tr>
+  </table>
+
+  <h3>4-Line Value Proposition (every proposal)</h3>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0;">
+    <div style="background: var(--navy); color: white; padding: 16px; border-radius: 10px;"><strong>Premium Equipment</strong><br><span style="opacity:0.8; font-size:0.9rem">Tier-1 panels, top-rated inverters, marine-grade components</span></div>
+    <div style="background: var(--teal); color: white; padding: 16px; border-radius: 10px;"><strong>Professional Installation</strong><br><span style="opacity:0.8; font-size:0.9rem">Certified team, clean site delivery, no shortcuts</span></div>
+    <div style="background: var(--teal-hover); color: white; padding: 16px; border-radius: 10px;"><strong>Engineering & Design</strong><br><span style="opacity:0.8; font-size:0.9rem">Custom-designed for your property, not cookie-cutter</span></div>
+    <div style="background: var(--navy); color: white; padding: 16px; border-radius: 10px;"><strong>Project Management</strong><br><span style="opacity:0.8; font-size:0.9rem">One point of contact from quote to commissioning</span></div>
+  </div>
+
+  <h3>Warranty tiers as brand elements</h3>
+  <table>
+    <tr><th>Tier</th><th>Current</th><th>BCS Rename Option</th><th>What's Included</th></tr>
+    <tr><td>Basic</td><td>Care</td><td><strong>Sendero</strong> (the path)</td><td>Year 1 free: 1 inspection at 6mo, WA support</td></tr>
+    <tr><td>Mid</td><td>Care+</td><td><strong>Explorer</strong> (going further)</td><td>Annual: 2 visits, remote monitoring, 24hr response</td></tr>
+    <tr><td>Premium</td><td>Total</td><td><strong>Arco</strong> (the pinnacle)</td><td>Full coverage, priority response, performance guarantee</td></tr>
+  </table>
+</section>
+
+<!-- 8. IMAGE GENERATION -->
+<section>
+  <h2><span class="num">8</span> Image Generation — Full Prompt Library</h2>
+
+  <div style="background: linear-gradient(135deg, var(--navy), #0d2240); color: white; padding: 24px; border-radius: 12px; margin-bottom: 20px;">
+    <h3 style="color: var(--teal); margin-top: 0;">116 Prompts Ready for Midjourney</h3>
+    <p>Complete prompt library: <strong><a href="branding/PROMPTS.html" style="color: white; text-decoration: underline;">Open PROMPTS.html</a></strong> — click any prompt to copy it</p>
+    <p style="opacity: 0.8; font-size: 0.9rem;">Includes system instructions, temperature settings, aspect ratios, refinement prompts, and naming conventions.</p>
+  </div>
+
+  <table>
+    <tr><th>Category</th><th>Count</th><th>What</th><th>Priority</th></tr>
+    <tr><td><strong>Logo Icon</strong> (A-H)</td><td>64</td><td>8 concepts x 8 styles each</td><td style="color: var(--coral); font-weight:600;">Start here</td></tr>
+    <tr><td><strong>Website Hero</strong> (I-L)</td><td>16</td><td>4 scenes x 4 styles</td><td>After logo direction locked</td></tr>
+    <tr><td><strong>UI Backgrounds</strong> (BG1-8)</td><td>8</td><td>Subtle textures for web/admin</td><td>When building pages</td></tr>
+    <tr><td><strong>Social/Promo</strong> (S1-8)</td><td>8</td><td>Instagram, WhatsApp, social</td><td>For Alex's content</td></tr>
+    <tr><td><strong>Favicon</strong> (FV1-8)</td><td>8</td><td>Ultra-simple 32px icons</td><td>When logo is final</td></tr>
+    <tr><td><strong>Refinements</strong></td><td>12</td><td>Follow-up adjustments</td><td>After generating winners</td></tr>
+  </table>
+
+  <h3>Recommended start order</h3>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0;">
+    <div style="background: #f0faf6; border: 1px solid var(--teal); border-radius: 10px; padding: 14px;">
+      <strong style="color: var(--navy);">Step 1 — Logo concepts</strong>
+      <p style="font-size: 0.9rem; color: #555; margin: 4px 0 0;">C1, C4, D4 (Arcos + Sun/Wave)<br>A1, A4 (Colibri)<br>F1, F5 (Torote)</p>
+    </div>
+    <div style="background: #f0faf6; border: 1px solid var(--teal); border-radius: 10px; padding: 14px;">
+      <strong style="color: var(--navy);">Step 2 — Website heroes</strong>
+      <p style="font-size: 0.9rem; color: #555; margin: 4px 0 0;">I1 (luxury villa)<br>J4 (El Arco dramatic)<br>K1 (desert meets ocean)</p>
+    </div>
+  </div>
+
+  <h3>Workflow</h3>
+  <ol style="font-size: 0.95rem; color: #555;">
+    <li>Open <code>docs/branding/PROMPTS.md</code></li>
+    <li>Copy prompt → paste in Midjourney Discord</li>
+    <li>Generate 4 variations → pick best</li>
+    <li>Refine with follow-up prompts (Section 6 in PROMPTS.md)</li>
+    <li>Save as <code>[prompt_id]_v[number].png</code> (e.g., <code>C4_v1.png</code>)</li>
+    <li>Store winners in <code>docs/branding/generated/</code></li>
+  </ol>
+
+  <h3>Runway video prompts (website hero)</h3>
+  <pre>slow cinematic aerial pan over Los Cabos coastline, golden hour,
+solar panels visible on rooftops below, Sea of Cortez sparkling --duration 5s
+
+time-lapse sunrise over desert landscape with solar farm,
+Baja California Sur, cardon cacti silhouettes, dramatic sky --duration 5s</pre>
+</section>
+
+<!-- 9. WEBSITE CONTENT -->
+<section>
+  <h2><span class="num">9</span> Website Content — Corrected Services</h2>
+  <table>
+    <tr><th>Service</th><th>Marketing Name</th><th>Description (client-friendly)</th></tr>
+    <tr><td><strong>Grid-Tied Solar</strong></td><td>Solar Savings</td><td>Reduce your CFE bill by up to 95%. Stay connected to the grid while your panels do the work.</td></tr>
+    <tr><td><strong>Zero Export</strong></td><td>Smart Generation</td><td>Generate your own power without exporting to CFE. Perfect for properties that want control.</td></tr>
+    <tr><td><strong>Backup Power</strong></td><td>Always On</td><td>When CFE goes dark, your home stays lit. Battery backup that kicks in automatically.</td></tr>
+    <tr><td><strong>Hybrid Systems</strong></td><td>The Complete Solution</td><td>Solar + batteries + grid. The best of every technology, designed to work together.</td></tr>
+    <tr><td><strong>Off-Grid</strong></td><td>Total Independence</td><td>No CFE needed. Complete energy autonomy for remote properties and those who want freedom.</td></tr>
+    <tr><td><strong>Protection</strong></td><td>Surge Shield</td><td>Protect your equipment from voltage spikes and surges. Essential for coastal properties.</td></tr>
+  </table>
+
+  <h3>Hero headline options</h3>
+  <label class="option"><input type="checkbox"><div><div class="option-label">A — "Power Your Future with Clean Energy"</div><div class="option-desc">Current — generic but clear</div></div></label>
+  <label class="option"><input type="checkbox"><div><div class="option-label">B — "300 Days of Sun. Zero Wasted."</div><div class="option-desc">The signature selling point — bold, quantifiable</div></div></label>
+  <label class="option"><input type="checkbox"><div><div class="option-label">C — "Energy Independence, Los Cabos Style"</div><div class="option-desc">Lifestyle + utility combined</div></div></label>
+  <label class="option"><input type="checkbox"><div><div class="option-label">D — "Built for Baja. Powered by the Sun."</div><div class="option-desc">Local + energy — short and punchy</div></div></label>
+  <label class="option"><input type="checkbox"><div><div class="option-label">E — "Where the Desert Meets the Sea, We Power Your World"</div><div class="option-desc">Poetic, longer, brand-story feel</div></div></label>
+</section>
+
+<!-- 10. ROADMAP -->
+<section>
+  <h2><span class="num">10</span> Implementation Roadmap</h2>
+
+  <div class="week">
+    <h4>Week 1 — Foundation (no purchases needed)</h4>
+    <ul>
+      <li class="done">Export Bolt website prototype</li>
+      <li class="done">Set up local dev environment</li>
+      <li>Finalize Brand Strategy Matrix decisions (THIS DOCUMENT)</li>
+      <li>Fix website visual issues (text colors, button, services)</li>
+      <li>Try 3 fonts on live prototype</li>
+      <li>Update services section with correct offerings</li>
+    </ul>
+  </div>
+
+  <div class="week">
+    <h4>Week 2 — Visual content (Midjourney $10 + Runway $15)</h4>
+    <ul>
+      <li>Purchase Midjourney Basic ($10/mo)</li>
+      <li>Purchase Runway Standard ($15/mo)</li>
+      <li>Generate 15-20 images (hero, services, projects, brand elements)</li>
+      <li>Generate 2-3 hero videos (5-10 sec each)</li>
+      <li>Explore logo options with Midjourney</li>
+      <li>Replace all placeholder images on website</li>
+    </ul>
+  </div>
+
+  <div class="week">
+    <h4>Week 3 — Integration</h4>
+    <ul>
+      <li>Finalize logo (new or refreshed)</li>
+      <li>Apply chosen typography across website</li>
+      <li>Connect "Get Quote" to CRM estimator</li>
+      <li>Contact form creates lead in CRM</li>
+      <li>SEO: meta tags, sitemap, Open Graph</li>
+      <li>Performance optimization</li>
+    </ul>
+  </div>
+
+  <div class="week">
+    <h4>Week 4 — Launch</h4>
+    <ul>
+      <li>Deploy to Vercel (free tier)</li>
+      <li>Point energycabo.com DNS to Vercel</li>
+      <li>Verify crm.energycabo.com still works</li>
+      <li>Cancel WordPress hosting</li>
+      <li>Update proposal PDF with new branding</li>
+      <li>Create 5 social media templates for Alex</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 11. INTERNAL BRAND -->
+<section>
+  <h2><span class="num">11</span> Internal Brand — ECP Platform</h2>
+  <p>The brand doesn't stop at the client. The team's daily tool — the ECP — should feel like Energy Cabo, not generic Django admin.</p>
+
+  <h3>User Avatars — BCS Icons</h3>
+  <p>Every team member picks a BCS fauna/flora icon. It appears on login, sidebar, audit logs, and comments.</p>
+  <table>
+    <tr><th>Person</th><th>Role</th><th>Suggested Icon</th><th>Why</th></tr>
+    <tr><td><strong>Gerardo</strong></td><td>Developer</td><td>Bobo (patitas)</td><td>The feet = teal = the code that builds everything</td></tr>
+    <tr><td><strong>Salo</strong></td><td>Engineering/Sales</td><td>Arco or Cardon</td><td>The boss — most iconic or most resilient</td></tr>
+    <tr><td><strong>Alex</strong></td><td>Sales (Todos Santos)</td><td>Surf Panel or Mantarraya</td><td>Surfer, sleek, elegant</td></tr>
+    <tr><td><strong>Alison</strong></td><td>Admin</td><td>Colibri</td><td>Small, efficient, unique</td></tr>
+    <tr><td><strong>Estefany</strong></td><td>Engineering/AutoCAD</td><td>Torote</td><td>Solid, golden, structural</td></tr>
+    <tr><td><strong>Carlos</strong></td><td>Inventory</td><td>Ballena</td><td>Handles the big, heavy stuff</td></tr>
+    <tr><td><strong>Jaqueline</strong></td><td>Testing/QA</td><td>Cardenal</td><td>Attention to detail, red = alert</td></tr>
+    <tr><td><strong>Luis</strong></td><td>Installations</td><td>Cardon</td><td>In the field, resilient, BCS pure</td></tr>
+  </table>
+
+  <h3>Platform Themes — Color Combinations</h3>
+  <p>Each user picks their preferred theme from their profile. All themes use the same BCS palette — just different combinations.</p>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 16px 0;">
+    <div style="background: linear-gradient(135deg, #0d1f3c, #1B3A6B); color: white; padding: 20px; border-radius: 12px;">
+      <strong>Mar de Cortez</strong><br>
+      <span style="font-size: 0.85rem; opacity: 0.8;">Dark mode — the sea at night</span>
+      <div style="display: flex; gap: 6px; margin-top: 10px;">
+        <div style="width:24px;height:24px;border-radius:50%;background:#1B3A6B;border:2px solid white"></div>
+        <div style="width:24px;height:24px;border-radius:50%;background:#50BB9B;border:2px solid white"></div>
+        <div style="width:24px;height:24px;border-radius:50%;background:#2C3E50;border:2px solid white"></div>
+      </div>
+    </div>
+    <div style="background: linear-gradient(135deg, #F5F0E8, #ffffff); color: #1B3A6B; padding: 20px; border-radius: 12px; border: 1px solid #e5e7eb;">
+      <strong>Medano</strong><br>
+      <span style="font-size: 0.85rem; color: #666;">Light mode — the beach at day</span>
+      <div style="display: flex; gap: 6px; margin-top: 10px;">
+        <div style="width:24px;height:24px;border-radius:50%;background:#F5F0E8;border:2px solid #ddd"></div>
+        <div style="width:24px;height:24px;border-radius:50%;background:#1B3A6B;border:2px solid #ddd"></div>
+        <div style="width:24px;height:24px;border-radius:50%;background:#50BB9B;border:2px solid #ddd"></div>
+      </div>
+    </div>
+    <div style="background: linear-gradient(135deg, #1B3A6B, #2d1f3d); color: white; padding: 20px; border-radius: 12px;">
+      <strong>Atardecer</strong><br>
+      <span style="font-size: 0.85rem; opacity: 0.8;">Dark mode — Pacific sunset</span>
+      <div style="display: flex; gap: 6px; margin-top: 10px;">
+        <div style="width:24px;height:24px;border-radius:50%;background:#1B3A6B;border:2px solid white"></div>
+        <div style="width:24px;height:24px;border-radius:50%;background:#E8735A;border:2px solid white"></div>
+        <div style="width:24px;height:24px;border-radius:50%;background:#F28C5A;border:2px solid white"></div>
+      </div>
+    </div>
+    <div style="background: linear-gradient(135deg, #ffffff, #e8f4f8); color: #1B3A6B; padding: 20px; border-radius: 12px; border: 1px solid #e5e7eb;">
+      <strong>Cielo</strong><br>
+      <span style="font-size: 0.85rem; color: #666;">Light mode — clear day in Cabo</span>
+      <div style="display: flex; gap: 6px; margin-top: 10px;">
+        <div style="width:24px;height:24px;border-radius:50%;background:#ffffff;border:2px solid #ddd"></div>
+        <div style="width:24px;height:24px;border-radius:50%;background:#87CEEB;border:2px solid #ddd"></div>
+        <div style="width:24px;height:24px;border-radius:50%;background:#50BB9B;border:2px solid #ddd"></div>
+      </div>
+    </div>
+    <div style="background: linear-gradient(135deg, #F5F0E8, #f0e6d6); color: #1B3A6B; padding: 20px; border-radius: 12px; border: 1px solid #e5e7eb;">
+      <strong>Torote</strong><br>
+      <span style="font-size: 0.85rem; color: #666;">Light mode — the golden desert</span>
+      <div style="display: flex; gap: 6px; margin-top: 10px;">
+        <div style="width:24px;height:24px;border-radius:50%;background:#F5F0E8;border:2px solid #ddd"></div>
+        <div style="width:24px;height:24px;border-radius:50%;background:#C4883A;border:2px solid #ddd"></div>
+        <div style="width:24px;height:24px;border-radius:50%;background:#1B3A6B;border:2px solid #ddd"></div>
+      </div>
+    </div>
+    <div style="background: linear-gradient(135deg, #0d2240, #1B3A6B); color: white; padding: 20px; border-radius: 12px;">
+      <strong>Pulmo</strong><br>
+      <span style="font-size: 0.85rem; opacity: 0.8;">Dark mode — underwater at the reef</span>
+      <div style="display: flex; gap: 6px; margin-top: 10px;">
+        <div style="width:24px;height:24px;border-radius:50%;background:#0d2240;border:2px solid white"></div>
+        <div style="width:24px;height:24px;border-radius:50%;background:#50BB9B;border:2px solid white"></div>
+        <div style="width:24px;height:24px;border-radius:50%;background:#E8735A;border:2px solid white"></div>
+      </div>
+    </div>
+  </div>
+
+  <p><strong>Implementation:</strong> CSS custom properties swapped by a <code>theme</code> field on UserProfile. Works for current Django admin AND future custom UI. ~50 lines of CSS + 1 model field.</p>
+
+  <div style="background: linear-gradient(135deg, var(--navy), #0d2240); color: white; padding: 20px; border-radius: 12px; margin-top: 16px;">
+    <h3 style="color: var(--teal); margin-top: 0;">Why this matters</h3>
+    <p>When the team can personalize their tool, it feels like <em>theirs</em> — not a generic system imposed on them. The branding becomes internal, not just client-facing. A company that cares about details internally transmits that to clients.</p>
+  </div>
+
+  <h3>Decision needed</h3>
+  <label class="option"><input type="checkbox"><div><div class="option-label">User avatars only</div><div class="option-desc">BCS fauna/flora icons for each team member</div></div></label>
+  <label class="option"><input type="checkbox"><div><div class="option-label">Platform themes only</div><div class="option-desc">6 color themes (3 dark, 3 light) from BCS palette</div></div></label>
+  <label class="option"><input type="checkbox"><div><div class="option-label">Both avatars + themes (Recommended)</div><div class="option-desc">Full internal brand experience — personalized CRM for each team member</div></div></label>
+  <label class="option"><input type="checkbox"><div><div class="option-label">Skip for now</div><div class="option-desc">Focus on client-facing brand first, add internal later</div></div></label>
+</section>
+
+<!-- 12. INSPIRATION LOOKBOOK -->
+<section>
+  <h2><span class="num">12</span> Inspiration Lookbook — Websites to Study</h2>
+  <p>Study the best. Combine the best elements. Build something uniquely Energy Cabo.</p>
+
+  <h3>Premium Solar / Energy Companies</h3>
+  <table>
+    <tr><th>Website</th><th>What to learn</th></tr>
+    <tr><td><a href="https://tesla.com/solarpanels" target="_blank" style="color: var(--teal); font-weight:600;">tesla.com/solarpanels</a><br><span style="font-size:0.8rem;color:#888;">Tesla Solar + Powerwall</span></td><td>Minimal layout, full-bleed photography, single-scroll storytelling, zero clutter</td></tr>
+    <tr><td><a href="https://sunpower.com" target="_blank" style="color: var(--teal); font-weight:600;">sunpower.com</a><br><span style="font-size:0.8rem;color:#888;">Premium residential solar</span></td><td>Hero video of luxury homes, clean white/blue palette, trust badges, financing CTAs</td></tr>
+    <tr><td><a href="https://enphase.com" target="_blank" style="color: var(--teal); font-weight:600;">enphase.com</a><br><span style="font-size:0.8rem;color:#888;">Microinverter technology</span></td><td>Product 3D renders, dark backgrounds with accent colors, tech-forward feel</td></tr>
+    <tr><td><a href="https://palmetto.com" target="_blank" style="color: var(--teal); font-weight:600;">palmetto.com</a><br><span style="font-size:0.8rem;color:#888;">Clean energy marketplace</span></td><td>Warm lifestyle photography, approachable premium tone, clear value props above fold</td></tr>
+    <tr><td><a href="https://sunvaultenergy.com" target="_blank" style="color: var(--teal); font-weight:600;">sunvaultenergy.com</a><br><span style="font-size:0.8rem;color:#888;">Hawaii premium solar</span></td><td style="color: var(--coral); font-weight:600;">Closest comp to Energy Cabo — tropical luxury market, location-specific imagery</td></tr>
+    <tr><td><a href="https://naturalsolar.com.au" target="_blank" style="color: var(--teal); font-weight:600;">naturalsolar.com.au</a><br><span style="font-size:0.8rem;color:#888;">Australian premium solar</span></td><td>Bold typography, testimonial integration, lifestyle-over-product approach</td></tr>
+  </table>
+
+  <h3>Luxury Cabo / BCS Resorts (same clientele)</h3>
+  <table>
+    <tr><th>Website</th><th>What to learn</th></tr>
+    <tr><td><a href="https://montagehotels.com/loscabos" target="_blank" style="color: var(--teal); font-weight:600;">Montage Los Cabos</a><br><span style="font-size:0.8rem;color:#888;">Ultra-luxury resort</span></td><td>Cinematic hero video, desert-meets-ocean palette (golds, blues, whites), serif elegance</td></tr>
+    <tr><td><a href="https://waldorfastorialoscabospedregal.com" target="_blank" style="color: var(--teal); font-weight:600;">Waldorf Astoria Pedregal</a><br><span style="font-size:0.8rem;color:#888;">Iconic Cabo luxury hotel</span></td><td>Full-screen imagery, understated navigation, aspirational photography</td></tr>
+    <tr><td><a href="https://chilenobay.aubergeresorts.com" target="_blank" style="color: var(--teal); font-weight:600;">Chileno Bay (Auberge)</a><br><span style="font-size:0.8rem;color:#888;">Luxury beachfront resort</span></td><td>Parallax scrolling, warm earth tones, that Cabo golden light</td></tr>
+    <tr><td><a href="https://snellrealestate.com" target="_blank" style="color: var(--teal); font-weight:600;">Snell Real Estate</a><br><span style="font-size:0.8rem;color:#888;">Premier Cabo luxury real estate</span></td><td>Property presentation, high-net-worth targeting — these are our clients buying homes</td></tr>
+  </table>
+
+  <h3>Outdoor / Adventure Brands (Alex's market)</h3>
+  <table>
+    <tr><th>Website</th><th>What to learn</th></tr>
+    <tr><td><a href="https://patagonia.com" target="_blank" style="color: var(--teal); font-weight:600;">patagonia.com</a><br><span style="font-size:0.8rem;color:#888;">Outdoor apparel + environment</span></td><td>Mission-driven storytelling, environmental activism, documentary-style photography</td></tr>
+    <tr><td><a href="https://yeti.com" target="_blank" style="color: var(--teal); font-weight:600;">yeti.com</a><br><span style="font-size:0.8rem;color:#888;">Premium outdoor products</span></td><td>Rugged premium aesthetic, brand films, product-as-hero, earth tones</td></tr>
+    <tr><td><a href="https://vissla.com" target="_blank" style="color: var(--teal); font-weight:600;">vissla.com</a><br><span style="font-size:0.8rem;color:#888;">Surf/adventure brand</span></td><td>Surf culture imagery, editorial layout, movement and energy — Alex's world</td></tr>
+  </table>
+
+  <h3>Tech / Premium Design (the gold standard)</h3>
+  <table>
+    <tr><th>Website</th><th>What to learn</th></tr>
+    <tr><td><a href="https://apple.com" target="_blank" style="color: var(--teal); font-weight:600;">apple.com</a><br><span style="font-size:0.8rem;color:#888;">Consumer electronics</span></td><td>Whitespace mastery, scroll-triggered animations, typography hierarchy</td></tr>
+    <tr><td><a href="https://rivian.com" target="_blank" style="color: var(--teal); font-weight:600;">rivian.com</a><br><span style="font-size:0.8rem;color:#888;">Electric adventure vehicles</span></td><td>Outdoor + tech fusion, cinematic landscapes, adventure-meets-sustainability</td></tr>
+    <tr><td><a href="https://aesop.com" target="_blank" style="color: var(--teal); font-weight:600;">aesop.com</a><br><span style="font-size:0.8rem;color:#888;">Premium skincare</span></td><td>Elegant minimalism, warm neutral palette, serif + sans-serif pairing</td></tr>
+  </table>
+
+  <div style="background: linear-gradient(135deg, var(--navy), #0d2240); color: white; padding: 24px; border-radius: 12px; margin-top: 20px;">
+    <h3 style="color: var(--teal); margin-top: 0;">Key Takeaways</h3>
+    <ul style="font-size: 0.95rem; line-height: 1.8; opacity: 0.9;">
+      <li><strong>Photography:</strong> Cabo golden-hour light on luxury homes (Montage/Waldorf), NOT generic stock solar panels</li>
+      <li><strong>Color:</strong> Desert golds + ocean blues + clean whites = our BCS palette already matches</li>
+      <li><strong>Typography:</strong> Clean sans-serif primary (Tesla/Apple), optional serif accent for luxury (Montage)</li>
+      <li><strong>Hero:</strong> Full-bleed video or photo of a Cabo luxury home with energy system, single clear CTA</li>
+      <li><strong>Narrative:</strong> Sustainability + luxury lifestyle fusion (Rivian mission + Tesla minimalism)</li>
+      <li><strong style="color: var(--coral);">Avoid:</strong> Cluttered layouts, green "eco" cliches, generic solar panel stock photos</li>
+    </ul>
+  </div>
+</section>
+
+<!-- DECISIONS TRACKER -->
+<section style="border: 3px solid var(--coral);">
+  <h2><span class="num" style="background: var(--coral);">!</span> Decisions Tracker</h2>
+  <p>Salo and Alex: these are the 8 decisions that need your input. Everything else flows from these.</p>
+  <table class="decisions-table">
+    <tr><th>#</th><th>Decision</th><th>Options</th><th>Chosen</th></tr>
+    <tr><td>1</td><td><strong>Color scheme</strong></td><td>A (Classic) / B (Warm) / C (Sunset) / D (Ocean)</td><td>___</td></tr>
+    <tr><td>2</td><td><strong>Typography</strong></td><td>Inter / Plus Jakarta / Outfit / Sora / Montserrat</td><td>___</td></tr>
+    <tr><td>3</td><td><strong>Logo direction</strong></td><td>A (Refresh) / B (Colibri) / C (Bobo) / D (Arcos) / E (Abstract) / F (Cardon)</td><td>___</td></tr>
+    <tr><td>4</td><td><strong>Product naming</strong></td><td>Keep 3 lines / Merge 1 BCS / 2 lines / Contextual</td><td>___</td></tr>
+    <tr><td>5</td><td><strong>Voice/tone</strong></td><td>Premium / Friendly / Bold / Technical / Blend</td><td>___</td></tr>
+    <tr><td>6</td><td><strong>Hero headline</strong></td><td>A / B / C / D / E</td><td>___</td></tr>
+    <tr><td>7</td><td><strong>Warranty naming</strong></td><td>Keep English / BCS names / English + BCS tagline</td><td>___</td></tr>
+    <tr><td>8</td><td><strong>Service icons</strong></td><td>Fauna / Geography / Abstract / Hybrid</td><td>___</td></tr>
+    <tr><td>9</td><td><strong>ECP user avatars</strong></td><td>Yes (BCS icons) / No (skip for now)</td><td>___</td></tr>
+    <tr><td>10</td><td><strong>ECP platform themes</strong></td><td>Yes (6 themes) / No (skip for now)</td><td>___</td></tr>
+  </table>
+</section>
+
+</div>
+
+<footer>
+  This document is a living menu. No wrong combinations.<br>
+  Everything connects because everything comes from the same place: <strong>Los Cabos</strong>.
+</footer>
+
+</body>
+</html>

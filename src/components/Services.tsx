@@ -1,5 +1,6 @@
 import { Sun, Zap, Battery, Layers, Mountain, Shield } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useTheme } from '../context/ThemeContext';
 
 const services = [
   {
@@ -7,7 +8,7 @@ const services = [
     title: 'Grid Savings',
     description: 'Reduce your CFE bill by up to 95%. Stay connected to the grid while your system does the work.',
     why: 'Run your AC, pool pump, and kitchen — all at once, powered by clean energy.',
-    color: 'from-amber-500/10 to-orange-500/10',
+    color: 'from-amber-500/20 to-orange-500/15',
     iconColor: 'text-amber-500',
   },
   {
@@ -15,7 +16,7 @@ const services = [
     title: 'Smart Generation',
     description: 'Generate your own power without exporting to CFE. Perfect for properties that want control.',
     why: 'Keep every watt you produce. No CFE penalties, no surprises.',
-    color: 'from-emerald-500/10 to-teal-500/10',
+    color: 'from-emerald-500/20 to-teal-500/15',
     iconColor: 'text-emerald-500',
   },
   {
@@ -23,7 +24,7 @@ const services = [
     title: 'Always On',
     description: 'When CFE goes dark, your home stays lit. Battery backup that kicks in automatically.',
     why: 'Sleep through any outage without noticing. Your life doesn\'t stop.',
-    color: 'from-blue-500/10 to-indigo-500/10',
+    color: 'from-blue-500/20 to-indigo-500/15',
     iconColor: 'text-blue-500',
   },
   {
@@ -31,7 +32,7 @@ const services = [
     title: 'The Complete Solution',
     description: 'Solar + batteries + grid. The best of every technology, designed to work together.',
     why: 'Our most popular system — because it does everything.',
-    color: 'from-violet-500/10 to-purple-500/10',
+    color: 'from-violet-500/20 to-purple-500/15',
     iconColor: 'text-violet-500',
   },
   {
@@ -39,15 +40,15 @@ const services = [
     title: 'Total Independence',
     description: 'No CFE connection needed. Complete energy autonomy for remote properties.',
     why: 'Like Cabo Pulmo — isolated, self-sustaining, and beautiful.',
-    color: 'from-emerald-500/10 to-teal-500/10',
-    iconColor: 'text-emerald-600',
+    color: 'from-cyan-500/20 to-sky-500/15',
+    iconColor: 'text-cyan-500',
   },
   {
     icon: Shield,
     title: 'Surge Shield',
     description: 'Protect your equipment from voltage spikes and power surges.',
     why: 'Ocean-proof. Category 3 hurricane? Your equipment stays safe.',
-    color: 'from-red-500/10 to-orange-500/10',
+    color: 'from-red-500/20 to-orange-500/15',
     iconColor: 'text-red-500',
   },
 ];
@@ -55,6 +56,7 @@ const services = [
 export default function Services() {
   const headerRef = useScrollAnimation();
   const gridRef = useScrollAnimation(0.1);
+  const { theme } = useTheme();
 
   return (
     <section id="services" className="py-28 bg-theme-bg">
@@ -81,8 +83,8 @@ export default function Services() {
                 key={index}
                 className="group relative bg-theme-surface p-8 rounded-2xl border border-theme-border hover:border-transparent hover:shadow-2xl transition-all duration-500"
               >
-                {/* Gradient background on hover */}
-                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                {/* Gradient background — always visible */}
+                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.color} transition-opacity duration-500`} />
 
                 <div className="relative">
                   <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6`}>

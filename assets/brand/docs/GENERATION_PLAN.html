@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Energy Cabo — 28 Midjourney Generation Plan</title>
+<style>
+  :root { --navy: #1B3A6B; --teal: #50BB9B; --coral: #E8735A; --gold: #D4A855; --arena: #F5F0E8; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; color: #2C3E50; background: #F8F9FA; line-height: 1.6; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+  header { background: linear-gradient(135deg, var(--navy), #0d2240); color: white; padding: 40px 0 64px; position: relative; overflow: hidden; }
+  header::after { content: ''; position: absolute; bottom: -30px; left: 0; right: 0; height: 60px; background: #F8F9FA; border-radius: 50% 50% 0 0 / 100% 100% 0 0; }
+  header h1 { font-size: 2rem; font-weight: 800; }
+  header h1 span { color: var(--teal); }
+  header .subtitle { opacity: 0.8; margin-top: 6px; }
+  .stats { display: flex; gap: 24px; margin-top: 16px; }
+  .stat { background: rgba(255,255,255,0.1); padding: 8px 16px; border-radius: 8px; font-size: 0.85rem; }
+  .stat strong { color: var(--teal); }
+
+  .style-ref { background: #1e293b; color: #e2e8f0; padding: 14px 18px; border-radius: 10px; margin: 24px 0 8px; font-size: 0.82rem; font-family: 'Consolas', monospace; line-height: 1.6; }
+  .style-ref .label { color: var(--teal); font-weight: 700; font-family: system-ui; font-size: 0.75rem; display: block; margin-bottom: 6px; }
+
+  .round { margin: 24px 0; }
+  .round-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .round-num { background: var(--navy); color: white; width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.95rem; flex-shrink: 0; }
+  .round-title { font-size: 1.2rem; font-weight: 800; color: var(--navy); }
+  .round-desc { font-size: 0.85rem; color: #888; margin-left: 48px; margin-bottom: 12px; }
+
+  .prompt-card { background: #1e293b; color: #e2e8f0; padding: 14px 18px; border-radius: 10px; margin: 8px 0; font-size: 0.82rem; line-height: 1.6; position: relative; cursor: pointer; transition: all 0.2s; font-family: 'Consolas', monospace; }
+  .prompt-card:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+  .prompt-card::after { content: 'Click to copy'; position: absolute; top: 8px; right: 12px; font-size: 0.7rem; opacity: 0.4; font-family: system-ui; }
+  .prompt-card.copied::after { content: 'Copied!'; color: var(--teal); opacity: 1; }
+
+  .prompt-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .prompt-id { color: var(--teal); font-weight: 700; font-family: system-ui; font-size: 0.8rem; }
+  .prompt-name { color: var(--gold); font-weight: 600; font-family: system-ui; font-size: 0.8rem; }
+  .prompt-use { display: inline-block; background: rgba(80,187,155,0.15); color: var(--teal); padding: 2px 8px; border-radius: 6px; font-size: 0.7rem; font-family: system-ui; font-weight: 600; margin-left: auto; }
+
+  .checklist { display: flex; align-items: center; gap: 8px; padding: 6px 0; margin-left: 48px; }
+  .checklist input { width: 18px; height: 18px; accent-color: var(--teal); }
+  .checklist label { font-size: 0.85rem; color: #555; }
+  .checklist .done { text-decoration: line-through; color: #bbb; }
+
+  .tip { background: #f0faf6; border-left: 3px solid var(--teal); padding: 12px 16px; border-radius: 0 8px 8px 0; margin: 16px 0; font-size: 0.88rem; }
+
+  .progress-bar { background: white; border-radius: 14px; padding: 16px 24px; margin: 20px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); position: sticky; top: 0; z-index: 100; display: flex; align-items: center; gap: 16px; }
+  .progress-fill { height: 8px; background: #e5e7eb; border-radius: 4px; flex: 1; overflow: hidden; }
+  .progress-fill-inner { height: 100%; background: var(--teal); border-radius: 4px; transition: width 0.3s; }
+  .progress-text { font-weight: 700; color: var(--navy); font-size: 0.9rem; white-space: nowrap; }
+
+  footer { text-align: center; padding: 40px 0 60px; color: #999; font-size: 0.85rem; }
+  .back-link { display: inline-block; background: var(--teal); color: white; padding: 8px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; margin: 4px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>Energy Cabo — <span>28 Prompts</span></h1>
+    <p class="subtitle">Generation plan for Midjourney. Click any prompt to copy. Check off as you generate.</p>
+    <div class="stats">
+      <div class="stat"><strong>28</strong> prompts (Bobo + Cardinal + Fauna + Flora + Geo + Equipment + BG)</div>
+      <div class="stat"><strong>~112</strong> images (4 per prompt)</div>
+      <div class="stat"><strong>6</strong> rounds</div>
+      <div class="stat"><strong>~56%</strong> of monthly quota</div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- PROGRESS BAR -->
+<div class="progress-bar">
+  <span class="progress-text" id="progressText">0 / 28 generated</span>
+  <div class="progress-fill"><div class="progress-fill-inner" id="progressFill" style="width: 0%"></div></div>
+</div>
+
+<!-- STYLE REFERENCE -->
+<div class="style-ref">
+  <span class="label">BASE STYLE (consistent across all 28):</span>
+  ... bold outlines, flat colors, playful character design, inspired by Super Hello design agency illustration style, isometric perspective, bright colorful, friendly expression, white background, no text --s 100 --style raw
+  <br><br>
+  <span class="label">CHARACTER REFERENCE (Bobo locked):</span>
+  --cref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png --cw 100
+</div>
+
+<div class="tip"><strong>Workflow:</strong> Copy prompt → paste in Midjourney → generate → pick best of 4 → Vary (Subtle) if needed → Upscale → Download → check off below. Save as <code>[ID]_v1.png</code> (e.g., B01_v1.png).</div>
+
+<!-- ============================================ -->
+<!-- ROUND 1: BOBO MASCOT (6)                      -->
+<!-- ============================================ -->
+<div class="round">
+  <div class="round-header">
+    <div class="round-num">1</div>
+    <div class="round-title">Bobo — Primary Mascot (6 prompts)</div>
+  </div>
+  <p class="round-desc">The main character. Generate these first to lock the style, then all other rounds follow the same look.</p>
+
+  <div class="prompt-card" data-id="B01">
+    <div class="prompt-header"><span class="prompt-id">B01</span><span class="prompt-name">Bobo on Solar Panel</span><span class="prompt-use">Hero</span></div>
+Inspired by Super Hello design agency illustration style, 2D cartoon mascot, bold outlines, flat colors, isometric perspective, bright colorful, playful character design. Blue-footed booby bird standing proudly, looking at horizon, confident friendly expression, full body visible. Brown chocolate wings, bright turquoise cyan feet, blue face mask, yellow eyes, white chest, beige head top. Isolated character only, white background, no text --s 100 --style raw --cref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png --cw 100
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-B01"><label for="c-B01">B01 — Bobo on Solar Panel (Hero)</label></div>
+
+  <div class="prompt-card" data-id="B02">
+    <div class="prompt-header"><span class="prompt-id">B02</span><span class="prompt-name">Bobo Inspector</span><span class="prompt-use">Services: Quality</span></div>
+Inspired by Super Hello design agency illustration style, 2D cartoon mascot, bold outlines, flat colors, isometric perspective, bright colorful, playful character design. Blue-footed booby bird wearing a small yellow hard hat, holding a magnifying glass, serious but cute inspector expression, full body visible. Brown chocolate wings, bright turquoise cyan feet, blue face mask, yellow eyes, white chest, beige head top. Isolated character only, white background, no text --s 100 --style raw --cref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png --cw 100
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-B02"><label for="c-B02">B02 — Bobo Inspector (Services: Quality)</label></div>
+
+  <div class="prompt-card" data-id="B04">
+    <div class="prompt-header"><span class="prompt-id">B04</span><span class="prompt-name">Bobo Surfing Panel</span><span class="prompt-use">Funky Theme Hero</span></div>
+Inspired by Super Hello design agency illustration style, 2D cartoon mascot, bold outlines, flat colors, isometric perspective, bright colorful, playful character design. Blue-footed booby bird in surfer pose, wearing cool sunglasses, arms spread out for balance, excited happy expression, full body visible. Brown chocolate wings, bright turquoise cyan feet, blue face mask, yellow eyes, white chest, beige head top. Isolated character only, white background, no text --s 100 --style raw --cref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png --cw 100
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-B04"><label for="c-B04">B04 — Bobo Surfing Panel (Funky Hero)</label></div>
+
+  <div class="prompt-card" data-id="B07">
+    <div class="prompt-header"><span class="prompt-id">B07</span><span class="prompt-name">Bobo in Hammock</span><span class="prompt-use">Testimonials</span></div>
+Inspired by Super Hello design agency illustration style, 2D cartoon mascot, bold outlines, flat colors, isometric perspective, bright colorful, playful character design. Blue-footed booby bird sleeping peacefully, eyes closed, peaceful smile, relaxed lying down pose, full body visible. Brown chocolate wings, bright turquoise cyan feet, blue face mask, white chest, beige head top. Isolated character only, white background, no text --s 100 --style raw --cref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png --cw 100
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-B07"><label for="c-B07">B07 — Bobo in Hammock (Testimonials)</label></div>
+
+  <div class="prompt-card" data-id="B08">
+    <div class="prompt-header"><span class="prompt-id">B08</span><span class="prompt-name">Bobo Superhero</span><span class="prompt-use">Surge Shield</span></div>
+Inspired by Super Hello design agency illustration style, 2D cartoon mascot, bold outlines, flat colors, isometric perspective, bright colorful, playful character design. Blue-footed booby bird wearing a teal superhero cape, chest out heroic pose, one wing raised in protective stance, brave expression, full body visible. Brown chocolate wings, bright turquoise cyan feet, blue face mask, yellow eyes, white chest, beige head top. Isolated character only, white background, no text --s 100 --style raw --cref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png --cw 100
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-B08"><label for="c-B08">B08 — Bobo Superhero (Surge Shield)</label></div>
+
+  <div class="prompt-card" data-id="B10">
+    <div class="prompt-header"><span class="prompt-id">B10</span><span class="prompt-name">Bobo Waving Hello</span><span class="prompt-use">Contact / CTA</span></div>
+Inspired by Super Hello design agency illustration style, 2D cartoon mascot, bold outlines, flat colors, isometric perspective, bright colorful, playful character design. Blue-footed booby bird waving hello with one wing, warm welcoming smile, standing simply, friendly inviting pose, full body visible. Brown chocolate wings, bright turquoise cyan feet, blue face mask, yellow eyes, white chest, beige head top. Isolated character only, white background, no text --s 100 --style raw --cref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png --cw 100
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-B10"><label for="c-B10">B10 — Bobo Waving (Contact/CTA)</label></div>
+</div>
+
+<!-- ============================================ -->
+<!-- ROUND 2: COLIBRI (3)                          -->
+<!-- ============================================ -->
+<div class="round">
+  <div class="round-header">
+    <div class="round-num">2</div>
+    <div class="round-title">Cardenal Rojo — Secondary Character (3 prompts)</div>
+  </div>
+  <p class="round-desc">Bright red cardinal. Vigilant, alert, protective. Contrasts beautifully with the teal/navy palette. The "watchdog" of the brand.</p>
+
+  <div class="prompt-card" data-id="R01">
+    <div class="prompt-header"><span class="prompt-id">R01</span><span class="prompt-name">Cardinal Perched on Wire</span><span class="prompt-use">Scattered Decoration</span></div>
+Inspired by Super Hello design agency illustration style, 2D cartoon mascot, bold outlines, flat colors, bright colorful, playful character design. Red cardinal bird perched, vigilant alert pose looking to the side, red crest feathers standing up, full body visible. Bright red body, black face mask around orange beak, red crest pointing up. Isolated character only, white background, no text --s 100 --style raw --sref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-R01"><label for="c-R01">R01 — Cardinal on Wire (Decoration)</label></div>
+
+  <div class="prompt-card" data-id="R02">
+    <div class="prompt-header"><span class="prompt-id">R02</span><span class="prompt-name">Cardinal Alert Pose</span><span class="prompt-use">Surge Shield / Monitoring</span></div>
+Inspired by Super Hello design agency illustration style, 2D cartoon mascot, bold outlines, flat colors, bright colorful, playful character design. Red cardinal bird in alert watchdog pose, crest fully raised, head tilted, one eye focused intensely, full body visible. Bright red body, black face mask around orange beak, red pointy crest. Isolated character only, white background, no text --s 100 --style raw --sref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-R02"><label for="c-R02">R02 — Cardinal Alert (Surge Shield)</label></div>
+
+  <div class="prompt-card" data-id="R03">
+    <div class="prompt-header"><span class="prompt-id">R03</span><span class="prompt-name">Tiny Cardinal Icon</span><span class="prompt-use">Bullet Points</span></div>
+Inspired by Super Hello design agency illustration style, bold outlines, flat colors, playful character design. Tiny red cardinal bird side profile, ultra minimal, simple silhouette suitable for 32px icon. Bright red body with black mask and pointy crest. White background, no text --s 100 --style raw --sref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-R03"><label for="c-R03">R03 — Tiny Cardinal Icon (Bullets)</label></div>
+</div>
+
+<!-- ============================================ -->
+<!-- ROUND 3: SUPPORTING FAUNA (3)                 -->
+<!-- ============================================ -->
+<div class="round">
+  <div class="round-header">
+    <div class="round-num">3</div>
+    <div class="round-title">Supporting Fauna — Whale, Manta, Turtle (3 prompts)</div>
+  </div>
+  <p class="round-desc">One-off characters for specific sections. Same style as Bobo.</p>
+
+  <div class="prompt-card" data-id="W02">
+    <div class="prompt-header"><span class="prompt-id">W02</span><span class="prompt-name">Whale Tail Divider</span><span class="prompt-use">Section Separator</span></div>
+Inspired by Super Hello design agency illustration style, 2D cartoon illustration, bold outlines, flat colors, bright colorful, playful design. Humpback whale tail fluke only, isolated, teal and navy colors. Isolated object only, white background, no text --s 100 --style raw --sref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-W02"><label for="c-W02">W02 — Whale Tail (Section Divider)</label></div>
+
+  <div class="prompt-card" data-id="M01">
+    <div class="prompt-header"><span class="prompt-id">M01</span><span class="prompt-name">Manta Ray Top View</span><span class="prompt-use">Services: Low-Profile</span></div>
+Inspired by Super Hello design agency illustration style, 2D cartoon mascot, bold outlines, flat colors, bright colorful, playful character design. Manta ray seen from above, flat body, elegant pose, full body visible. Teal #50BB9B body, navy #1B3A6B accents. Isolated character only, white background, no text --s 100 --style raw --sref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-M01"><label for="c-M01">M01 — Manta Ray Top View</label></div>
+
+  <div class="prompt-card" data-id="F02">
+    <div class="prompt-header"><span class="prompt-id">F02</span><span class="prompt-name">Sea Turtle Swimming</span><span class="prompt-use">Warranty / Longevity</span></div>
+Inspired by Super Hello design agency illustration style, 2D cartoon mascot, bold outlines, flat colors, bright colorful, playful character design. Sea turtle, wise gentle expression, full body visible, side view. Teal #50BB9B shell with gold #D4A855 accents. Isolated character only, white background, no text --s 100 --style raw --sref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-F02"><label for="c-F02">F02 — Sea Turtle (Warranty)</label></div>
+</div>
+
+<!-- ============================================ -->
+<!-- ROUND 4: FLORA + GEOGRAPHY (6)                -->
+<!-- ============================================ -->
+<div class="round">
+  <div class="round-header">
+    <div class="round-num">4</div>
+    <div class="round-title">Flora + Geography (6 prompts)</div>
+  </div>
+  <p class="round-desc">BCS landscape elements: cactus, trees, El Arco, sun. Decorative and branding.</p>
+
+  <div class="prompt-card" data-id="P01">
+    <div class="prompt-header"><span class="prompt-id">P01</span><span class="prompt-name">Cardon with Solar Panel</span><span class="prompt-use">About: Rooted</span></div>
+Inspired by Super Hello design agency illustration style, 2D cartoon illustration, bold outlines, flat colors, isometric perspective, bright colorful, playful design. Giant cardon cactus, tall and majestic, full height visible. Green body, gold #D4A855 highlights. Isolated object only, white background, no text --s 100 --style raw --sref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-P01"><label for="c-P01">P01 — Cardon + Panel (About)</label></div>
+
+  <div class="prompt-card" data-id="P02">
+    <div class="prompt-header"><span class="prompt-id">P02</span><span class="prompt-name">Tiny Cardon Icon</span><span class="prompt-use">Decoration</span></div>
+Inspired by Super Hello design agency illustration style, bold outlines, flat solid colors, playful design. Tiny cardon cactus icon, simple minimal silhouette suitable for 48px. Teal #50BB9B and gold #D4A855. White background, no text --s 100 --style raw --sref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-P02"><label for="c-P02">P02 — Tiny Cardon Icon</label></div>
+
+  <div class="prompt-card" data-id="P03">
+    <div class="prompt-header"><span class="prompt-id">P03</span><span class="prompt-name">Torote with Energy Particles</span><span class="prompt-use">Background</span></div>
+Inspired by Super Hello design agency illustration style, 2D cartoon illustration, bold outlines, flat colors, bright colorful, playful design. Torote tree with golden copper bark, full tree visible. Gold #C4883A bark, teal #50BB9B leaf accents. Isolated object only, white background, no text --s 100 --style raw --sref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-P03"><label for="c-P03">P03 — Torote with Particles</label></div>
+
+  <div class="prompt-card" data-id="G01">
+    <div class="prompt-header"><span class="prompt-id">G01</span><span class="prompt-name">El Arco Icon</span><span class="prompt-use">Logo / Nav</span></div>
+Inspired by Super Hello design agency illustration style, 2D cartoon icon, bold outlines, flat colors, playful design. El Arco de Cabo San Lucas rock arch silhouette, golden sun visible through the arch, teal ocean below, clean simple shape suitable for logo. Navy #1B3A6B rock, gold #D4A855 sun, teal #50BB9B water. White background, no text --s 100 --style raw --sref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-G01"><label for="c-G01">G01 — El Arco Icon (Logo/Nav)</label></div>
+
+  <div class="prompt-card" data-id="G02">
+    <div class="prompt-header"><span class="prompt-id">G02</span><span class="prompt-name">El Arco Panoramic</span><span class="prompt-use">Hero Background</span></div>
+Inspired by Super Hello design agency illustration style, 2D cartoon illustration, bold outlines, flat colors, bright colorful, playful design. Wide panoramic view of El Arco de Cabo San Lucas at golden hour, sun rays streaming through the arch, turquoise Sea of Cortez water, dramatic warm lighting. Navy #1B3A6B rocks, teal #50BB9B water, gold #D4A855 sunlight. No text --ar 16:9 --s 100 --style raw --sref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-G02"><label for="c-G02">G02 — El Arco Panoramic (Hero BG)</label></div>
+
+  <div class="prompt-card" data-id="G06">
+    <div class="prompt-header"><span class="prompt-id">G06</span><span class="prompt-name">Golden Sun Icon</span><span class="prompt-use">Ratings / Accents</span></div>
+Inspired by Super Hello design agency illustration style, bold outlines, flat solid colors, playful design. Simple golden sun icon with short rays, warm friendly, suitable for 64px accent icon. Gold #D4A855 sun. White background, no text --s 100 --style raw --sref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-G06"><label for="c-G06">G06 — Golden Sun Icon</label></div>
+</div>
+
+<!-- ============================================ -->
+<!-- ROUND 5: EQUIPMENT (6)                        -->
+<!-- ============================================ -->
+<div class="round">
+  <div class="round-header">
+    <div class="round-num">5</div>
+    <div class="round-title">Equipment — Illustrated Tech (6 prompts)</div>
+  </div>
+  <p class="round-desc">Energy equipment in the same cartoon style. For service cards and features.</p>
+
+  <div class="prompt-card" data-id="E01">
+    <div class="prompt-header"><span class="prompt-id">E01</span><span class="prompt-name">Solar Panel Isometric</span><span class="prompt-use">Solar Savings</span></div>
+Inspired by Super Hello design agency illustration style, 2D cartoon illustration, bold outlines, flat colors, isometric perspective, bright colorful, playful design. Single rectangular solar panel tilted at angle, isometric view. Dark black cells with silver grid lines and aluminum frame. Isolated object only, white background, no text --s 100 --style raw --sref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-E01"><label for="c-E01">E01 — Solar Panel (Solar Savings)</label></div>
+
+  <div class="prompt-card" data-id="E02">
+    <div class="prompt-header"><span class="prompt-id">E02</span><span class="prompt-name">Battery Unit</span><span class="prompt-use">Always On</span></div>
+Inspired by Super Hello design agency illustration style, 2D cartoon illustration, bold outlines, flat colors, isometric perspective, bright colorful, playful design. Large battery powerwall unit, isometric view, small LED indicator glowing teal green. Navy #1B3A6B body, teal #50BB9B LED glow. Isolated object only, white background, no text --s 100 --style raw --sref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-E02"><label for="c-E02">E02 — Battery (Always On)</label></div>
+
+  <div class="prompt-card" data-id="E05">
+    <div class="prompt-header"><span class="prompt-id">E05</span><span class="prompt-name">Shield vs Lightning</span><span class="prompt-use">Surge Shield</span></div>
+Inspired by Super Hello design agency illustration style, 2D cartoon illustration, bold outlines, flat colors, isometric perspective, bright colorful, playful design. Teal energy shield icon, simple round shape with glow effect. Teal #50BB9B shield, gold #D4A855 accent. Isolated object only, white background, no text --s 100 --style raw --sref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-E05"><label for="c-E05">E05 — Shield vs Lightning (Surge Shield)</label></div>
+
+  <div class="prompt-card" data-id="E06">
+    <div class="prompt-header"><span class="prompt-id">E06</span><span class="prompt-name">House with Panels</span><span class="prompt-use">Complete Solution</span></div>
+Inspired by Super Hello design agency illustration style, 2D cartoon illustration, bold outlines, flat colors, isometric perspective, bright colorful, playful design. Cute small Cabo-style villa, terracotta roof with dark solar panels on top, isometric view. Teal #50BB9B accents, gold #D4A855 sunlight. Isolated object only, white background, no text --s 100 --style raw --sref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-E06"><label for="c-E06">E06 — House with Panels (Complete Solution)</label></div>
+
+  <div class="prompt-card" data-id="E07">
+    <div class="prompt-header"><span class="prompt-id">E07</span><span class="prompt-name">Roof with Complete System</span><span class="prompt-use">Complete Solution</span></div>
+Inspired by Super Hello design agency illustration style, 2D cartoon illustration, bold outlines, flat colors, isometric perspective, bright colorful, playful design. Isometric rooftop with complete energy system: dark solar panels, battery on wall, inverter box, cables connecting them. Teal #50BB9B accents, navy #1B3A6B panels. Isolated object only, white background, no text --s 100 --style raw --sref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-E07"><label for="c-E07">E07 — Roof Complete System</label></div>
+
+  <div class="prompt-card" data-id="E09">
+    <div class="prompt-header"><span class="prompt-id">E09</span><span class="prompt-name">Solar Surfboard</span><span class="prompt-use">Funky / Alex</span></div>
+Inspired by Super Hello design agency illustration style, 2D cartoon illustration, bold outlines, flat colors, bright colorful, playful design. Surfboard standing upright, solar cell texture pattern on surface. Teal #50BB9B surfboard, navy #1B3A6B solar cell lines, coral #E8735A fin. Isolated object only, white background, no text --s 100 --style raw --sref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-E09"><label for="c-E09">E09 — Solar Surfboard (Funky)</label></div>
+</div>
+
+<!-- ============================================ -->
+<!-- ROUND 6: BACKGROUNDS + SEPARATORS (4)         -->
+<!-- ============================================ -->
+<div class="round">
+  <div class="round-header">
+    <div class="round-num">6</div>
+    <div class="round-title">Backgrounds + Separators (4 prompts)</div>
+  </div>
+  <p class="round-desc">Subtle textures and organic dividers. These are more abstract — less character, more texture.</p>
+
+  <div class="prompt-card" data-id="BG01">
+    <div class="prompt-header"><span class="prompt-id">BG01</span><span class="prompt-name">Ocean Water Texture</span><span class="prompt-use">Services BG</span></div>
+subtle abstract background texture of turquoise ocean water seen from above, very low opacity, light and airy, teal #50BB9B tones, minimal, suitable for website section background, seamless pattern, no focal point, no text --s 50 --style raw --ar 16:9 --sref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-BG01"><label for="c-BG01">BG01 — Ocean Water Texture</label></div>
+
+  <div class="prompt-card" data-id="BG02">
+    <div class="prompt-header"><span class="prompt-id">BG02</span><span class="prompt-name">Sand Texture</span><span class="prompt-use">About / Testimonials BG</span></div>
+subtle abstract background texture of warm beach sand with fine grain detail, very low opacity, warm sand #F5F0E8 tones, minimal, suitable for website section background, seamless pattern, no focal point, no text --s 50 --style raw --ar 16:9 --sref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-BG02"><label for="c-BG02">BG02 — Sand Texture</label></div>
+
+  <div class="prompt-card" data-id="S01">
+    <div class="prompt-header"><span class="prompt-id">S01</span><span class="prompt-name">Ocean Wave Separator</span><span class="prompt-use">Section Divider</span></div>
+Inspired by Super Hello design agency wavy section dividers, 2D cartoon illustration, bold outlines, flat colors, playful design. Stylized ocean wave, single smooth curve, horizontal. Teal #50BB9B water, white foam. Isolated element only, white background, no text --ar 4:1 --s 100 --style raw --sref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-S01"><label for="c-S01">S01 — Wave Separator</label></div>
+
+  <div class="prompt-card" data-id="S05">
+    <div class="prompt-header"><span class="prompt-id">S05</span><span class="prompt-name">Whale Tail in Wave</span><span class="prompt-use">Easter Egg Divider</span></div>
+Inspired by Super Hello design agency illustration style, 2D cartoon illustration, bold outlines, flat colors, playful design. Small whale tail fluke, simple, cute, playful. Navy #1B3A6B tail with teal #50BB9B accents. Isolated object only, white background, no text --s 100 --style raw --sref https://cdn.midjourney.com/e42f1753-721e-4763-b43f-1e4c6e3de596/0_1.png
+  </div>
+  <div class="checklist"><input type="checkbox" id="c-S05"><label for="c-S05">S05 — Whale Tail in Wave</label></div>
+</div>
+
+</div>
+
+<footer>
+  <a href="ILLUSTRATIONS.html" class="back-link">Illustration Matrix (53)</a>
+  <a href="PROMPTS.html" class="back-link">Original Prompts (116)</a>
+  <a href="../BRAND_STRATEGY_MATRIX.html" class="back-link">Brand Strategy Matrix</a>
+  <p style="margin-top: 16px;">Energy Cabo — 28 prompts, 6 rounds, 1 consistent style.</p>
+</footer>
+
+<script>
+// Click to copy
+document.querySelectorAll('.prompt-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const header = card.querySelector('.prompt-header');
+    const fullText = card.textContent.replace('Click to copy', '').replace('Copied!', '');
+    // Extract just the prompt (after the header line)
+    const lines = fullText.trim().split('\n');
+    const prompt = lines.slice(1).join(' ').trim();
+    navigator.clipboard.writeText(prompt).then(() => {
+      card.classList.add('copied');
+      setTimeout(() => card.classList.remove('copied'), 2000);
+    });
+  });
+});
+
+// Checkbox progress
+function updateProgress() {
+  const total = document.querySelectorAll('.checklist input').length;
+  const checked = document.querySelectorAll('.checklist input:checked').length;
+  document.getElementById('progressText').textContent = `${checked} / ${total} generated`;
+  document.getElementById('progressFill').style.width = `${(checked / total) * 100}%`;
+  // Save state
+  const state = {};
+  document.querySelectorAll('.checklist input').forEach(cb => { state[cb.id] = cb.checked; });
+  localStorage.setItem('ec-generation-progress', JSON.stringify(state));
+}
+
+// Load saved progress
+try {
+  const saved = JSON.parse(localStorage.getItem('ec-generation-progress') || '{}');
+  Object.entries(saved).forEach(([id, checked]) => {
+    const cb = document.getElementById(id);
+    if (cb) { cb.checked = checked; if (checked) cb.nextElementSibling.classList.add('done'); }
+  });
+} catch(e) {}
+
+document.querySelectorAll('.checklist input').forEach(cb => {
+  cb.addEventListener('change', () => {
+    cb.nextElementSibling.classList.toggle('done', cb.checked);
+    updateProgress();
+  });
+});
+
+updateProgress();
+</script>
+
+</body>
+</html>
