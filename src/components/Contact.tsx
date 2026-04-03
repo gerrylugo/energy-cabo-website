@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Mail, Phone, MapPin, Send, ArrowRight } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useTheme } from '../context/ThemeContext';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -14,6 +15,7 @@ export default function Contact() {
   const [errorMessage, setErrorMessage] = useState('');
   const headerRef = useScrollAnimation();
   const contentRef = useScrollAnimation(0.1);
+  const { theme } = useTheme();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -53,16 +55,29 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-28 bg-theme-bg-warm/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="relative py-28 overflow-hidden">
+      {theme === 'techno' && (
+        <div
+          className="absolute inset-0 bg-[length:100%_auto] bg-top transition-opacity duration-700"
+          style={{ backgroundImage: "url('/images/contact-beach-aerial.png')" }}
+        />
+      )}
+      <div className={`absolute inset-0 ${
+        theme === 'techno'
+          ? 'bg-white/60'
+          : 'bg-theme-bg-warm/30'
+      }`} />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={headerRef} className="animate-on-scroll text-center mb-20">
-          <span className="inline-block text-theme-accent text-base font-bold tracking-[0.2em] uppercase mb-4 section-label-glow">
+          <span className={`inline-block text-base font-bold tracking-[0.2em] uppercase mb-4 section-label-glow ${
+            theme === 'techno' ? 'text-[#F5A623]' : 'text-theme-accent'
+          }`}>
             Get Started
           </span>
           <h2 className="text-4xl md:text-5xl font-extrabold text-theme-text mb-5 tracking-tight">
             Ready to Power Your Future?
           </h2>
-          <p className="text-lg text-theme-text-muted max-w-2xl mx-auto">
+          <p className="text-lg text-theme-text-secondary font-medium max-w-2xl mx-auto">
             Get a free consultation. We'll design a system tailored to your property and goals.
           </p>
         </div>
@@ -88,31 +103,31 @@ export default function Contact() {
 
             <div className="space-y-5">
               <a href="mailto:info@energycabo.com" className="flex items-center gap-4 group">
-                <div className="w-12 h-12 bg-theme-accent/10 rounded-xl flex items-center justify-center group-hover:bg-theme-accent/20 transition-colors">
-                  <Mail className="w-5 h-5 text-theme-accent" />
+                <div className="w-14 h-14 bg-theme-accent/15 rounded-xl flex items-center justify-center group-hover:bg-theme-accent/20 transition-colors">
+                  <Mail className="w-6 h-6 text-theme-accent" />
                 </div>
                 <div>
-                  <div className="text-sm text-theme-text-muted">Email</div>
+                  <div className="text-sm text-theme-text-secondary font-medium">Email</div>
                   <div className="text-theme-text font-semibold">info@energycabo.com</div>
                 </div>
               </a>
 
               <a href="tel:+526241325952" className="flex items-center gap-4 group">
-                <div className="w-12 h-12 bg-theme-accent/10 rounded-xl flex items-center justify-center group-hover:bg-theme-accent/20 transition-colors">
-                  <Phone className="w-5 h-5 text-theme-accent" />
+                <div className="w-14 h-14 bg-theme-accent/15 rounded-xl flex items-center justify-center group-hover:bg-theme-accent/20 transition-colors">
+                  <Phone className="w-6 h-6 text-theme-accent" />
                 </div>
                 <div>
-                  <div className="text-sm text-theme-text-muted">Phone / WhatsApp</div>
+                  <div className="text-sm text-theme-text-secondary font-medium">Phone / WhatsApp</div>
                   <div className="text-theme-text font-semibold">+52 624 132 5952</div>
                 </div>
               </a>
 
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-theme-accent/10 rounded-xl flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-theme-accent" />
+                <div className="w-14 h-14 bg-theme-accent/15 rounded-xl flex items-center justify-center">
+                  <MapPin className="w-6 h-6 text-theme-accent" />
                 </div>
                 <div>
-                  <div className="text-sm text-theme-text-muted">Location</div>
+                  <div className="text-sm text-theme-text-secondary font-medium">Location</div>
                   <div className="text-theme-text font-semibold">Los Cabos, BCS, Mexico</div>
                 </div>
               </div>
@@ -120,7 +135,7 @@ export default function Contact() {
           </div>
 
           {/* Right — form */}
-          <form onSubmit={handleSubmit} className="lg:col-span-3 bg-theme-surface p-8 md:p-10 rounded-2xl shadow-xl border border-theme-border space-y-5">
+          <form onSubmit={handleSubmit} className="lg:col-span-3 bg-theme-bg-warm/40 p-8 md:p-10 rounded-2xl shadow-xl border border-theme-accent/15 space-y-5">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
                 <label htmlFor="name" className="block text-theme-text text-sm font-semibold mb-2">
