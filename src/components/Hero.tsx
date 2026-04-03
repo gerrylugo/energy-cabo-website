@@ -13,7 +13,7 @@ export default function Hero() {
             <img
               src="/images/hero-arco-techno.png"
               alt=""
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-auto object-contain object-top"
             />
             {/* overlay removed — letting the image shine */}
           </>

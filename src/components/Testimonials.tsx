@@ -35,7 +35,7 @@ export default function Testimonials() {
     <section id="testimonials" className="relative py-28 overflow-hidden">
       {theme === 'techno' && (
         <div
-          className="absolute inset-0 bg-cover bg-center transition-opacity duration-700"
+          className="absolute inset-0 bg-[length:100%_auto] bg-top transition-opacity duration-700"
           style={{ backgroundImage: "url('/images/water-teal-texture.png')" }}
         />
       )}
