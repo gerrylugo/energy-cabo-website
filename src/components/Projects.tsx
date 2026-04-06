@@ -1,3 +1,5 @@
+import { useRef } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const projects = [
@@ -33,55 +35,87 @@ const projects = [
 
 export default function Projects() {
   const headerRef = useScrollAnimation();
-  const gridRef = useScrollAnimation(0.1);
+  const stripRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (!stripRef.current) return;
+    const card = stripRef.current.querySelector('div');
+    const cardWidth = card ? (card as HTMLElement).offsetWidth + 24 : 400;
+    stripRef.current.scrollBy({ left: direction === 'right' ? cardWidth : -cardWidth, behavior: 'smooth' });
+  };
 
   return (
-    <section id="projects" className="py-28 bg-theme-primary-dark">
+    <section
+      id="projects"
+      className="py-28"
+      style={{ background: 'linear-gradient(135deg, #87CEEB 0%, #F5F0E8 100%)' }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div ref={headerRef} className="animate-on-scroll text-center mb-20">
-          <span className="inline-block text-theme-accent text-base font-bold tracking-[0.2em] uppercase mb-4 section-label-glow">
+        <div ref={headerRef} className="animate-on-scroll text-center mb-16">
+          <span className="inline-block text-theme-primary text-base font-bold tracking-[0.2em] uppercase mb-4 section-label-glow">
             Our Work
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-5 tracking-tight">
-            Powering Los Cabos
+          <h2 className="text-4xl md:text-5xl font-extrabold text-theme-primary mb-5 tracking-tight">
+            Powering Baja
           </h2>
-          <p className="text-lg text-white/50 max-w-2xl mx-auto">
-            From Todos Santos to the East Cape — homes and businesses running on clean energy.
+          <p className="text-lg text-theme-primary/70 max-w-2xl mx-auto">
+            From La Paz to the East Cape — homes and businesses running on clean energy.
           </p>
         </div>
 
-        {/* Project grid */}
-        <div ref={gridRef} className="stagger-children grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="group relative overflow-hidden rounded-2xl aspect-[16/10] cursor-pointer"
-            >
-              <img
-                src={project.image}
-                alt={project.title}
-                className="absolute inset-0 w-full h-auto object-contain object-top group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/90 transition-all duration-500" />
-              <div className="absolute bottom-0 left-0 right-0 p-8">
-                <div className="flex items-center gap-3 mb-3">
-                  <span className="px-3 py-1 bg-theme-accent/90 text-white text-xs font-semibold rounded-full uppercase tracking-wide">
-                    {project.category}
-                  </span>
-                  <span className="px-3 py-1 bg-white/15 backdrop-blur-sm text-white text-xs font-semibold rounded-full">
-                    {project.capacity}
-                  </span>
+        {/* Strip with arrows */}
+        <div className="relative">
+          <button
+            onClick={() => scroll('left')}
+            aria-label="Previous project"
+            className="absolute -left-4 md:-left-6 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white shadow-xl rounded-full flex items-center justify-center hover:bg-theme-accent hover:text-white transition-all"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          <button
+            onClick={() => scroll('right')}
+            aria-label="Next project"
+            className="absolute -right-4 md:-right-6 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white shadow-xl rounded-full flex items-center justify-center hover:bg-theme-accent hover:text-white transition-all"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+
+          <div
+            ref={stripRef}
+            className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 -mx-4 px-4"
+            style={{ scrollbarWidth: 'none' }}
+          >
+            {projects.map((project, index) => (
+              <div
+                key={index}
+                className="group relative overflow-hidden rounded-2xl aspect-[16/10] cursor-pointer flex-shrink-0 w-[85%] md:w-[60%] lg:w-[45%] snap-start"
+              >
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/90 transition-all duration-500" />
+                <div className="absolute bottom-0 left-0 right-0 p-8">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="px-3 py-1 bg-theme-accent/90 text-white text-xs font-semibold rounded-full uppercase tracking-wide">
+                      {project.category}
+                    </span>
+                    <span className="px-3 py-1 bg-white/15 backdrop-blur-sm text-white text-xs font-semibold rounded-full">
+                      {project.capacity}
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-1 tracking-tight">
+                    {project.title}
+                  </h3>
+                  <p className="text-white/60 text-sm font-medium">
+                    {project.system}
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-1 tracking-tight">
-                  {project.title}
-                </h3>
-                <p className="text-white/60 text-sm font-medium">
-                  {project.system}
-                </p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-import { Sun, Shield, Wrench, Award } from 'lucide-react';
+import { Sun, Shield, Wrench, Award, Check } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useTheme } from '../context/ThemeContext';
 
@@ -57,13 +57,13 @@ export default function About() {
               About Us
             </span>
             <h2 className="text-4xl md:text-5xl font-extrabold text-theme-text mb-6 tracking-tight leading-tight">
-              Where the Desert
-              <span className="block text-theme-accent">Meets the Sea</span>
+              Where Quality
+              <span className="block text-theme-accent">& Reliability Meet</span>
             </h2>
             <p className="text-lg text-theme-text-secondary mb-6 leading-relaxed">
               Energy Cabo is Baja California Sur's premier energy solutions provider. We combine
-              engineering precision with a deep understanding of Baja's climate — 300 days of sun,
-              salt air, hurricane season, and the unique demands of coastal living.
+              engineering precision with a deep understanding of Baja's climate — harnessing 300+ days
+              of sun to deliver reliable power to our customers.
             </p>
             <p className="text-lg text-theme-text-secondary mb-8 leading-relaxed">
               Serving all of BCS — from Todos Santos to La Paz, Cabo San Lucas to the East Cape.
@@ -73,14 +73,14 @@ export default function About() {
 
             {/* Trust badges */}
             <div className="flex flex-wrap gap-3">
-              <span className="px-4 py-2 bg-theme-primary text-white text-sm font-semibold rounded-xl">
-                CFE Compliant
+              <span className="px-4 py-2 bg-theme-primary text-white text-sm font-semibold rounded-xl flex items-center gap-2">
+                <Check className="w-4 h-4" /> CFE Compliant
               </span>
-              <span className="px-4 py-2 bg-theme-accent text-white text-sm font-semibold rounded-xl">
-                Marine-Grade
+              <span className="px-4 py-2 bg-theme-accent text-white text-sm font-semibold rounded-xl flex items-center gap-2">
+                <Check className="w-4 h-4" /> Marine-Grade
               </span>
-              <span className="px-4 py-2 bg-theme-torote text-white text-sm font-semibold rounded-xl">
-                Hurricane Rated
+              <span className="px-4 py-2 bg-theme-torote text-white text-sm font-semibold rounded-xl flex items-center gap-2">
+                <Check className="w-4 h-4" /> Hurricane Rated
               </span>
             </div>
           </div>

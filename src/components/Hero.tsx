@@ -49,7 +49,7 @@ export default function Hero() {
 
           {/* Main headline */}
           <h1 className="animate-fade-in-up text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white drop-shadow-lg mb-4 tracking-tight leading-[0.95]">
-            300 Days of Sun.
+            365 Days of Power.
             <span className="block mt-2" style={{ color: 'var(--color-accent)' }}>Zero Wasted.</span>
           </h1>
 
@@ -77,10 +77,10 @@ export default function Hero() {
           <div className="animate-fade-in-up flex flex-col sm:flex-row gap-4 justify-center mb-10" style={{ animationDelay: '0.4s' }}>
             <a
               href="#contact"
-              className="group px-8 py-4 bg-theme-accent text-white font-semibold rounded-xl hover:opacity-90 transition-all duration-300 shadow-lg flex items-center justify-center gap-2"
+              className="group px-10 py-5 bg-theme-accent text-white font-bold text-lg rounded-xl hover:opacity-90 hover:scale-105 transition-all duration-300 shadow-2xl shadow-theme-accent/50 ring-2 ring-theme-accent/30 animate-pulse-glow flex items-center justify-center gap-2"
             >
-              Get Your Free Estimate
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              Make A Quote
+              <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
               href="#services"

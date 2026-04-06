@@ -1,4 +1,4 @@
-import { Zap, Mail, Phone, MapPin, Facebook, Instagram } from 'lucide-react';
+import { Zap, Mail, Phone, MapPin, Facebook, Instagram, MessageCircle } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -16,7 +16,7 @@ export default function Footer() {
               <div>
                 <span className="text-xl font-bold text-white">Energy Cabo</span>
                 <span className="block text-[10px] text-white/60 font-medium tracking-[0.2em] uppercase">
-                  Energy Solutions
+                  Solar & Energy Solutions
                 </span>
               </div>
             </div>
@@ -33,14 +33,21 @@ export default function Footer() {
               >
                 <Facebook className="w-5 h-5 text-white/80" />
               </a>
-              {/* Instagram — hidden until account is created */}
               <a
                 href="https://www.instagram.com/energycabo"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-theme-accent transition-colors duration-300 hidden"
+                className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center hover:bg-theme-accent transition-colors duration-300"
               >
                 <Instagram className="w-5 h-5 text-white/80" />
+              </a>
+              <a
+                href="https://wa.me/5216121325952"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center hover:bg-theme-accent transition-colors duration-300"
+              >
+                <MessageCircle className="w-5 h-5 text-white/80" />
               </a>
             </div>
           </div>
@@ -103,7 +110,7 @@ export default function Footer() {
               &copy; {currentYear} Energy Cabo. All rights reserved.
             </p>
             <p className="text-white/40 text-xs">
-              From Todos Santos to San Jose del Cabo
+              From La Paz to San José del Cabo
             </p>
           </div>
         </div>
