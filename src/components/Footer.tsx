@@ -15,23 +15,23 @@ export default function Footer() {
               </div>
               <div>
                 <span className="text-xl font-bold text-white">Energy Cabo</span>
-                <span className="block text-[10px] text-white/40 font-medium tracking-[0.2em] uppercase">
+                <span className="block text-[10px] text-white/60 font-medium tracking-[0.2em] uppercase">
                   Energy Solutions
                 </span>
               </div>
             </div>
-            <p className="text-white/50 mb-6 max-w-sm leading-relaxed text-sm">
+            <p className="text-white/60 mb-6 max-w-sm leading-relaxed text-sm">
               Premium energy solutions for homes and businesses in Los Cabos, Baja California Sur.
-              Built for the desert. Powered by the sun.
+              Built for the desert. Powered by the Sea of Cortez.
             </p>
             <div className="flex gap-3">
               <a
                 href="https://www.facebook.com/EnergyCaboBCS/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-theme-accent transition-colors duration-300"
+                className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center hover:bg-theme-accent transition-colors duration-300"
               >
-                <Facebook className="w-5 h-5 text-white/70" />
+                <Facebook className="w-5 h-5 text-white/80" />
               </a>
               {/* Instagram — hidden until account is created */}
               <a
@@ -40,7 +40,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center hover:bg-theme-accent transition-colors duration-300 hidden"
               >
-                <Instagram className="w-5 h-5 text-white/70" />
+                <Instagram className="w-5 h-5 text-white/80" />
               </a>
             </div>
           </div>
@@ -53,7 +53,7 @@ export default function Footer() {
                 <li key={link}>
                   <a
                     href={`#${link.toLowerCase()}`}
-                    className="text-white/50 hover:text-theme-accent transition-colors text-sm"
+                    className="text-white/70 hover:text-theme-accent transition-colors text-sm"
                   >
                     {link}
                   </a>
@@ -78,19 +78,19 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <Mail className="w-4 h-4 text-theme-accent flex-shrink-0 mt-1" />
-                <a href="mailto:info@energycabo.com" className="text-white/50 hover:text-white transition-colors text-sm">
+                <a href="mailto:info@energycabo.com" className="text-white/70 hover:text-white transition-colors text-sm">
                   info@energycabo.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-theme-accent flex-shrink-0 mt-1" />
-                <a href="tel:+526241325952" className="text-white/50 hover:text-white transition-colors text-sm">
+                <a href="tel:+526241325952" className="text-white/70 hover:text-white transition-colors text-sm">
                   +52 624 132 5952
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-theme-accent flex-shrink-0 mt-1" />
-                <span className="text-white/50 text-sm">Los Cabos, BCS, Mexico</span>
+                <span className="text-white/70 text-sm">Los Cabos, BCS, Mexico</span>
               </li>
             </ul>
           </div>
@@ -99,10 +99,10 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="border-t border-white/5 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-white/30 text-xs">
+            <p className="text-white/40 text-xs">
               &copy; {currentYear} Energy Cabo. All rights reserved.
             </p>
-            <p className="text-white/20 text-xs">
+            <p className="text-white/40 text-xs">
               From Todos Santos to San Jose del Cabo
             </p>
           </div>
