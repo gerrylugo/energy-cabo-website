@@ -55,7 +55,6 @@ export default function Testimonials() {
           <h2 className={`text-4xl md:text-5xl font-extrabold mb-5 tracking-tight ${
             theme === 'techno' ? 'text-white' : 'text-theme-text'
           }`}
-            style={theme === 'techno' ? { textShadow: '0 0 15px rgba(0,0,0,0.8)' } : undefined}
           >
             Trusted Across Los Cabos
           </h2>
