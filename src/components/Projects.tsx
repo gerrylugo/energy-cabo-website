@@ -64,23 +64,8 @@ export default function Projects() {
           </p>
         </div>
 
-        {/* Strip with arrows */}
-        <div className="relative">
-          <button
-            onClick={() => scroll('left')}
-            aria-label="Previous project"
-            className="absolute -left-4 md:-left-6 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white shadow-xl rounded-full flex items-center justify-center hover:bg-theme-accent hover:text-white transition-all"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <button
-            onClick={() => scroll('right')}
-            aria-label="Next project"
-            className="absolute -right-4 md:-right-6 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white shadow-xl rounded-full flex items-center justify-center hover:bg-theme-accent hover:text-white transition-all"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-
+        {/* Strip */}
+        <div>
           <div
             ref={stripRef}
             className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 -mx-4 px-4"
@@ -115,6 +100,24 @@ export default function Projects() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Minimalist navy arrows below strip with fade animation */}
+          <div className="flex justify-center gap-8 mt-8">
+            <button
+              onClick={() => scroll('left')}
+              aria-label="Previous project"
+              className="text-theme-primary hover:scale-110 transition-transform animate-arrow-fade"
+            >
+              <ChevronLeft className="w-10 h-10" strokeWidth={1.5} />
+            </button>
+            <button
+              onClick={() => scroll('right')}
+              aria-label="Next project"
+              className="text-theme-primary hover:scale-110 transition-transform animate-arrow-fade"
+            >
+              <ChevronRight className="w-10 h-10" strokeWidth={1.5} />
+            </button>
           </div>
         </div>
       </div>
