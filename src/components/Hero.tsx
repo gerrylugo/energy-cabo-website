@@ -77,7 +77,7 @@ export default function Hero() {
           <div className="animate-fade-in-up flex flex-col sm:flex-row gap-4 justify-center mb-10" style={{ animationDelay: '0.4s' }}>
             <a
               href="#contact"
-              className="group px-10 py-5 bg-theme-accent/70 backdrop-blur-md text-white font-bold text-lg rounded-xl border-2 border-theme-accent/80 hover:bg-theme-accent hover:scale-105 transition-all duration-300 animate-pulse-glow animate-float flex items-center justify-center gap-2"
+              className="group px-10 py-5 bg-theme-accent text-white font-bold text-lg rounded-xl hover:opacity-90 hover:scale-105 transition-all duration-300 shadow-2xl shadow-theme-accent/50 ring-2 ring-theme-accent/30 flex items-center justify-center gap-2"
             >
               Make A Quote
               <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
