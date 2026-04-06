@@ -73,12 +73,10 @@ export default function Contact() {
                 key={contact.name}
                 className="bg-white p-8 rounded-2xl shadow-xl border border-theme-accent/15 text-center"
               >
-                <div className="flex items-center justify-center gap-2 text-theme-accent mb-2">
-                  <MapPin className="w-4 h-4" />
-                  <span className="text-sm font-bold tracking-wide uppercase">{contact.role}</span>
+                <div className="flex items-center justify-center gap-2 text-theme-accent mb-6">
+                  <MapPin className="w-5 h-5" />
+                  <span className="text-base font-bold tracking-wide uppercase">{contact.role}</span>
                 </div>
-                <h3 className="text-2xl font-extrabold text-theme-text mb-1">{contact.name}</h3>
-                <p className="text-theme-text-secondary font-medium mb-6">{contact.phone}</p>
                 <div className="flex gap-3 justify-center">
                   <a
                     href={contact.telLink}
