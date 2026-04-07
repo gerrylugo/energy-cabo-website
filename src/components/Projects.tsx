@@ -48,7 +48,7 @@ export default function Projects() {
     <section
       id="projects"
       className="py-28"
-      style={{ background: 'linear-gradient(135deg, #87CEEB 0%, #F5F0E8 100%)' }}
+      style={{ background: 'linear-gradient(to bottom, #1B3A6B 0%, #1B3A6B 3%, #87CEEB 3%, #87CEEB 13%, #F5F0E8 13%, #F5F0E8 87%, #87CEEB 87%, #87CEEB 97%, #1B3A6B 97%, #1B3A6B 100%)' }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
