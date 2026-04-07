@@ -47,7 +47,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="py-36"
+      className="py-28"
       style={{ background: 'linear-gradient(135deg, #87CEEB 0%, #F5F0E8 100%)' }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -62,6 +62,26 @@ export default function Projects() {
           <p className="text-lg text-theme-primary/70 max-w-2xl mx-auto">
             From La Paz to the East Cape — homes and businesses running on clean energy.
           </p>
+        </div>
+
+        {/* Stats line */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 max-w-4xl mx-auto">
+          <div className="text-center">
+            <div className="text-4xl md:text-5xl font-extrabold text-theme-primary mb-1">20+</div>
+            <div className="text-xs uppercase tracking-widest text-theme-accent font-bold">Projects</div>
+          </div>
+          <div className="text-center">
+            <div className="text-4xl md:text-5xl font-extrabold text-theme-primary mb-1">3 MW</div>
+            <div className="text-xs uppercase tracking-widest text-theme-accent font-bold">Installed</div>
+          </div>
+          <div className="text-center">
+            <div className="text-4xl md:text-5xl font-extrabold text-theme-primary mb-1">5+</div>
+            <div className="text-xs uppercase tracking-widest text-theme-accent font-bold">Years</div>
+          </div>
+          <div className="text-center">
+            <div className="text-4xl md:text-5xl font-extrabold text-theme-primary mb-1">100%</div>
+            <div className="text-xs uppercase tracking-widest text-theme-accent font-bold">Satisfaction</div>
+          </div>
         </div>
 
         {/* Strip with side arrows */}
@@ -90,7 +110,7 @@ export default function Projects() {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="group relative overflow-hidden rounded-2xl aspect-[16/10] cursor-pointer flex-shrink-0 w-[85%] sm:w-[48%] md:w-[32%] lg:w-[23.5%] snap-start"
+                className="group relative overflow-hidden rounded-2xl aspect-[4/5] cursor-pointer flex-shrink-0 w-[85%] sm:w-[48%] md:w-[32%] lg:w-[23.5%] snap-start"
               >
                 <img
                   src={project.image}
