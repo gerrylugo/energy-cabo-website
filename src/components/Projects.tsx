@@ -67,15 +67,16 @@ export default function Projects() {
         {/* Stats line */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 max-w-4xl mx-auto">
           <div className="text-center">
-            <div className="text-4xl md:text-5xl font-extrabold text-theme-primary mb-1">20+</div>
+            <div className="text-4xl md:text-5xl font-extrabold text-theme-primary mb-1">500+</div>
             <div className="text-xs uppercase tracking-widest text-theme-accent font-bold">Projects</div>
           </div>
+          {/* TODO: waiting on Salo for exact MW number */}
           <div className="text-center">
-            <div className="text-4xl md:text-5xl font-extrabold text-theme-primary mb-1">3 MW</div>
+            <div className="text-4xl md:text-5xl font-extrabold text-theme-primary mb-1">X MW</div>
             <div className="text-xs uppercase tracking-widest text-theme-accent font-bold">Installed</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl md:text-5xl font-extrabold text-theme-primary mb-1">5+</div>
+            <div className="text-4xl md:text-5xl font-extrabold text-theme-primary mb-1">13+</div>
             <div className="text-xs uppercase tracking-widest text-theme-accent font-bold">Years</div>
           </div>
           <div className="text-center">
