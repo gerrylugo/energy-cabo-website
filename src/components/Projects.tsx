@@ -64,17 +64,33 @@ export default function Projects() {
           </p>
         </div>
 
-        {/* Strip */}
-        <div>
+        {/* Strip with side arrows */}
+        <div className="relative">
+          {/* Left arrow — vertically centered on images */}
+          <button
+            onClick={() => scroll('left')}
+            aria-label="Previous project"
+            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white/85 backdrop-blur-sm rounded-full items-center justify-center text-theme-primary hover:bg-white hover:scale-110 transition-all shadow-lg"
+          >
+            <ChevronLeft className="w-6 h-6" strokeWidth={2} />
+          </button>
+          <button
+            onClick={() => scroll('right')}
+            aria-label="Next project"
+            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white/85 backdrop-blur-sm rounded-full items-center justify-center text-theme-primary hover:bg-white hover:scale-110 transition-all shadow-lg"
+          >
+            <ChevronRight className="w-6 h-6" strokeWidth={2} />
+          </button>
+
           <div
             ref={stripRef}
-            className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 -mx-4 px-4"
+            className="flex gap-4 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-4 -mx-4 px-4"
             style={{ scrollbarWidth: 'none' }}
           >
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="group relative overflow-hidden rounded-2xl aspect-[16/10] cursor-pointer flex-shrink-0 w-[85%] md:w-[60%] lg:w-[45%] snap-start"
+                className="group relative overflow-hidden rounded-2xl aspect-[16/10] cursor-pointer flex-shrink-0 w-[85%] sm:w-[48%] md:w-[32%] lg:w-[23.5%] snap-start"
               >
                 <img
                   src={project.image}
@@ -102,23 +118,6 @@ export default function Projects() {
             ))}
           </div>
 
-          {/* Minimalist navy arrows below strip with fade animation */}
-          <div className="flex justify-center gap-8 mt-8">
-            <button
-              onClick={() => scroll('left')}
-              aria-label="Previous project"
-              className="text-theme-primary hover:scale-110 transition-transform animate-arrow-fade"
-            >
-              <ChevronLeft className="w-10 h-10" strokeWidth={1.5} />
-            </button>
-            <button
-              onClick={() => scroll('right')}
-              aria-label="Next project"
-              className="text-theme-primary hover:scale-110 transition-transform animate-arrow-fade"
-            >
-              <ChevronRight className="w-10 h-10" strokeWidth={1.5} />
-            </button>
-          </div>
         </div>
       </div>
     </section>
