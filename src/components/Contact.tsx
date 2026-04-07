@@ -59,7 +59,7 @@ export default function Contact() {
               href="https://crm.energycabo.com/en/estimator/?channel=website"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 px-12 py-6 bg-theme-accent text-white font-bold text-2xl rounded-2xl hover:opacity-90 hover:scale-105 transition-all duration-300 shadow-2xl shadow-theme-accent/50 ring-4 ring-theme-accent/30"
+              className="group inline-flex items-center gap-3 px-12 py-6 bg-theme-accent text-white font-bold text-2xl rounded-2xl hover:opacity-90 hover:scale-105 transition-all duration-300 shadow-2xl"
             >
               Make A Quote
               <ArrowRight className="w-7 h-7 group-hover:translate-x-1 transition-transform" />
