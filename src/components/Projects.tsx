@@ -47,21 +47,19 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative py-28 bg-cover bg-center"
-      style={{ backgroundImage: "url('/images/projects-bg-sea-cortez.png')" }}
+      className="py-36"
+      style={{ background: 'linear-gradient(135deg, #87CEEB 0%, #F5F0E8 100%)' }}
     >
-      {/* Navy overlay for text legibility */}
-      <div className="absolute inset-0 bg-gradient-to-b from-theme-primary/50 via-theme-primary/30 to-theme-primary/70 pointer-events-none" />
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div ref={headerRef} className="animate-on-scroll text-center mb-16">
-          <span className="inline-block text-theme-accent text-base font-bold tracking-[0.2em] uppercase mb-4 section-label-glow drop-shadow-lg">
+          <span className="inline-block text-theme-primary text-base font-bold tracking-[0.2em] uppercase mb-4 section-label-glow">
             Our Work
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-5 tracking-tight drop-shadow-lg">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-theme-primary mb-5 tracking-tight">
             Powering Baja
           </h2>
-          <p className="text-lg text-white/85 max-w-2xl mx-auto drop-shadow">
+          <p className="text-lg text-theme-primary/70 max-w-2xl mx-auto">
             From La Paz to the East Cape — homes and businesses running on clean energy.
           </p>
         </div>
