@@ -47,7 +47,7 @@ export default function Navigation() {
               <span className={`text-[10px] font-medium tracking-[0.2em] uppercase transition-colors duration-300 ${
                 isScrolled ? 'text-theme-accent' : 'text-white/60'
               }`}>
-                Energy Solutions
+                Solar & Energy Solutions
               </span>
             </div>
           </a>
