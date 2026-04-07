@@ -48,7 +48,7 @@ export default function Projects() {
     <section
       id="projects"
       className="py-28"
-      style={{ background: 'linear-gradient(to bottom, #1B3A6B 0%, #1B3A6B 3%, #87CEEB 3%, #87CEEB 13%, #F5F0E8 13%, #F5F0E8 87%, #87CEEB 87%, #87CEEB 97%, #1B3A6B 97%, #1B3A6B 100%)' }}
+      style={{ background: 'linear-gradient(135deg, #87CEEB 0%, #F5F0E8 100%)' }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -70,14 +70,14 @@ export default function Projects() {
           <button
             onClick={() => scroll('left')}
             aria-label="Previous project"
-            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white/85 backdrop-blur-sm rounded-full items-center justify-center text-theme-primary hover:bg-white hover:scale-110 transition-all shadow-lg"
+            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 z-10 w-12 h-12 bg-white/85 backdrop-blur-sm rounded-full items-center justify-center text-theme-primary hover:bg-white hover:scale-110 transition-all shadow-lg"
           >
             <ChevronLeft className="w-6 h-6" strokeWidth={2} />
           </button>
           <button
             onClick={() => scroll('right')}
             aria-label="Next project"
-            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white/85 backdrop-blur-sm rounded-full items-center justify-center text-theme-primary hover:bg-white hover:scale-110 transition-all shadow-lg"
+            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 z-10 w-12 h-12 bg-white/85 backdrop-blur-sm rounded-full items-center justify-center text-theme-primary hover:bg-white hover:scale-110 transition-all shadow-lg"
           >
             <ChevronRight className="w-6 h-6" strokeWidth={2} />
           </button>
