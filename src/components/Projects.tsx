@@ -48,7 +48,7 @@ export default function Projects() {
     <section
       id="projects"
       className="relative py-28 bg-cover bg-center"
-      style={{ backgroundImage: "url('/images/projects-bg-aerial.png')" }}
+      style={{ backgroundImage: "url('/images/projects-bg-sea-cortez.png')" }}
     >
       {/* Navy overlay for text legibility */}
       <div className="absolute inset-0 bg-gradient-to-b from-theme-primary/50 via-theme-primary/30 to-theme-primary/70 pointer-events-none" />
