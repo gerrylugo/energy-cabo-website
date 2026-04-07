@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Zap, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,11 +33,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-3">
-            <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors duration-300 ${
-              isScrolled ? 'bg-theme-accent' : 'bg-white/15 backdrop-blur-sm'
-            }`}>
-              <Zap className="w-5 h-5 text-white" />
-            </div>
+            <img src="/favicon.svg" alt="Energy Cabo" className="w-10 h-10 rounded-xl" />
             <div className="flex flex-col">
               <span className={`text-xl font-bold tracking-tight transition-colors duration-300 ${
                 isScrolled ? 'text-theme-text' : 'text-white'
