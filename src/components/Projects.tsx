@@ -56,7 +56,7 @@ export default function Projects() {
           <span className="inline-block text-theme-primary text-base font-bold tracking-[0.2em] uppercase mb-4 section-label-glow">
             Our Work
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-theme-primary mb-5 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-theme-torote mb-5 tracking-tight">
             Powering Baja
           </h2>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: '#4A69A6' }}>
