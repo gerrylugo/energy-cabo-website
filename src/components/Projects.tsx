@@ -121,17 +121,17 @@ export default function Projects() {
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
-                {/* Info block (bottom) — teal bg */}
-                <div className="bg-theme-accent px-6 py-5">
+                {/* Info block (bottom) — darker teal bg, fixed height */}
+                <div className="px-6 py-6 min-h-[130px] flex flex-col justify-center" style={{ backgroundColor: '#2AA8A0' }}>
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="px-2.5 py-0.5 bg-theme-primary text-white text-[10px] font-bold rounded-full uppercase tracking-wider">
+                    <span className="px-3 py-1 bg-theme-primary text-white text-[10px] font-bold rounded-full uppercase tracking-wider">
                       {project.category}
                     </span>
-                    <span className="text-white/85 text-[11px] font-semibold">
+                    <span className="text-white/90 text-[11px] font-semibold">
                       {project.capacity}
                     </span>
                   </div>
-                  <h3 className="text-lg font-extrabold text-white mb-0.5 tracking-tight leading-tight">
+                  <h3 className="text-lg font-extrabold text-white mb-0.5 tracking-tight leading-tight line-clamp-1">
                     {project.title}
                   </h3>
                   <p className="text-white/80 text-xs font-medium">
