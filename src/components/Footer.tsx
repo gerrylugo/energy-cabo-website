@@ -1,4 +1,4 @@
-import { Zap, Phone, MapPin, Facebook, Instagram, MessageCircle } from 'lucide-react';
+import { Zap, Mail, Phone, MapPin, Facebook, Instagram, MessageCircle } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -83,6 +83,12 @@ export default function Footer() {
           <div>
             <h3 className="text-white font-semibold mb-5 text-sm tracking-wide">Contact</h3>
             <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <Mail className="w-4 h-4 text-theme-accent flex-shrink-0 mt-1" />
+                <a href="mailto:info@energycabo.com" className="text-white/70 hover:text-white transition-colors text-sm">
+                  info@energycabo.com
+                </a>
+              </li>
               <li className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-theme-accent flex-shrink-0 mt-1" />
                 <div>
