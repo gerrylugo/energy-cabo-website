@@ -53,7 +53,7 @@ export default function Projects() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div ref={headerRef} className="animate-on-scroll text-center mb-16">
-          <span className="inline-block text-theme-torote text-base font-bold tracking-[0.2em] uppercase mb-4 section-label-glow">
+          <span className="inline-block text-theme-primary text-base font-bold tracking-[0.2em] uppercase mb-4 section-label-glow">
             Our Work
           </span>
           <h2 className="text-4xl md:text-5xl font-extrabold text-theme-torote mb-5 tracking-tight">
