@@ -59,7 +59,7 @@ export default function Projects() {
           <h2 className="text-4xl md:text-5xl font-extrabold mb-5 tracking-tight" style={{ color: '#2AA8A0' }}>
             Powering Baja
           </h2>
-          <p className="text-lg text-theme-primary/60 max-w-2xl mx-auto">
+          <p className="text-lg max-w-2xl mx-auto" style={{ color: '#2AA8A0', opacity: 0.85 }}>
             From La Paz to the East Cape — homes and businesses running on clean energy.
           </p>
         </div>
@@ -124,7 +124,7 @@ export default function Projects() {
                 {/* Info block (bottom) — darker teal bg, fixed height */}
                 <div className="px-6 py-6 min-h-[130px] flex flex-col justify-center" style={{ backgroundColor: '#2AA8A0' }}>
                   <div className="flex items-center gap-2 mb-2">
-                    <span className="px-3 py-1 bg-theme-primary text-white text-[10px] font-bold rounded-full uppercase tracking-wider">
+                    <span className="px-3 py-1 bg-white/95 text-[10px] font-bold rounded-full uppercase tracking-wider" style={{ color: '#2AA8A0' }}>
                       {project.category}
                     </span>
                     <span className="text-white/90 text-[11px] font-semibold">
