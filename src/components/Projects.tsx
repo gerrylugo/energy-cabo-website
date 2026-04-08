@@ -53,7 +53,7 @@ export default function Projects() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div ref={headerRef} className="animate-on-scroll text-center mb-16">
-          <span className="inline-block text-theme-primary text-base font-bold tracking-[0.2em] uppercase mb-4 section-label-glow">
+          <span className="inline-block text-theme-torote text-base font-bold tracking-[0.2em] uppercase mb-4 section-label-glow">
             Our Work
           </span>
           <h2 className="text-4xl md:text-5xl font-extrabold text-theme-torote mb-5 tracking-tight">
@@ -68,19 +68,19 @@ export default function Projects() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 max-w-4xl mx-auto">
           <div className="text-center">
             <div className="text-4xl md:text-5xl font-extrabold text-theme-primary mb-1">500+</div>
-            <div className="text-xs uppercase tracking-widest text-theme-accent font-bold">Projects</div>
+            <div className="text-xs uppercase tracking-widest text-theme-torote font-bold">Projects</div>
           </div>
           <div className="text-center">
             <div className="text-4xl md:text-5xl font-extrabold text-theme-primary mb-1">10 MW</div>
-            <div className="text-xs uppercase tracking-widest text-theme-accent font-bold">Installed</div>
+            <div className="text-xs uppercase tracking-widest text-theme-torote font-bold">Installed</div>
           </div>
           <div className="text-center">
             <div className="text-4xl md:text-5xl font-extrabold text-theme-primary mb-1">13+</div>
-            <div className="text-xs uppercase tracking-widest text-theme-accent font-bold">Years</div>
+            <div className="text-xs uppercase tracking-widest text-theme-torote font-bold">Years</div>
           </div>
           <div className="text-center">
             <div className="text-4xl md:text-5xl font-extrabold text-theme-primary mb-1">100%</div>
-            <div className="text-xs uppercase tracking-widest text-theme-accent font-bold">Satisfaction</div>
+            <div className="text-xs uppercase tracking-widest text-theme-torote font-bold">Satisfaction</div>
           </div>
         </div>
 
