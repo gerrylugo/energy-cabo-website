@@ -59,7 +59,7 @@ export default function Projects() {
           <h2 className="text-4xl md:text-5xl font-extrabold text-theme-primary mb-5 tracking-tight">
             Powering Baja
           </h2>
-          <p className="text-lg text-theme-primary/70 max-w-2xl mx-auto">
+          <p className="text-lg max-w-2xl mx-auto" style={{ color: '#4A69A6' }}>
             From La Paz to the East Cape — homes and businesses running on clean energy.
           </p>
         </div>
