@@ -1,4 +1,4 @@
-import { Zap, Mail, Phone, MapPin, Facebook, Instagram, MessageCircle } from 'lucide-react';
+import { Zap, Mail, Phone, Facebook, Instagram, MessageCircle } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -106,10 +106,6 @@ export default function Footer() {
                     +52 612 111 0860
                   </a>
                 </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-theme-accent flex-shrink-0 mt-1" />
-                <span className="text-white/70 text-sm">Los Cabos · BCS · Todos Santos</span>
               </li>
             </ul>
           </div>
