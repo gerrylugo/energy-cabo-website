@@ -53,13 +53,13 @@ export default function Projects() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div ref={headerRef} className="animate-on-scroll text-center mb-16">
-          <span className="inline-block text-theme-primary text-base font-bold tracking-[0.2em] uppercase mb-4 section-label-glow">
+          <span className="inline-block text-theme-accent-hover text-base font-bold tracking-[0.2em] uppercase mb-4 section-label-glow">
             Our Work
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-theme-primary mb-5 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-5 tracking-tight" style={{ color: '#2AA8A0' }}>
             Powering Baja
           </h2>
-          <p className="text-lg text-theme-primary/70 max-w-2xl mx-auto">
+          <p className="text-lg text-theme-primary/60 max-w-2xl mx-auto">
             From La Paz to the East Cape — homes and businesses running on clean energy.
           </p>
         </div>
@@ -67,20 +67,20 @@ export default function Projects() {
         {/* Stats line */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 max-w-4xl mx-auto">
           <div className="text-center">
-            <div className="text-4xl md:text-5xl font-extrabold text-theme-primary mb-1">500+</div>
+            <div className="text-4xl md:text-5xl font-extrabold mb-1" style={{ color: '#2AA8A0' }}>500+</div>
             <div className="text-xs uppercase tracking-widest text-theme-accent font-bold">Projects</div>
           </div>
           {/* TODO: waiting on Salo for exact MW number */}
           <div className="text-center">
-            <div className="text-4xl md:text-5xl font-extrabold text-theme-primary mb-1">X MW</div>
+            <div className="text-4xl md:text-5xl font-extrabold mb-1" style={{ color: '#2AA8A0' }}>X MW</div>
             <div className="text-xs uppercase tracking-widest text-theme-accent font-bold">Installed</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl md:text-5xl font-extrabold text-theme-primary mb-1">13+</div>
+            <div className="text-4xl md:text-5xl font-extrabold mb-1" style={{ color: '#2AA8A0' }}>13+</div>
             <div className="text-xs uppercase tracking-widest text-theme-accent font-bold">Years</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl md:text-5xl font-extrabold text-theme-primary mb-1">100%</div>
+            <div className="text-4xl md:text-5xl font-extrabold mb-1" style={{ color: '#2AA8A0' }}>100%</div>
             <div className="text-xs uppercase tracking-widest text-theme-accent font-bold">Satisfaction</div>
           </div>
         </div>
