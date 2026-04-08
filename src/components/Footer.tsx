@@ -1,4 +1,4 @@
-import { Zap, Mail, Phone, MapPin, Facebook, Instagram, MessageCircle } from 'lucide-react';
+import { Zap, Phone, MapPin, Facebook, Instagram, MessageCircle } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -84,20 +84,26 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-5 text-sm tracking-wide">Contact</h3>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <Mail className="w-4 h-4 text-theme-accent flex-shrink-0 mt-1" />
-                <a href="mailto:info@energycabo.com" className="text-white/70 hover:text-white transition-colors text-sm">
-                  info@energycabo.com
-                </a>
+                <Phone className="w-4 h-4 text-theme-accent flex-shrink-0 mt-1" />
+                <div>
+                  <div className="text-white/50 text-[10px] font-bold uppercase tracking-wider mb-0.5">Los Cabos &amp; BCS</div>
+                  <a href="tel:+5216121325952" className="text-white/70 hover:text-white transition-colors text-sm">
+                    +52 612 132 5952
+                  </a>
+                </div>
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-theme-accent flex-shrink-0 mt-1" />
-                <a href="tel:+526241325952" className="text-white/70 hover:text-white transition-colors text-sm">
-                  +52 624 132 5952
-                </a>
+                <div>
+                  <div className="text-white/50 text-[10px] font-bold uppercase tracking-wider mb-0.5">Todos Santos</div>
+                  <a href="tel:+5216121110860" className="text-white/70 hover:text-white transition-colors text-sm">
+                    +52 612 111 0860
+                  </a>
+                </div>
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-theme-accent flex-shrink-0 mt-1" />
-                <span className="text-white/70 text-sm">Los Cabos, BCS, Mexico</span>
+                <span className="text-white/70 text-sm">Los Cabos · BCS · Todos Santos</span>
               </li>
             </ul>
           </div>
