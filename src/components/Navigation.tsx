@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Zap, Menu, X } from 'lucide-react';
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,15 +33,8 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-3">
-            <div className={`w-10 h-10 rounded-xl overflow-hidden transition-all duration-300 ${
-              isScrolled ? '' : 'bg-white/15 backdrop-blur-sm'
-            }`}>
-              <svg viewBox="0 0 64 64" className="w-full h-full" aria-label="Energy Cabo">
-                <rect x="2" y="2" width="60" height="60" rx="12" fill={isScrolled ? '#1B3A6B' : 'transparent'}/>
-                <text x="5" y="44" fontFamily="system-ui, -apple-system, sans-serif" fontSize="32" fontWeight="900" fill={isScrolled ? '#50BB9B' : '#FFFFFF'}>E</text>
-                <path d="M32 17 L23 36 L30 36 L29 47 L39 28 L32 28 Z" fill="#FFFFFF"/>
-                <text x="39" y="44" fontFamily="system-ui, -apple-system, sans-serif" fontSize="32" fontWeight="900" fill={isScrolled ? '#50BB9B' : '#FFFFFF'}>C</text>
-              </svg>
+            <div className="w-10 h-10 bg-theme-accent rounded-xl flex items-center justify-center">
+              <Zap className="w-5 h-5 text-white" />
             </div>
             <div className="flex flex-col">
               <span className={`text-xl font-bold tracking-tight transition-colors duration-300 ${
