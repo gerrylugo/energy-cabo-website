@@ -111,27 +111,30 @@ export default function Projects() {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="group relative overflow-hidden rounded-2xl aspect-[4/5] cursor-pointer flex-shrink-0 w-[85%] sm:w-[48%] md:w-[32%] lg:w-[23.5%] snap-start"
+                className="group overflow-hidden rounded-2xl cursor-pointer flex-shrink-0 w-[85%] sm:w-[48%] md:w-[32%] lg:w-[23.5%] snap-start shadow-xl"
               >
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/90 transition-all duration-500" />
-                <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="px-3 py-1 bg-theme-accent/90 text-white text-xs font-semibold rounded-full uppercase tracking-wide">
+                {/* Image block (top) */}
+                <div className="relative aspect-[4/5] overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+                {/* Info block (bottom) — teal bg */}
+                <div className="bg-theme-accent px-6 py-5">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="px-2.5 py-0.5 bg-theme-primary text-white text-[10px] font-bold rounded-full uppercase tracking-wider">
                       {project.category}
                     </span>
-                    <span className="px-3 py-1 bg-white/15 backdrop-blur-sm text-white text-xs font-semibold rounded-full">
+                    <span className="text-white/85 text-[11px] font-semibold">
                       {project.capacity}
                     </span>
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-1 tracking-tight">
+                  <h3 className="text-lg font-extrabold text-white mb-0.5 tracking-tight leading-tight">
                     {project.title}
                   </h3>
-                  <p className="text-white/60 text-sm font-medium">
+                  <p className="text-white/80 text-xs font-medium">
                     {project.system}
                   </p>
                 </div>
