@@ -70,9 +70,8 @@ export default function Projects() {
             <div className="text-4xl md:text-5xl font-extrabold mb-1" style={{ color: '#2AA8A0' }}>500+</div>
             <div className="text-xs uppercase tracking-widest text-theme-accent font-bold">Projects</div>
           </div>
-          {/* TODO: waiting on Salo for exact MW number */}
           <div className="text-center">
-            <div className="text-4xl md:text-5xl font-extrabold mb-1" style={{ color: '#2AA8A0' }}>X MW</div>
+            <div className="text-4xl md:text-5xl font-extrabold mb-1" style={{ color: '#2AA8A0' }}>10 MW</div>
             <div className="text-xs uppercase tracking-widest text-theme-accent font-bold">Installed</div>
           </div>
           <div className="text-center">
