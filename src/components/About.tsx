@@ -103,7 +103,7 @@ export default function About() {
                 <div
                   key={index}
                   className="group relative bg-white/50 backdrop-blur-sm p-4 lg:p-6 rounded-2xl border border-white/30 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
-                  style={{ borderLeft: `4px solid ${pillar.accent}` }}
+                  style={{}}
                 >
                   {/* Hover color tint */}
                   <div
