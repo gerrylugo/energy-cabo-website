@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Zap, Menu, X } from 'lucide-react';
+import { Zap, Menu, X, Bolt, Sun, Layers, Star, Phone } from 'lucide-react';
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -14,11 +14,11 @@ export default function Navigation() {
   }, []);
 
   const navLinks = [
-    { href: '#services', label: 'Services' },
-    { href: '#about', label: 'About' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#testimonials', label: 'Testimonials' },
-    { href: '#contact', label: 'Contact' },
+    { href: '#services', label: 'Services', icon: Bolt },
+    { href: '#about', label: 'About', icon: Sun },
+    { href: '#projects', label: 'Projects', icon: Layers },
+    { href: '#testimonials', label: 'Testimonials', icon: Star },
+    { href: '#contact', label: 'Contact', icon: Phone },
   ];
 
   return (
@@ -85,25 +85,37 @@ export default function Navigation() {
 
       {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-theme-primary shadow-2xl border-t border-white/10">
-          <div className="px-6 py-8 space-y-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block text-white/90 hover:text-theme-accent transition-colors font-semibold text-lg py-3 px-4 rounded-xl hover:bg-white/10"
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href="#contact"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="block mt-6 px-6 py-4 bg-theme-accent text-white font-bold text-lg rounded-xl hover:opacity-90 transition-all text-center"
-            >
-              Get Quote
-            </a>
+        <div className="md:hidden fixed inset-0 top-20 z-40" style={{ background: 'linear-gradient(to bottom, #122A4F, #1B3A6B)' }}>
+          <div className="flex flex-col items-center justify-center h-full pb-20">
+            <div className="space-y-1 w-full max-w-xs">
+              {navLinks.map((link, index) => {
+                const Icon = link.icon;
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center gap-4 text-white/85 hover:text-theme-accent transition-all font-semibold text-lg py-3.5 px-5 rounded-xl hover:bg-white/10"
+                    style={{ animationDelay: `${index * 50}ms` }}
+                  >
+                    <Icon className="w-5 h-5 text-theme-accent" />
+                    {link.label}
+                  </a>
+                );
+              })}
+            </div>
+
+            <div className="w-full max-w-xs mt-8 px-5">
+              <div className="border-t border-white/10 pt-8">
+                <a
+                  href="#contact"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block px-8 py-4 bg-theme-accent text-white font-bold text-lg rounded-2xl hover:opacity-90 transition-all text-center shadow-lg shadow-theme-accent/30"
+                >
+                  Get Quote →
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       )}
