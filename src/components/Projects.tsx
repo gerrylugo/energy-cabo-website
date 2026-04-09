@@ -56,7 +56,7 @@ export default function Projects() {
           <span className="inline-block text-theme-primary text-base font-bold tracking-[0.2em] uppercase mb-4 section-label-glow">
             Our Work
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-theme-torote mb-5 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-theme-torote mb-5 tracking-tight">
             Powering Baja
           </h2>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: '#4A69A6' }}>
@@ -67,19 +67,19 @@ export default function Projects() {
         {/* Stats line */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 max-w-4xl mx-auto">
           <div className="text-center">
-            <div className="text-4xl md:text-5xl font-extrabold text-theme-primary mb-1">500+</div>
+            <div className="text-3xl md:text-4xl font-extrabold text-theme-primary mb-1">500+</div>
             <div className="text-xs uppercase tracking-widest text-theme-torote font-bold">Projects</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl md:text-5xl font-extrabold text-theme-primary mb-1">10 MW</div>
+            <div className="text-3xl md:text-4xl font-extrabold text-theme-primary mb-1">10 MW</div>
             <div className="text-xs uppercase tracking-widest text-theme-torote font-bold">Installed</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl md:text-5xl font-extrabold text-theme-primary mb-1">13+</div>
+            <div className="text-3xl md:text-4xl font-extrabold text-theme-primary mb-1">13+</div>
             <div className="text-xs uppercase tracking-widest text-theme-torote font-bold">Years</div>
           </div>
           <div className="text-center">
-            <div className="text-4xl md:text-5xl font-extrabold text-theme-primary mb-1">100%</div>
+            <div className="text-3xl md:text-4xl font-extrabold text-theme-primary mb-1">100%</div>
             <div className="text-xs uppercase tracking-widest text-theme-torote font-bold">Satisfaction</div>
           </div>
         </div>
@@ -101,6 +101,11 @@ export default function Projects() {
           >
             <ChevronRight className="w-6 h-6" strokeWidth={2} />
           </button>
+
+          {/* Mobile swipe hint */}
+          <p className="text-center text-sm text-theme-primary/60 mb-3 md:hidden">
+            Swipe to explore projects &rarr;
+          </p>
 
           <div
             ref={stripRef}

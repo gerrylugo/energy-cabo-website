@@ -48,13 +48,13 @@ export default function Hero() {
           </div>
 
           {/* Main headline */}
-          <h1 className="animate-fade-in-up text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-white drop-shadow-lg mb-4 tracking-tight leading-[0.95]">
+          <h1 className="animate-fade-in-up text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-lg mb-4 tracking-tight leading-[0.95]">
             365 Days of Power.
             <span className="block mt-2" style={{ color: 'var(--color-accent)' }}>Zero Wasted.</span>
           </h1>
 
           {/* Subheadline */}
-          <p className="animate-fade-in-up text-lg md:text-xl font-semibold text-white drop-shadow-lg max-w-2xl mx-auto leading-relaxed" style={{ animationDelay: '0.2s' }}>
+          <p className="animate-fade-in-up text-base md:text-lg font-semibold text-white drop-shadow-lg max-w-2xl mx-auto leading-relaxed" style={{ animationDelay: '0.2s' }}>
             Engineer-designed energy systems for homes and businesses in Baja California Sur.
             Built for the desert. Powered by the Sea of Cortez.
           </p>
@@ -93,15 +93,15 @@ export default function Hero() {
           {/* Stats bar */}
           <div className="animate-fade-in-up grid grid-cols-3 gap-4 md:gap-16" style={{ animationDelay: '0.6s' }}>
             <div className="text-center">
-              <div className="text-2xl md:text-4xl font-extrabold text-white">300+</div>
+              <div className="text-xl md:text-3xl font-extrabold text-white">300+</div>
               <div className="text-xs md:text-sm text-white/80 drop-shadow-md mt-1 tracking-wide uppercase">Sunny Days / Year</div>
             </div>
             <div className="text-center border-x border-white/10 px-4 md:px-8">
-              <div className="text-2xl md:text-4xl font-extrabold text-white">95%</div>
+              <div className="text-xl md:text-3xl font-extrabold text-white">95%</div>
               <div className="text-xs md:text-sm text-white/80 drop-shadow-md mt-1 tracking-wide uppercase">Bill Reduction</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-4xl font-extrabold text-white">25yr</div>
+              <div className="text-xl md:text-3xl font-extrabold text-white">25yr</div>
               <div className="text-xs md:text-sm text-white/80 drop-shadow-md mt-1 tracking-wide uppercase">Panel Warranty</div>
             </div>
           </div>

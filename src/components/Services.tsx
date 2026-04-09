@@ -66,7 +66,7 @@ export default function Services() {
           <span className="inline-block text-theme-accent text-base font-bold tracking-[0.2em] uppercase mb-4 section-label-glow">
             What We Do
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-theme-text mb-5 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-theme-text mb-5 tracking-tight">
             Energy Solutions Built for Baja
           </h2>
           <p className="text-lg text-theme-text-muted max-w-2xl mx-auto leading-relaxed">

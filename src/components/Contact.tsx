@@ -44,7 +44,7 @@ export default function Contact() {
           }`}>
             Get Started
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-theme-text mb-5 tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-theme-text mb-5 tracking-tight">
             Ready to Power Your Future?
           </h2>
           <p className="text-lg text-theme-text-secondary font-medium max-w-2xl mx-auto">
@@ -59,7 +59,7 @@ export default function Contact() {
               href="https://crm.energycabo.com/en/estimator/?channel=website"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-3 px-12 py-6 bg-theme-accent text-white font-bold text-2xl rounded-2xl hover:opacity-90 hover:scale-105 transition-all duration-300 shadow-2xl"
+              className="group inline-flex items-center gap-3 px-10 py-5 bg-theme-accent text-white font-bold text-xl rounded-2xl hover:opacity-90 hover:scale-105 transition-all duration-300 shadow-2xl"
             >
               Make A Quote
               <ArrowRight className="w-7 h-7 group-hover:translate-x-1 transition-transform" />

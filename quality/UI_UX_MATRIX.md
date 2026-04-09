@@ -73,7 +73,7 @@
 | Card width appropriate | OK (85%) | OK (48%) | OK (23.5%) |
 | Scroll arrows hidden mobile | OK (hidden md:flex) | Visible (md+) | Visible |
 | Stats bar reflows | OK (2x2) | OK (4-col md+) | OK (4-col) |
-| **Swipe affordance on mobile** | **FIX** — no hint | N/A | N/A |
+| Swipe affordance on mobile | OK — "Swipe to explore" hint | N/A | N/A |
 | Image aspect ratio maintained | OK (4/5) | OK | OK |
 
 **Issue**: Mobile users see a carousel but no visual cue to swipe. Add swipe indicator or dots.
@@ -138,11 +138,12 @@
 
 | Issue | Severity | Component | Fix |
 |-------|----------|-----------|-----|
-| `zoom: 0.7` in index.css | **CRITICAL** | All | Remove — breaks responsive, shrinks touch targets, defeats Tailwind breakpoints |
-| No swipe affordance | MEDIUM | Projects | Add swipe hint or pagination dots on mobile |
+| ~~`zoom: 0.7` in index.css~~ | ~~CRITICAL~~ | ~~All~~ | **FIXED S161** — removed zoom, scaled text sizes down ~1 step per component |
+| ~~No swipe affordance~~ | ~~MEDIUM~~ | ~~Projects~~ | **FIXED S161** — added "Swipe to explore" hint on mobile (`md:hidden`) |
 
 ## Changelog
 
 | Date | Change |
 |------|--------|
 | 09 Apr 2026 (S161) | Initial matrix — 11 components audited at 3 breakpoints. 2 issues found: zoom hack (critical), carousel affordance (medium). |
+| 09 Apr 2026 (S161) | Fixed both issues: removed `zoom:0.7`, scaled text sizes ~1 step across 7 components, added swipe hint to Projects carousel. Build clean. |

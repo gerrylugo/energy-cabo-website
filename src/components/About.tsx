@@ -56,7 +56,7 @@ export default function About() {
             <span className="inline-block text-theme-accent text-base font-bold tracking-[0.2em] uppercase mb-4 section-label-glow">
               About Us
             </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-theme-text mb-6 tracking-tight leading-tight">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-theme-text mb-6 tracking-tight leading-tight">
               Where Quality
               <span className="block text-theme-accent">& Reliability Meet</span>
             </h2>

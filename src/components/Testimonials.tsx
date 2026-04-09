@@ -52,7 +52,7 @@ export default function Testimonials() {
           >
             Testimonials
           </span>
-          <h2 className={`text-4xl md:text-5xl font-extrabold mb-5 tracking-tight ${
+          <h2 className={`text-3xl md:text-4xl font-extrabold mb-5 tracking-tight ${
             theme === 'techno' ? 'text-white' : 'text-theme-text'
           }`}
           >
