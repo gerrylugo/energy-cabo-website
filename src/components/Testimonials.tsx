@@ -34,10 +34,20 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="relative py-28 overflow-hidden">
       {theme === 'techno' && (
-        <div
-          className="absolute inset-0 bg-[length:100%_auto] bg-top transition-opacity duration-700"
-          style={{ backgroundImage: "url('/images/water-teal-texture.png')" }}
-        />
+        <>
+          {/* Mobile: portrait water texture */}
+          <img
+            src="/images/water-teal-texture-mobile.png"
+            alt=""
+            className="lg:hidden absolute inset-0 w-full h-full object-cover"
+          />
+          {/* Desktop: landscape water texture */}
+          <img
+            src="/images/water-teal-texture.png"
+            alt=""
+            className="hidden lg:block absolute inset-0 w-full h-full object-cover"
+          />
+        </>
       )}
       <div className={`absolute inset-0 ${
         theme === 'techno'
