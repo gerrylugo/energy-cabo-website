@@ -85,14 +85,14 @@ export default function Navigation() {
 
       {/* Mobile menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-theme-bg/95 backdrop-blur-md shadow-lg border-t border-theme-border">
-          <div className="px-4 py-6 space-y-1">
+        <div className="md:hidden bg-theme-primary shadow-2xl border-t border-white/10">
+          <div className="px-6 py-8 space-y-2">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block text-theme-text-secondary hover:text-theme-accent transition-colors font-medium py-3 px-4 rounded-lg"
+                className="block text-white/90 hover:text-theme-accent transition-colors font-semibold text-lg py-3 px-4 rounded-xl hover:bg-white/10"
               >
                 {link.label}
               </a>
@@ -100,7 +100,7 @@ export default function Navigation() {
             <a
               href="#contact"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="block mt-4 px-6 py-3 bg-theme-accent text-white font-semibold rounded-xl hover:opacity-90 transition-all text-center"
+              className="block mt-6 px-6 py-4 bg-theme-accent text-white font-bold text-lg rounded-xl hover:opacity-90 transition-all text-center"
             >
               Get Quote
             </a>
