@@ -62,7 +62,7 @@ export default function Contact() {
           </p>
         </div>
 
-        <div ref={contentRef} className="animate-on-scroll space-y-12">
+        <div ref={contentRef} className="animate-on-scroll space-y-8">
           {/* Primary CTA — Make A Quote */}
           <div className="flex justify-center">
             <a
@@ -76,43 +76,25 @@ export default function Contact() {
             </a>
           </div>
 
-          {/* Contact cards by zone */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Compact contact lines */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
             {contacts.map((contact) => (
-              <div
+              <a
                 key={contact.name}
-                className="bg-white p-8 rounded-2xl shadow-xl border border-theme-accent/15 text-center"
+                href={contact.telLink}
+                className="flex items-center gap-2 text-white/90 hover:text-theme-accent transition-colors"
               >
-                <div className="flex items-center justify-center gap-2 text-theme-accent mb-6">
-                  <MapPin className="w-5 h-5" />
-                  <span className="text-base font-bold tracking-wide uppercase">{contact.role}</span>
-                </div>
-                <div className="flex gap-3 justify-center">
-                  <a
-                    href={contact.telLink}
-                    className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 bg-theme-primary text-white font-semibold rounded-xl hover:opacity-90 transition-all"
-                  >
-                    <Phone className="w-4 h-4" />
-                    Call
-                  </a>
-                  <a
-                    href={contact.waLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 bg-[#25D366] text-white font-semibold rounded-xl hover:opacity-90 transition-all"
-                  >
-                    <MessageCircle className="w-4 h-4" />
-                    WhatsApp
-                  </a>
-                </div>
-              </div>
+                <Phone className="w-4 h-4 text-theme-accent" />
+                <span className="font-semibold text-sm">{contact.role}</span>
+                <span className="text-white/60 text-sm">{contact.phone}</span>
+              </a>
             ))}
           </div>
 
-          {/* Coverage zones */}
-          <div className="text-center text-theme-text-secondary text-sm">
-            Serving <strong className="text-theme-text">Los Cabos</strong>, <strong className="text-theme-text">Baja California Sur</strong>, and <strong className="text-theme-text">Todos Santos</strong>
-          </div>
+          {/* Coverage */}
+          <p className="text-center text-white/60 text-xs">
+            Serving Los Cabos, La Paz, Todos Santos & all of BCS
+          </p>
         </div>
       </div>
     </section>
