@@ -48,7 +48,7 @@ export default function Projects() {
     <section
       id="projects"
       className="py-28"
-      style={{ background: 'linear-gradient(135deg, #87CEEB 0%, #F5F0E8 100%)' }}
+      style={{ background: 'var(--color-bg)' }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -118,7 +118,7 @@ export default function Projects() {
                 className="group overflow-hidden rounded-2xl cursor-pointer flex-shrink-0 w-[72%] sm:w-[48%] md:w-[32%] lg:w-[23.5%] snap-start shadow-xl"
               >
                 {/* Image block (top) */}
-                <div className="relative aspect-[4/5] overflow-hidden">
+                <div className="relative aspect-[3/4] sm:aspect-[4/5] overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -126,7 +126,7 @@ export default function Projects() {
                   />
                 </div>
                 {/* Info block (bottom) — darker teal bg, fixed height */}
-                <div className="px-6 py-6 min-h-[130px] flex flex-col justify-center" style={{ backgroundColor: '#2AA8A0' }}>
+                <div className="px-4 py-4 sm:px-6 sm:py-6 min-h-[100px] sm:min-h-[130px] flex flex-col justify-center" style={{ backgroundColor: '#2AA8A0' }}>
                   <div className="flex items-center gap-2 mb-2">
                     <span className="px-3 py-1 bg-white/95 text-[10px] font-bold rounded-full uppercase tracking-wider" style={{ color: '#2AA8A0' }}>
                       {project.category}
