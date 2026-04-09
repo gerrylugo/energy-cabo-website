@@ -30,7 +30,7 @@ export default function Contact() {
         <>
           {/* Mobile: portrait — swap between options */}
           <img
-            src="/images/contact-solar-panels-mobile.png"
+            src="/images/contact-beach-aerial.png"
             alt=""
             className="lg:hidden absolute inset-0 w-full h-full object-cover"
           />
