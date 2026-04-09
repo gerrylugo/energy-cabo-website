@@ -28,9 +28,9 @@ export default function Contact() {
     <section id="contact" className="relative py-28 overflow-hidden">
       {theme === 'techno' && (
         <>
-          {/* Mobile: hacienda portrait */}
+          {/* Mobile: portrait — swap between options */}
           <img
-            src="/images/contact-hacienda-mobile.png"
+            src="/images/contact-sunset-pastel-mobile.png"
             alt=""
             className="lg:hidden absolute inset-0 w-full h-full object-cover"
           />

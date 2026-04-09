@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Our Work — Background Preview</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Plus Jakarta Sans', -apple-system, sans-serif; background: #0f172a; color: white; }
+
+    .section-preview {
+      position: relative;
+      min-height: 100vh;
+      padding: 80px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+    }
+
+    .section-preview::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(27,58,107,0.5) 0%, rgba(27,58,107,0.3) 50%, rgba(27,58,107,0.7) 100%);
+      z-index: 1;
+    }
+
+    .content { position: relative; z-index: 2; max-width: 1400px; width: 100%; }
+
+    .label-wrapper { text-align: center; margin-bottom: 60px; }
+    .label {
+      display: inline-block;
+      color: #50BB9B;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+    }
+    h2 {
+      font-size: 48px;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 16px;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.6);
+    }
+    .subtitle {
+      font-size: 18px;
+      color: rgba(255,255,255,0.85);
+      text-shadow: 0 2px 15px rgba(0,0,0,0.5);
+    }
+
+    .strip {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .card {
+      position: relative;
+      width: 260px;
+      aspect-ratio: 16/10;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #1B3A6B;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    }
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 60%);
+    }
+    .card-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px;
+    }
+    .card-chip {
+      display: inline-block;
+      padding: 4px 10px;
+      background: rgba(80,187,155,0.9);
+      color: white;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      border-radius: 12px;
+      margin-right: 6px;
+      margin-bottom: 8px;
+    }
+    .card-chip.dark {
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+    }
+    .card-title {
+      color: white;
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 2px;
+    }
+    .card-sub {
+      color: rgba(255,255,255,0.7);
+      font-size: 12px;
+    }
+
+    .divider {
+      background: #0f172a;
+      padding: 30px;
+      text-align: center;
+      font-size: 18px;
+      color: #50BB9B;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    /* Option-specific backgrounds */
+    .bg-aerial { background-image: url('/public/images/projects-bg-aerial.png'); }
+    .bg-aerial-local { background-image: url('./public/images/projects-bg-aerial.png'); }
+    .bg-sea-cortez-local { background-image: url('./public/images/projects-bg-sea-cortez.png'); }
+  </style>
+</head>
+<body>
+
+  <div class="divider">↓ Opción 1 — Aerial Cabo Pulmo</div>
+
+  <section class="section-preview bg-aerial-local">
+    <div class="content">
+      <div class="label-wrapper">
+        <div class="label">Our Work</div>
+        <h2>Powering Baja</h2>
+        <p class="subtitle">From La Paz to the East Cape — homes and businesses running on clean energy.</p>
+      </div>
+      <div class="strip">
+        <div class="card">
+          <img src="https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=400" alt="">
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <div><span class="card-chip">Residential</span><span class="card-chip dark">18 kW + 30 kWh</span></div>
+            <div class="card-title">Luxury Villa — Palmilla</div>
+            <div class="card-sub">Complete Solution</div>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://images.pexels.com/photos/2476632/pexels-photo-2476632.jpeg?auto=compress&cs=tinysrgb&w=400" alt="">
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <div><span class="card-chip">Commercial</span><span class="card-chip dark">85 kW</span></div>
+            <div class="card-title">Boutique Hotel — Todos Santos</div>
+            <div class="card-sub">Grid Savings</div>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://images.pexels.com/photos/1268871/pexels-photo-1268871.jpeg?auto=compress&cs=tinysrgb&w=400" alt="">
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <div><span class="card-chip">Residential</span><span class="card-chip dark">12 kW Off-Grid</span></div>
+            <div class="card-title">Beachfront Home — East Cape</div>
+            <div class="card-sub">Total Independence</div>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://images.pexels.com/photos/1537635/pexels-photo-1537635.jpeg?auto=compress&cs=tinysrgb&w=400" alt="">
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <div><span class="card-chip">Commercial</span><span class="card-chip dark">45 kW Zero Export</span></div>
+            <div class="card-title">Restaurant — San Jose del Cabo</div>
+            <div class="card-sub">Smart Generation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider">↓ Opción 2 — Sea of Cortez with islands</div>
+
+  <section class="section-preview bg-sea-cortez-local">
+    <div class="content">
+      <div class="label-wrapper">
+        <div class="label">Our Work</div>
+        <h2>Powering Baja</h2>
+        <p class="subtitle">From La Paz to the East Cape — homes and businesses running on clean energy.</p>
+      </div>
+      <div class="strip">
+        <div class="card">
+          <img src="https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=400" alt="">
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <div><span class="card-chip">Residential</span><span class="card-chip dark">18 kW + 30 kWh</span></div>
+            <div class="card-title">Luxury Villa — Palmilla</div>
+            <div class="card-sub">Complete Solution</div>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://images.pexels.com/photos/2476632/pexels-photo-2476632.jpeg?auto=compress&cs=tinysrgb&w=400" alt="">
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <div><span class="card-chip">Commercial</span><span class="card-chip dark">85 kW</span></div>
+            <div class="card-title">Boutique Hotel — Todos Santos</div>
+            <div class="card-sub">Grid Savings</div>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://images.pexels.com/photos/1268871/pexels-photo-1268871.jpeg?auto=compress&cs=tinysrgb&w=400" alt="">
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <div><span class="card-chip">Residential</span><span class="card-chip dark">12 kW Off-Grid</span></div>
+            <div class="card-title">Beachfront Home — East Cape</div>
+            <div class="card-sub">Total Independence</div>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://images.pexels.com/photos/1537635/pexels-photo-1537635.jpeg?auto=compress&cs=tinysrgb&w=400" alt="">
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <div><span class="card-chip">Commercial</span><span class="card-chip dark">45 kW Zero Export</span></div>
+            <div class="card-title">Restaurant — San Jose del Cabo</div>
+            <div class="card-sub">Smart Generation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
