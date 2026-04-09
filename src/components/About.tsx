@@ -36,16 +36,18 @@ export default function About() {
 
   return (
     <section id="about" className="relative py-28 overflow-hidden">
-      {/* Background — photo for techno (lg+ only), solid color for funky and mobile */}
+      {/* Background — photo for techno, solid color for funky */}
       {theme === 'techno' ? (
         <div className="absolute inset-0">
           <img
             src="/images/torote-desert-techno.png"
             alt=""
-            className="hidden lg:block w-full h-full object-cover"
+            className="w-full h-full object-cover"
           />
-          <div className="hidden lg:block absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.6) 35%, rgba(255,255,255,0.3) 60%, rgba(255,255,255,0.1) 100%)' }} />
-          <div className="lg:hidden absolute inset-0 bg-theme-bg-alt" />
+          {/* Desktop: left-to-right gradient (text side opaque, image side clear) */}
+          <div className="hidden lg:block absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.75) 30%, rgba(255,255,255,0.3) 55%, rgba(255,255,255,0.05) 100%)' }} />
+          {/* Mobile: top-to-bottom gradient (text top opaque, image bottom visible) */}
+          <div className="lg:hidden absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 40%, rgba(255,255,255,0.3) 70%, rgba(255,255,255,0.1) 100%)' }} />
         </div>
       ) : (
         <div className="absolute inset-0 bg-theme-bg-warm/50" />
