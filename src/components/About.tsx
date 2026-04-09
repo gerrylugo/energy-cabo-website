@@ -36,18 +36,25 @@ export default function About() {
 
   return (
     <section id="about" className="relative py-28 overflow-hidden">
-      {/* Background — photo for techno, solid color for funky */}
+      {/* Background — photo for techno (portrait mobile, landscape desktop), solid for funky */}
       {theme === 'techno' ? (
         <div className="absolute inset-0">
+          {/* Mobile: portrait torote */}
+          <img
+            src="/images/torote-desert-mobile.png"
+            alt=""
+            className="lg:hidden w-full h-full object-cover"
+          />
+          {/* Desktop: landscape torote */}
           <img
             src="/images/torote-desert-techno.png"
             alt=""
-            className="w-full h-full object-cover"
+            className="hidden lg:block w-full h-full object-cover"
           />
-          {/* Desktop: left-to-right gradient (text side opaque, image side clear) */}
+          {/* Desktop: left-to-right gradient */}
           <div className="hidden lg:block absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.75) 30%, rgba(255,255,255,0.3) 55%, rgba(255,255,255,0.05) 100%)' }} />
-          {/* Mobile: top-to-bottom gradient — text readable top, torote shines bottom */}
-          <div className="lg:hidden absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(255,255,255,0.93) 0%, rgba(255,255,255,0.85) 30%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0.15) 100%)' }} />
+          {/* Mobile: top-to-bottom gradient */}
+          <div className="lg:hidden absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.7) 35%, rgba(255,255,255,0.35) 65%, rgba(255,255,255,0.1) 100%)' }} />
         </div>
       ) : (
         <div className="absolute inset-0 bg-theme-bg-warm/50" />
