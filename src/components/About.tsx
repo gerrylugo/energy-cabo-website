@@ -36,21 +36,22 @@ export default function About() {
 
   return (
     <section id="about" className="relative py-28 overflow-hidden">
-      {/* Background — photo for techno, solid color for funky */}
+      {/* Background — photo for techno (lg+ only), solid color for funky and mobile */}
       {theme === 'techno' ? (
         <div className="absolute inset-0">
           <img
             src="/images/torote-desert-techno.png"
             alt=""
-            className="w-full h-full object-cover"
+            className="hidden lg:block w-full h-full object-cover"
           />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.6) 35%, rgba(255,255,255,0.3) 60%, rgba(255,255,255,0.1) 100%)' }} />
+          <div className="hidden lg:block absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.6) 35%, rgba(255,255,255,0.3) 60%, rgba(255,255,255,0.1) 100%)' }} />
+          <div className="lg:hidden absolute inset-0 bg-theme-bg-alt" />
         </div>
       ) : (
         <div className="absolute inset-0 bg-theme-bg-warm/50" />
       )}
       <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-16 xl:px-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-center" style={{ gap: '12rem' }}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-48">
           {/* Left — narrative */}
           <div ref={leftRef} className="animate-on-scroll-left max-w-md lg:ml-6">
             <span className="inline-block text-theme-accent text-base font-bold tracking-[0.2em] uppercase mb-4 section-label-glow">
@@ -86,7 +87,7 @@ export default function About() {
           </div>
 
           {/* Right — 4 pillars */}
-          <div ref={rightRef} className="animate-on-scroll-right grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-lg ml-auto">
+          <div ref={rightRef} className="animate-on-scroll-right grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-lg mx-auto lg:ml-auto">
             {pillars.map((pillar, index) => {
               const Icon = pillar.icon;
               return (
