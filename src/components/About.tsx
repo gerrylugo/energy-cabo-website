@@ -117,7 +117,7 @@ export default function About() {
                       </div>
                       <h3 className="text-base lg:text-lg font-bold text-theme-text">{pillar.title}</h3>
                     </div>
-                    <p className="text-xs lg:text-sm text-theme-accent font-medium leading-relaxed">{pillar.desc}</p>
+                    <p className="text-xs lg:text-sm text-theme-text font-semibold leading-relaxed">{pillar.desc}</p>
                   </div>
                 </div>
               );
