@@ -50,7 +50,7 @@ export default function Contact() {
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={headerRef} className="animate-on-scroll text-center mb-16">
           <span className={`inline-block text-base font-bold tracking-[0.2em] uppercase mb-4 section-label-glow ${
-            theme === 'techno' ? 'text-[#F5A623]' : 'text-theme-accent'
+            theme === 'techno' ? 'text-theme-accent' : 'text-theme-accent'
           }`}>
             Get Started
           </span>
