@@ -88,6 +88,17 @@ export default function About() {
             </div>
           </div>
 
+          {/* Torote image strip — mobile only */}
+          {theme === 'techno' && (
+            <div className="lg:hidden w-full rounded-2xl overflow-hidden">
+              <img
+                src="/images/torote-desert-techno.png"
+                alt="Desert landscape in Baja California Sur"
+                className="w-full h-40 object-cover object-center rounded-2xl"
+              />
+            </div>
+          )}
+
           {/* Right — 4 pillars */}
           <div ref={rightRef} className="animate-on-scroll-right grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-lg mx-auto lg:ml-auto">
             {pillars.map((pillar, index) => {
