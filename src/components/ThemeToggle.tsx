@@ -10,10 +10,13 @@ export default function ThemeToggle() {
         aria-label={`Switch to ${theme === 'techno' ? 'Fun' : 'Luxury'} mode`}
         className="group"
       >
-        <img
-          src="/images/bobo-hero.png"
-          alt="Toggle theme"
-          className="w-12 h-12 object-contain drop-shadow-lg hover:scale-110 transition-transform duration-300 cursor-pointer"
+        <video
+          src="/images/bobo-animated.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-14 h-14 object-contain drop-shadow-lg hover:scale-110 transition-transform duration-300 cursor-pointer rounded-full"
         />
       </button>
     </div>
