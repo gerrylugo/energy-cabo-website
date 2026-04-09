@@ -103,7 +103,7 @@ export default function Projects() {
           </button>
 
           {/* Mobile swipe hint */}
-          <p className="text-center text-sm text-theme-primary/60 mb-3 md:hidden">
+          <p className="text-center text-xs text-theme-primary font-medium mb-3 md:hidden">
             Swipe to explore projects &rarr;
           </p>
 
@@ -118,7 +118,7 @@ export default function Projects() {
                 className="group overflow-hidden rounded-2xl cursor-pointer flex-shrink-0 w-[72%] sm:w-[48%] md:w-[32%] lg:w-[23.5%] snap-start shadow-xl"
               >
                 {/* Image block (top) */}
-                <div className="relative aspect-[3/4] sm:aspect-[4/5] overflow-hidden">
+                <div className="relative aspect-square sm:aspect-[4/5] overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
