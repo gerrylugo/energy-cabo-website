@@ -57,7 +57,7 @@ export default function Testimonials() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={headerRef} className="animate-on-scroll text-center mb-20">
           <span className={`inline-block text-base font-bold tracking-[0.2em] uppercase mb-4 section-label-glow ${
-            theme === 'techno' ? 'text-[#F5A623]' : 'text-theme-accent'
+            theme === 'techno' ? 'text-theme-accent' : 'text-theme-accent'
           }`}
           >
             Testimonials
@@ -68,8 +68,8 @@ export default function Testimonials() {
           >
             Trusted Across Los Cabos
           </h2>
-          <p className={`text-lg max-w-2xl mx-auto ${
-            theme === 'techno' ? 'text-[#F5A623] font-semibold section-label-glow' : 'text-theme-text-muted'
+          <p className={`text-base max-w-2xl mx-auto ${
+            theme === 'techno' ? 'text-white/80' : 'text-theme-text-muted'
           }`}
           >
             From boutique hotels to beachfront villas — hear from our clients.
