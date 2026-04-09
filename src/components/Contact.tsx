@@ -27,10 +27,20 @@ export default function Contact() {
   return (
     <section id="contact" className="relative py-28 overflow-hidden">
       {theme === 'techno' && (
-        <div
-          className="absolute inset-0 bg-[length:100%_auto] bg-top transition-opacity duration-700"
-          style={{ backgroundImage: "url('/images/contact-beach-aerial.png')" }}
-        />
+        <>
+          {/* Mobile: hacienda portrait */}
+          <img
+            src="/images/contact-hacienda-mobile.png"
+            alt=""
+            className="lg:hidden absolute inset-0 w-full h-full object-cover"
+          />
+          {/* Desktop: aerial beach */}
+          <img
+            src="/images/contact-beach-aerial.png"
+            alt=""
+            className="hidden lg:block absolute inset-0 w-full h-full object-cover"
+          />
+        </>
       )}
       <div className={`absolute inset-0 ${
         theme === 'techno'
