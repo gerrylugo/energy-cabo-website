@@ -62,7 +62,7 @@ export default function About() {
       <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-16 xl:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-48">
           {/* Left — narrative */}
-          <div ref={leftRef} className="animate-on-scroll-left max-w-md lg:ml-6">
+          <div ref={leftRef} className="animate-on-scroll-left max-w-md mx-auto lg:mx-0 lg:ml-6 text-center lg:text-left">
             <span className="inline-block text-theme-accent text-base font-bold tracking-[0.2em] uppercase mb-4 section-label-glow">
               About Us
             </span>
@@ -82,7 +82,7 @@ export default function About() {
             </p>
 
             {/* Trust badges */}
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 items-center lg:items-start">
               <span className="px-4 py-2 bg-theme-primary text-white text-sm font-semibold rounded-xl flex items-center gap-2">
                 <Check className="w-4 h-4" /> CFE Compliant
               </span>
@@ -111,11 +111,13 @@ export default function About() {
                     style={{ backgroundColor: `${pillar.accent}10` }}
                   />
                   <div className="relative z-10">
-                    <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-xl flex items-center justify-center mb-3 lg:mb-4" style={{ backgroundColor: `${pillar.accent}15` }}>
-                      <Icon className="w-6 h-6" style={{ color: pillar.accent }} />
+                    <div className="flex items-center gap-3 mb-2 lg:mb-3">
+                      <div className="w-9 h-9 lg:w-11 lg:h-11 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${pillar.accent}15` }}>
+                        <Icon className="w-5 h-5" style={{ color: pillar.accent }} />
+                      </div>
+                      <h3 className="text-base lg:text-lg font-bold text-theme-text">{pillar.title}</h3>
                     </div>
-                    <h3 className="text-base lg:text-lg font-bold text-theme-text mb-1 lg:mb-2">{pillar.title}</h3>
-                    <p className="text-xs lg:text-sm text-theme-text-muted leading-relaxed">{pillar.desc}</p>
+                    <p className="text-xs lg:text-sm text-theme-accent font-medium leading-relaxed">{pillar.desc}</p>
                   </div>
                 </div>
               );
