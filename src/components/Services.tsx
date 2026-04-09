@@ -81,7 +81,7 @@ export default function Services() {
             return (
               <div
                 key={index}
-                className="group relative bg-theme-surface p-5 md:p-8 rounded-2xl border border-theme-border hover:border-transparent hover:shadow-2xl transition-all duration-500"
+                className="group relative bg-theme-surface p-4 md:p-8 rounded-2xl border border-theme-border hover:border-transparent hover:shadow-2xl transition-all duration-500"
               >
                 {/* Gradient background — always visible */}
                 <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.color} transition-opacity duration-500`} />
@@ -93,10 +93,10 @@ export default function Services() {
                   <h3 className="text-lg md:text-xl font-bold text-theme-text mb-2 md:mb-3 tracking-tight">
                     {service.title}
                   </h3>
-                  <p className="text-theme-text-secondary leading-relaxed mb-4">
+                  <p className="text-sm md:text-base text-theme-text-secondary leading-relaxed mb-3">
                     {service.description}
                   </p>
-                  <p className="text-sm text-theme-accent font-medium italic">
+                  <p className="text-xs md:text-sm text-theme-accent font-medium italic">
                     {service.why}
                   </p>
                 </div>
