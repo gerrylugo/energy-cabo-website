@@ -44,7 +44,7 @@ export default function Contact() {
       )}
       <div className={`absolute inset-0 ${
         theme === 'techno'
-          ? 'bg-white/60'
+          ? 'bg-theme-primary/50'
           : 'bg-theme-bg-warm/30'
       }`} />
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
