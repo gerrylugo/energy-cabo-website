@@ -35,7 +35,7 @@ export default function About() {
   const rightRef = useScrollAnimation();
 
   return (
-    <section id="about" className="relative py-28 overflow-hidden">
+    <section id="about" className="relative py-16 lg:py-28 overflow-hidden">
       {/* Background — photo for techno (portrait mobile, landscape desktop), solid for funky */}
       {theme === 'techno' ? (
         <div className="absolute inset-0">
@@ -53,8 +53,8 @@ export default function About() {
           />
           {/* Desktop: left-to-right gradient */}
           <div className="hidden lg:block absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.75) 30%, rgba(255,255,255,0.3) 55%, rgba(255,255,255,0.05) 100%)' }} />
-          {/* Mobile: top-to-bottom gradient */}
-          <div className="lg:hidden absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.7) 35%, rgba(255,255,255,0.35) 65%, rgba(255,255,255,0.1) 100%)' }} />
+          {/* Mobile: top-to-bottom gradient — lighter to let torote shine */}
+          <div className="lg:hidden absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.55) 35%, rgba(255,255,255,0.2) 65%, rgba(255,255,255,0.05) 100%)' }} />
         </div>
       ) : (
         <div className="absolute inset-0 bg-theme-bg-warm/50" />
@@ -70,12 +70,12 @@ export default function About() {
               Where Quality
               <span className="block text-theme-accent">& Reliability Meet</span>
             </h2>
-            <p className="text-lg text-theme-text-secondary mb-6 leading-relaxed">
+            <p className="text-sm lg:text-lg text-theme-text-secondary mb-4 lg:mb-6 leading-relaxed">
               Energy Cabo is Baja California Sur's premier energy solutions provider. We combine
               engineering precision with a deep understanding of Baja's climate — harnessing 300+ days
               of sun to deliver reliable power to our customers.
             </p>
-            <p className="text-lg text-theme-text-secondary mb-8 leading-relaxed">
+            <p className="text-sm lg:text-lg text-theme-text-secondary mb-6 lg:mb-8 leading-relaxed">
               Serving all of BCS — from Todos Santos to La Paz, Cabo San Lucas to the East Cape.
               Every system we install is designed to thrive in this environment. Not adapted,
               not imported from another region — <strong className="text-theme-text">built for Baja</strong>.
@@ -102,7 +102,7 @@ export default function About() {
               return (
                 <div
                   key={index}
-                  className="group relative bg-theme-surface p-6 rounded-2xl border border-theme-border hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+                  className="group relative bg-theme-surface/90 p-4 lg:p-6 rounded-2xl border border-theme-border hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
                   style={{ borderLeft: `4px solid ${pillar.accent}` }}
                 >
                   {/* Hover color tint */}
@@ -111,11 +111,11 @@ export default function About() {
                     style={{ backgroundColor: `${pillar.accent}10` }}
                   />
                   <div className="relative z-10">
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4" style={{ backgroundColor: `${pillar.accent}15` }}>
+                    <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-xl flex items-center justify-center mb-3 lg:mb-4" style={{ backgroundColor: `${pillar.accent}15` }}>
                       <Icon className="w-6 h-6" style={{ color: pillar.accent }} />
                     </div>
-                    <h3 className="text-lg font-bold text-theme-text mb-2">{pillar.title}</h3>
-                    <p className="text-sm text-theme-text-muted leading-relaxed">{pillar.desc}</p>
+                    <h3 className="text-base lg:text-lg font-bold text-theme-text mb-1 lg:mb-2">{pillar.title}</h3>
+                    <p className="text-xs lg:text-sm text-theme-text-muted leading-relaxed">{pillar.desc}</p>
                   </div>
                 </div>
               );
