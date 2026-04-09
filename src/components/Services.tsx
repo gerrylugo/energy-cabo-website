@@ -81,16 +81,16 @@ export default function Services() {
             return (
               <div
                 key={index}
-                className="group relative bg-theme-surface p-8 rounded-2xl border border-theme-border hover:border-transparent hover:shadow-2xl transition-all duration-500"
+                className="group relative bg-theme-surface p-5 md:p-8 rounded-2xl border border-theme-border hover:border-transparent hover:shadow-2xl transition-all duration-500"
               >
                 {/* Gradient background — always visible */}
                 <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.color} transition-opacity duration-500`} />
 
                 <div className="relative">
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-6`}>
-                    <Icon className={`w-7 h-7 ${service.iconColor}`} />
+                  <div className={`w-11 h-11 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-4 md:mb-6`}>
+                    <Icon className={`w-5 h-5 md:w-7 md:h-7 ${service.iconColor}`} />
                   </div>
-                  <h3 className="text-xl font-bold text-theme-text mb-3 tracking-tight">
+                  <h3 className="text-lg md:text-xl font-bold text-theme-text mb-2 md:mb-3 tracking-tight">
                     {service.title}
                   </h3>
                   <p className="text-theme-text-secondary leading-relaxed mb-4">
