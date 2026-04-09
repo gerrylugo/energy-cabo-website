@@ -46,8 +46,8 @@ export default function About() {
           />
           {/* Desktop: left-to-right gradient (text side opaque, image side clear) */}
           <div className="hidden lg:block absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.75) 30%, rgba(255,255,255,0.3) 55%, rgba(255,255,255,0.05) 100%)' }} />
-          {/* Mobile: top-to-bottom gradient (text top opaque, image bottom visible) */}
-          <div className="lg:hidden absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 40%, rgba(255,255,255,0.3) 70%, rgba(255,255,255,0.1) 100%)' }} />
+          {/* Mobile: top-to-bottom gradient — text readable top, torote shines bottom */}
+          <div className="lg:hidden absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(255,255,255,0.93) 0%, rgba(255,255,255,0.85) 30%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0.15) 100%)' }} />
         </div>
       ) : (
         <div className="absolute inset-0 bg-theme-bg-warm/50" />
@@ -87,17 +87,6 @@ export default function About() {
               </span>
             </div>
           </div>
-
-          {/* Torote image strip — mobile only */}
-          {theme === 'techno' && (
-            <div className="lg:hidden w-full rounded-2xl overflow-hidden">
-              <img
-                src="/images/torote-desert-techno.png"
-                alt="Desert landscape in Baja California Sur"
-                className="w-full h-40 object-cover object-center rounded-2xl"
-              />
-            </div>
-          )}
 
           {/* Right — 4 pillars */}
           <div ref={rightRef} className="animate-on-scroll-right grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-lg mx-auto lg:ml-auto">
