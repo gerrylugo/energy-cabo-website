@@ -13,9 +13,15 @@ export default function Hero() {
             <img
               src="/images/hero-arco-techno.png"
               alt=""
-              className="absolute inset-0 w-full h-auto object-contain object-top"
+              className="absolute inset-0 w-full h-full object-cover object-center"
             />
-            {/* overlay removed — letting the image shine */}
+            {/* Gradient overlay — ensures text readability on mobile */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background: 'linear-gradient(to bottom, rgba(27,58,107,0.1) 0%, rgba(27,58,107,0.3) 40%, rgba(27,58,107,0.7) 75%, rgba(27,58,107,0.85) 100%)',
+              }}
+            />
           </>
         ) : (
           <>
