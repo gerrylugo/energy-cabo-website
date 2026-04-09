@@ -115,7 +115,7 @@ export default function Projects() {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="group overflow-hidden rounded-2xl cursor-pointer flex-shrink-0 w-[85%] sm:w-[48%] md:w-[32%] lg:w-[23.5%] snap-start shadow-xl"
+                className="group overflow-hidden rounded-2xl cursor-pointer flex-shrink-0 w-[72%] sm:w-[48%] md:w-[32%] lg:w-[23.5%] snap-start shadow-xl"
               >
                 {/* Image block (top) */}
                 <div className="relative aspect-[4/5] overflow-hidden">
