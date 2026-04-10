@@ -30,14 +30,14 @@ const services = [
   {
     icon: Layers,
     title: 'The Complete Solution',
-    description: 'Solar + batteries + grid. The best of every technology, designed to work together.',
+    description: 'Solar + batteries + generator + grid. The best of every technology, designed to work together.',
     why: 'Our most popular system — because it does everything.',
     color: 'from-violet-500/10 to-purple-500/5',
     iconColor: 'text-violet-500',
   },
   {
     icon: Mountain,
-    title: 'Total Independence',
+    title: 'Off-Grid',
     description: 'No CFE connection needed. Complete energy autonomy for remote properties.',
     why: 'Like Cabo Pulmo — isolated, self-sustaining, and beautiful.',
     color: 'from-cyan-500/10 to-sky-500/5',
