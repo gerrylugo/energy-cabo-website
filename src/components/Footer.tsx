@@ -10,9 +10,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 bg-theme-accent rounded-xl flex items-center justify-center">
-                <Zap className="w-5 h-5 text-white" />
-              </div>
+              <img src="/logo-icon.png" alt="Energy Cabo" className="h-10 w-auto brightness-0 invert" />
               <div>
                 <span className="text-xl font-bold text-white">Energy Cabo</span>
                 <span className="block text-[10px] text-white/60 font-medium tracking-[0.2em] uppercase">

@@ -33,9 +33,13 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-theme-accent rounded-xl flex items-center justify-center">
-              <Zap className="w-5 h-5 text-white" />
-            </div>
+            <img
+              src="/logo-icon.png"
+              alt="Energy Cabo"
+              className={`h-10 w-auto transition-all duration-300 ${
+                isScrolled ? '' : 'brightness-0 invert'
+              }`}
+            />
             <div className="flex flex-col">
               <span className={`text-xl font-bold tracking-tight transition-colors duration-300 ${
                 isScrolled ? 'text-theme-text' : 'text-white'

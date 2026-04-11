@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Carousel arrow hint animation */
+@keyframes nudge-right {
+  0%, 100% { transform: translateX(0) translateY(-50%); }
+  50% { transform: translateX(6px) translateY(-50%); }
+}
+@keyframes nudge-left {
+  0%, 100% { transform: translateX(0) translateY(-50%); }
+  50% { transform: translateX(-6px) translateY(-50%); }
+}
+.arrow-hint-right {
+  animation: nudge-right 1.5s ease-in-out 3;
+}
+.arrow-hint-left {
+  animation: nudge-left 1.5s ease-in-out 3;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;

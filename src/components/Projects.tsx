@@ -4,32 +4,53 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const projects = [
   {
-    title: 'Luxury Villa — Palmilla',
+    title: 'Golf Community — Cabo del Sol',
     category: 'Residential',
     system: 'Complete Solution',
-    capacity: '18 kW + 30 kWh',
-    image: 'https://images.pexels.com/photos/1396132/pexels-photo-1396132.jpeg?auto=compress&cs=tinysrgb&w=800',
+    capacity: 'Multi-home',
+    image: '/images/projects/golf-villas-aerial.jpg',
   },
   {
-    title: 'Boutique Hotel — Todos Santos',
-    category: 'Commercial',
-    system: 'Grid Savings',
-    capacity: '85 kW',
-    image: 'https://images.pexels.com/photos/2476632/pexels-photo-2476632.jpeg?auto=compress&cs=tinysrgb&w=800',
-  },
-  {
-    title: 'Beachfront Home — East Cape',
+    title: 'Oceanfront Estate — Pacific Side',
     category: 'Residential',
-    system: 'Total Independence',
-    capacity: '12 kW Off-Grid',
-    image: 'https://images.pexels.com/photos/1268871/pexels-photo-1268871.jpeg?auto=compress&cs=tinysrgb&w=800',
+    system: 'Grid Savings',
+    capacity: 'Full roof array',
+    image: '/images/projects/villa-ocean-view.jpg',
   },
   {
-    title: 'Restaurant — San Jose del Cabo',
-    category: 'Commercial',
+    title: 'Desert Retreat — East Cape',
+    category: 'Residential',
+    system: 'Off-Grid',
+    capacity: 'Full autonomy',
+    image: '/images/projects/terrace-lifestyle.jpg',
+  },
+  {
+    title: 'Battery Room — Sol-Ark System',
+    category: 'Technology',
+    system: 'Always On',
+    capacity: 'Multi-inverter + storage',
+    image: '/images/projects/solark-battery-room.jpg',
+  },
+  {
+    title: 'Solar Carport — Residential',
+    category: 'Residential',
+    system: 'Grid Savings',
+    capacity: 'Dual-use structure',
+    image: '/images/projects/solar-carport.jpg',
+  },
+  {
+    title: 'Rural Home — Baja Desert',
+    category: 'Residential',
+    system: 'Off-Grid',
+    capacity: 'Independent system',
+    image: '/images/projects/rural-offgrid.jpg',
+  },
+  {
+    title: 'Sunset Installation — San Jose',
+    category: 'Residential',
     system: 'Smart Generation',
-    capacity: '45 kW Zero Export',
-    image: 'https://images.pexels.com/photos/1537635/pexels-photo-1537635.jpeg?auto=compress&cs=tinysrgb&w=800',
+    capacity: 'Rooftop system',
+    image: '/images/projects/sunset-mountains.jpg',
   },
 ];
 
@@ -90,14 +111,14 @@ export default function Projects() {
           <button
             onClick={() => scroll('left')}
             aria-label="Previous project"
-            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 z-10 w-12 h-12 bg-white/85 backdrop-blur-sm rounded-full items-center justify-center text-theme-primary hover:bg-white hover:scale-110 transition-all shadow-lg"
+            className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-20 z-10 w-12 h-12 rounded-full items-center justify-center text-theme-primary border border-theme-primary/20 bg-theme-primary/5 hover:bg-theme-accent/10 hover:border-theme-accent/30 hover:text-theme-accent transition-all arrow-hint-left"
           >
             <ChevronLeft className="w-6 h-6" strokeWidth={2} />
           </button>
           <button
             onClick={() => scroll('right')}
             aria-label="Next project"
-            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 z-10 w-12 h-12 bg-white/85 backdrop-blur-sm rounded-full items-center justify-center text-theme-primary hover:bg-white hover:scale-110 transition-all shadow-lg"
+            className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-20 z-10 w-12 h-12 rounded-full items-center justify-center text-theme-primary border border-theme-primary/20 bg-theme-primary/5 hover:bg-theme-accent/10 hover:border-theme-accent/30 hover:text-theme-accent transition-all arrow-hint-right"
           >
             <ChevronRight className="w-6 h-6" strokeWidth={2} />
           </button>
@@ -115,10 +136,10 @@ export default function Projects() {
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="group overflow-hidden rounded-2xl cursor-pointer flex-shrink-0 w-[72%] sm:w-[48%] md:w-[32%] lg:w-[23.5%] snap-start shadow-xl"
+                className="group overflow-hidden rounded-2xl cursor-pointer flex-shrink-0 w-[85%] sm:w-[55%] md:w-[38%] lg:w-[31%] snap-start shadow-xl"
               >
                 {/* Image block (top) */}
-                <div className="relative aspect-square sm:aspect-[4/5] overflow-hidden">
+                <div className="relative aspect-[4/3] overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -126,7 +147,7 @@ export default function Projects() {
                   />
                 </div>
                 {/* Info block (bottom) — darker teal bg, fixed height */}
-                <div className="px-4 py-4 sm:px-6 sm:py-6 min-h-[100px] sm:min-h-[130px] flex flex-col justify-center" style={{ backgroundColor: '#2AA8A0' }}>
+                <div className="px-4 py-3 flex flex-col justify-center" style={{ backgroundColor: '#2AA8A0' }}>
                   <div className="flex items-center gap-2 mb-2">
                     <span className="px-3 py-1 bg-white/95 text-[10px] font-bold rounded-full uppercase tracking-wider" style={{ color: '#2AA8A0' }}>
                       {project.category}

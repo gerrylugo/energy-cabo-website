@@ -44,7 +44,7 @@ export default function Contact() {
       )}
       <div className={`absolute inset-0 ${
         theme === 'techno'
-          ? 'bg-theme-primary/50'
+          ? 'bg-theme-primary/75'
           : 'bg-theme-bg-warm/30'
       }`} />
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -82,18 +82,18 @@ export default function Contact() {
               <a
                 key={contact.name}
                 href={contact.telLink}
-                className="flex items-center gap-2 text-white/90 hover:text-theme-accent transition-colors"
+                className="group/contact flex items-center gap-2 text-[#1B3A6B] hover:text-white transition-colors"
               >
-                <Phone className="w-4 h-4 text-theme-accent" />
-                <span className="font-semibold text-sm">{contact.role}</span>
-                <span className="text-white/60 text-sm">{contact.phone}</span>
+                <Phone className="w-4 h-4 text-[#1B3A6B] group-hover/contact:text-white transition-colors" />
+                <span className="font-bold text-sm">{contact.role}</span>
+                <span className="text-[#1B3A6B] group-hover/contact:text-white transition-colors text-sm">{contact.phone}</span>
               </a>
             ))}
           </div>
 
           {/* Coverage */}
-          <p className="text-center text-white/60 text-xs">
-            Serving Los Cabos, La Paz, Todos Santos & all of BCS
+          <p className="text-center text-[#1B3A6B] text-xs font-medium">
+            Serving La Baja
           </p>
         </div>
       </div>
