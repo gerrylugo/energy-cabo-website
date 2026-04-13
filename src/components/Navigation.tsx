@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Zap, Menu, X, Bolt, Sun, Layers, Star, Phone } from 'lucide-react';
+import { Zap, Menu, X, Bolt, Sun, Layers, Star, Phone, Heart } from 'lucide-react';
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -13,9 +13,20 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [isMobileMenuOpen]);
+
   const navLinks = [
     { href: '#services', label: 'Services', icon: Bolt },
     { href: '#about', label: 'About', icon: Sun },
+    { href: '#mission', label: 'Mission', icon: Heart },
     { href: '#projects', label: 'Projects', icon: Layers },
     { href: '#testimonials', label: 'Testimonials', icon: Star },
     { href: '#contact', label: 'Contact', icon: Phone },
@@ -24,9 +35,11 @@ export default function Navigation() {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-500 ${
-        isScrolled
-          ? 'bg-theme-bg/95 backdrop-blur-md shadow-lg shadow-black/5'
-          : 'bg-transparent'
+        isMobileMenuOpen
+          ? 'bg-[#122A4F]'
+          : isScrolled
+            ? 'bg-theme-bg/95 backdrop-blur-md shadow-lg shadow-black/5'
+            : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -79,7 +92,7 @@ export default function Navigation() {
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={`md:hidden transition-colors ${
-              isScrolled ? 'text-theme-text' : 'text-white'
+              isMobileMenuOpen || !isScrolled ? 'text-white' : 'text-theme-text'
             }`}
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
