@@ -85,7 +85,7 @@ export default function Hero() {
               href="#contact"
               className="group px-10 py-5 bg-theme-accent text-white font-bold text-lg rounded-xl hover:opacity-90 hover:scale-105 transition-all duration-300 shadow-2xl shadow-theme-accent/50 ring-2 ring-theme-accent/30 flex items-center justify-center gap-2"
             >
-              Make A Quote
+              Message Us on WhatsApp
               <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
