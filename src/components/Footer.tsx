@@ -64,6 +64,16 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
+              <li>
+                <a
+                  href="https://crm.energycabo.com/en/estimator/?channel=website"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-theme-accent hover:text-theme-accent-light transition-colors text-sm font-medium"
+                >
+                  Online Estimator
+                </a>
+              </li>
             </ul>
           </div>
 

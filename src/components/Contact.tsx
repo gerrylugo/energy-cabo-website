@@ -58,20 +58,20 @@ export default function Contact() {
             Ready to Power Your Future?
           </h2>
           <p className="text-lg text-theme-text-secondary font-medium max-w-2xl mx-auto">
-            Message us directly on WhatsApp for a personalized quote.
+            Get an instant quote in minutes. Or message us directly on WhatsApp.
           </p>
         </div>
 
         <div ref={contentRef} className="animate-on-scroll space-y-8">
-          {/* Primary CTA — WhatsApp (paused estimator, see energycabo#176) */}
+          {/* Primary CTA — Make A Quote */}
           <div className="flex justify-center">
             <a
-              href="https://wa.me/5216242790172"
+              href="https://crm.energycabo.com/en/estimator/?channel=website"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-3 px-10 py-5 bg-theme-accent text-white font-bold text-xl rounded-2xl hover:opacity-90 hover:scale-105 transition-all duration-300 shadow-2xl"
             >
-              Message Us on WhatsApp
+              Make A Quote
               <ArrowRight className="w-7 h-7 group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
